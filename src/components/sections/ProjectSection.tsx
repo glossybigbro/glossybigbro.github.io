@@ -11,7 +11,7 @@ export function ProjectSection() {
 
             <div className="space-y-6">
                 {projectsData.map((project, index) => (
-                    <div key={project.id} className={`flex flex-col md:flex-row gap-4 md:gap-8 ${index !== projectsData.length - 1 ? "border-b border-dotted border-gray-300 pb-6" : ""
+                    <div key={project.id} className={`flex flex-col md:flex-row gap-4 md:gap-8 ${index !== projectsData.length - 1 ? "border-b border-dotted border-gray-300 dark:border-gray-600 pb-6" : ""
                         }`}>
                         <div className="w-full md:w-1/3 flex-shrink-0">
                             <div className="text-2xl sm:text-3xl font-medium mb-2">{project.period}</div>
@@ -58,7 +58,7 @@ export function ProjectSection() {
                                 <div className="font-bold text-lg">• Skill Keywords</div>
                                 <div className="flex gap-2 flex-wrap">
                                     {project.tags.map((tag) => (
-                                        <span key={tag} className="inline-flex items-center justify-center px-2.5 py-0.5 bg-black text-white dark:bg-white dark:text-black rounded text-xs font-semibold">
+                                        <span key={tag} className="inline-flex items-center justify-center px-2.5 py-0.5 bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-100 rounded text-xs font-semibold">
                                             {tag}
                                         </span>
                                     ))}

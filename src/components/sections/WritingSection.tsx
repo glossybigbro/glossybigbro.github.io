@@ -32,7 +32,7 @@ export function WritingSection() {
                         {article.keywords && (
                             <div className="flex gap-2 flex-wrap">
                                 {article.keywords.map((keyword) => (
-                                    <span key={keyword} className="text-sm bg-secondary text-secondary-foreground px-2 py-1 rounded">
+                                    <span key={keyword} className="text-sm bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-100 px-2.5 py-1 rounded font-medium">
                                         {keyword}
                                     </span>
                                 ))}

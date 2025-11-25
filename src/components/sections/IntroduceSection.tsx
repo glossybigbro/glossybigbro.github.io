@@ -13,7 +13,7 @@ export function IntroduceSection() {
 
             <div className="block text-lg leading-relaxed text-foreground">
 
-                <div className="hidden md:block md:float-left md:mr-8 md:mb-2 relative w-[280px] lg:w-[300px] aspect-[3/4] rounded-3xl shadow-lg overflow-hidden">
+                <div className="hidden md:block md:float-left md:mr-8 md:mb-2 relative w-[280px] lg:w-[300px] aspect-[3/4] rounded-3xl shadow-lg dark:shadow-2xl dark:shadow-blue-500/10 overflow-hidden ring-1 ring-gray-200 dark:ring-gray-700">
                     <Image
                         src={introduceData.profileImage}
                         alt="Profile"

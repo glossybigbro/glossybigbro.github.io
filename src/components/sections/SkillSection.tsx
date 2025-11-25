@@ -15,7 +15,7 @@ export function SkillSection() {
                     // 1. sm:border-none 삭제 (모든 화면에서 선 보이게)
                     // 2. border-gray-300 및 여백(pb-6 mb-6) 추가
                     className={`flex flex-col sm:flex-row gap-4 sm:gap-12 ${index !== skillsData.length - 1
-                        ? "border-b border-dotted border-gray-300 pb-6 mb-6"
+                        ? "border-b border-dotted border-gray-300 dark:border-gray-600 pb-6 mb-6"
                         : ""
                         }`}
                 >

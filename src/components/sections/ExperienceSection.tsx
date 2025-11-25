@@ -37,7 +37,7 @@ export function ExperienceSection() {
                     <div
                         key={item.id}
                         className={`flex flex-col md:flex-row gap-4 md:gap-8 ${index !== experienceData.length - 1
-                            ? "border-b border-dotted border-gray-300 pb-6"
+                            ? "border-b border-dotted border-gray-300 dark:border-gray-600 pb-6"
                             : ""
                             }`}
                     >
@@ -45,7 +45,7 @@ export function ExperienceSection() {
                             <div className="text-2xl sm:text-3xl font-medium mb-2">{item.period}</div>
                             <div className="flex gap-2 flex-wrap">
                                 {item.tags.map((tag) => (
-                                    <span key={tag} className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm">
+                                    <span key={tag} className="px-3 py-1 bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-100 rounded-full text-sm font-medium">
                                         {tag}
                                     </span>
                                 ))}
