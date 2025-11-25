@@ -10,11 +10,8 @@ export function HeaderSection() {
 
     const handleEmailClick = (e: React.MouseEvent) => {
         e.preventDefault();
-
         navigator.clipboard.writeText(headerData.email);
-
         setIsCopied(true);
-
         setTimeout(() => setIsCopied(false), 1500);
     };
 
@@ -83,12 +80,21 @@ export function HeaderSection() {
                                 aria-label="Copy email address"
                             >
                                 {isCopied ? (
-                                    <span className="text-green-600 dark:text-green-400 animate-pulse">
+                                    <span className="text-green-600 dark:text-green-400 animate-pulse text-xs sm:text-base whitespace-nowrap">
                                         Copied! ✅
                                     </span>
                                 ) : (
                                     <>
-                                        {headerData.email}
+                                        <span className="hidden sm:inline">
+                                            {headerData.email}
+                                        </span>
+                                        <div className="flex items-center gap-1 sm:hidden text-foreground">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                                <rect width="20" height="16" x="2" y="4" rx="2" />
+                                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                                            </svg>
+                                            <span className="text-sm underline decoration-dotted underline-offset-4">Email Me</span>
+                                        </div>
                                     </>
                                 )}
                             </button>
@@ -97,7 +103,7 @@ export function HeaderSection() {
                         {headerData.phone && (
                             <a
                                 href={`tel:${headerData.phone}`}
-                                className="hover:text-accent transition-colors text-sm"
+                                className="hover:text-accent transition-colors text-sm sm:text-sm text-muted-foreground"
                             >
                                 {headerData.phone}
                             </a>

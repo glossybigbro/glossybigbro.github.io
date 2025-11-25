@@ -1,5 +1,5 @@
 export const headerData = {
-    name: "하윤형(Ha Yun-hyeong)",
+    name: "하윤형",
     title: "Senior Android Developer",
     email: "glossy.bigbro@gmail.com",
     phone: "",
