@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { experienceData } from "@/data/experience";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
 import { SectionDivider } from "@/components/ui/SectionDivider";
+import { calculateTotalCareer } from "@/utils/career";
 
 export function ExperienceSection() {
     const totalDuration = useMemo(() => {
@@ -80,55 +81,4 @@ export function ExperienceSection() {
             </div>
         </SectionWrapper>
     );
-}
-
-function calculateTotalCareer(data: typeof experienceData) {
-    const periods = data.map((item) => {
-        const [startStr, endStr] = item.period.split(/~|-/).map((s) => s.trim());
-        return {
-            start: parseDate(startStr),
-            end: endStr === "현재" || endStr === "Present" ? new Date() : parseDate(endStr),
-        };
-    });
-
-    periods.sort((a, b) => a.start.getTime() - b.start.getTime());
-
-    const mergedPeriods: { start: Date; end: Date }[] = [];
-    for (const period of periods) {
-        if (mergedPeriods.length === 0) {
-            mergedPeriods.push(period);
-        } else {
-            const lastPeriod = mergedPeriods[mergedPeriods.length - 1];
-            if (period.start < lastPeriod.end) {
-                lastPeriod.end = new Date(Math.max(lastPeriod.end.getTime(), period.end.getTime()));
-            } else {
-                mergedPeriods.push(period);
-            }
-        }
-    }
-
-    let totalMonths = 0;
-    for (const period of mergedPeriods) {
-        const months =
-            (period.end.getFullYear() - period.start.getFullYear()) * 12 +
-            (period.end.getMonth() - period.start.getMonth());
-        totalMonths += months + 1;
-    }
-
-    const years = Math.floor(totalMonths / 12);
-    const months = totalMonths % 12;
-
-    if (years === 0 && months === 0) {
-        return "신입";
-    }
-    if (years > 0) {
-        return months > 0 ? `${years}년 ${months}개월` : `${years}년`;
-    }
-    return `${months}개월`;
-}
-
-function parseDate(dateStr: string) {
-    if (!dateStr) return new Date();
-    const [year, month] = dateStr.split(".").map(Number);
-    return new Date(year, month - 1, 1);
 }
