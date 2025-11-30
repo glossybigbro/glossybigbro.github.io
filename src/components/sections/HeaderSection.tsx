@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { headerData } from "@/data/header";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export function HeaderSection() {
     const [isCopied, setIsCopied] = useState(false);
@@ -69,6 +70,7 @@ export function HeaderSection() {
                                     </svg>
                                 </Link>
                             )}
+                            <ThemeToggle />
                         </div>
                     </div>
 
