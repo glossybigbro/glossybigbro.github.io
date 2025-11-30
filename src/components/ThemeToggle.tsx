@@ -4,7 +4,7 @@ import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
 export function ThemeToggle() {
-    const { theme, setTheme } = useTheme();
+    const { resolvedTheme, setTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
 
     // 클라이언트 사이드에서만 렌더링 (hydration 이슈 방지)
@@ -23,7 +23,8 @@ export function ThemeToggle() {
         );
     }
 
-    const isDark = theme === "dark";
+    // resolvedTheme는 실제로 적용된 테마 ("light" 또는 "dark")
+    const isDark = resolvedTheme === "dark";
 
     return (
         <button
