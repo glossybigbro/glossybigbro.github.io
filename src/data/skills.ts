@@ -1,8 +1,13 @@
-export interface SkillCategory {
-    title: string;
-    skills: string[];
-}
+import type { SkillCategory } from "@/types";
 
+/**
+ * 기술 스택 데이터
+ * 
+ * 이 파일을 수정하여 기술 스택을 변경할 수 있습니다.
+ * 각 카테고리는 다음 필드를 포함합니다:
+ * - title: 카테고리 제목 (예: "Languages", "Framework")
+ * - skills: 해당 카테고리의 기술 목록 (배열)
+ */
 export const skillsData: SkillCategory[] = [
     {
         title: "Languages",

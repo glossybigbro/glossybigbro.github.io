@@ -1,23 +1,28 @@
-export interface ExperienceItem {
-    id: string;
-    period: string;
-    role: string;
-    description: (string | { text: string; subItems: string[] })[];
-    tags: string[];
-}
+import type { ExperienceItem } from "@/types";
 
+/**
+ * 경력 데이터
+ * 
+ * 이 파일을 수정하여 경력 사항을 변경할 수 있습니다.
+ * 각 항목은 다음 필드를 포함합니다:
+ * - id: 고유 식별자 (중복 불가, 예: "exp-1")
+ * - period: 근무 기간 (예: "2022.08 ~ 2025.01")
+ * - role: 회사명 또는 조직명
+ * - description: 주요 업무 및 성과 (배열)
+ * - tags: 관련 기술 스택 또는 역할 태그 (배열)
+ */
 export const experienceData: ExperienceItem[] = [
     {
         id: "exp-1",
         period: "2022.08 ~ 2025.01",
         role: "헬로마켓",
         description: [
-            "셀러 스쿼드 개발 총괄: 셀러 스쿼드의 개발 팀장으로서 개발 직군(iOS, FE, BE)을 리딩하고, 디자이너/PM과 협업하여 판매자 도메인의 핵심 기능 개발을 주도",
-            "OKR/애자일 실행: 리브랜딩 과정에서 분기별 목표(OKR)를 바탕으로 스프린트를 주도적으로 실행하며 변화에 유연하게 대응",
-            "앱 안정성 확보: 누적 다운로드 800만, MAU 130만 서비스의 크래시 미발생 비율 99.9% 이상 유지",
-            "기술 고도화: Java → Kotlin 100% 전환, MVC → Clean Architecture 리팩토링 및 Jetpack Compose 점진적 전환",
+            "대규모 서비스 운영: 누적 다운로드 800만, MAU 130만 플랫폼의 앱 안정성(Crash-free) 99.9% 이상 유지",
+            "셀러 스쿼드 개발 팀장: 스쿼드 내 개발 직군(iOS, FE, BE)의 일정 및 리소스를 관리하고, PM/디자이너와 소통하여 원활한 프로젝트 진행을 조율",
+            "OKR 및 애자일 실행: 리브랜딩 과정에서 분기별 목표(OKR)를 바탕으로 스프린트 일정을 수립하고 관리하여 비즈니스 요구사항에 대응",
+            "안드로이드 리드: 3명 규모의 안드로이드 파트를 리딩하며 기술 공유 및 아키텍처 논의를 주도하고, 최신 트렌드(Paging3, GraphQL, Compose)를 실무에 적극 도입하여 기술 경쟁력 강화",
+            "기술 고도화: 100% Java 코드를 Kotlin으로 전환하고, MVC를 Clean Architecture로 리팩토링 및 Jetpack Compose 점진적 도입",
             "생산성 혁신: 멀티 모듈 아키텍처 도입 및 GitHub Actions 기반 CI/CD 파이프라인 구축 (배포 자동화)",
-            "팀 성장 기여: 바이어(구매자) 스쿼드 주니어 개발자의 사수로서 기술적 방향성 제시 및 코드 리뷰 주도",
         ],
         tags: ["Android Lead", "Seller Squad Development Team Lead"],
     },
@@ -26,9 +31,9 @@ export const experienceData: ExperienceItem[] = [
         period: "2021.10 ~ 2022.07",
         role: "더 싸이언티스트",
         description: [
-            "라이브 커머스 '차란차 스튜디오' 개발: Tencent SDK 활용 실시간 방송 송출 및 채팅 기능 구현",
-            "구조 최적화: Single Activity 패턴 및 Navigation Component 도입으로 화면 전환 성능 개선",
-            "서비스 확장: 방송 종료 후 VOD 다시보기 기능 개발로 콘텐츠 재사용성 증대",
+            "라이브 커머스 플랫폼 신규 개발: Tencent SDK 및 ExoPlayer2를 활용하여 방송 송출, 실시간 채팅, VOD 등 핵심 기능 구현",
+            "성능 및 구조 최적화: Single Activity(Navigation Component) 도입으로 불필요한 리소스 낭비를 줄이고 화면 전환 속도 개선",
+            "아키텍처 설계: 초기 단계부터 Clean Architecture(MVVM)를 적용하여 유지보수와 기능 확장이 용이한 코드베이스 마련",
         ],
         tags: ["Android Developer"],
     },

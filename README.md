@@ -1,7 +1,7 @@
-# 🎯 포트폴리오 웹사이트
+# 🎯 이력서 웹사이트
 
-> **하윤형**의 개인 포트폴리오 및 이력서 웹사이트  
-> Next.js 16 + Tailwind CSS v4로 구축한 모던 웹 포트폴리오
+> **하윤형**의 개인 이력서 웹사이트  
+> Next.js 16 + Tailwind CSS v4로 구축한 모던 웹 이력서
 
 🔗 **Live**: [https://glossybigbro.github.io/](https://glossybigbro.github.io/)
 
@@ -9,7 +9,7 @@
 
 ## 📖 프로젝트 소개
 
-개인의 **경력**, **프로젝트**, **기술 스택**을 효과적으로 전달하기 위한 정적 포트폴리오 웹사이트입니다.  
+개인의 **경력**, **프로젝트**, **기술 스택**을 효과적으로 전달하기 위한 정적 이력서 웹사이트입니다.  
 Next.js 16의 App Router와 Tailwind CSS v4를 활용하여 최신 웹 기술 스택을 적용했으며,  
 미니멀하고 깔끔한 디자인으로 콘텐츠에 집중할 수 있도록 설계했습니다.
 
@@ -20,15 +20,14 @@ Next.js 16의 App Router와 Tailwind CSS v4를 활용하여 최신 웹 기술 �
 - **시스템 테마 자동 감지**: 사용자의 OS 설정에 따라 자동으로 테마 적용
 - **수동 테마 전환**: 헤더의 테마 토글 버튼(☀️/🌙)으로 언제든 전환 가능
 - **정확한 테마 감지**: `resolvedTheme` 사용으로 시스템 테마 사용 시에도 올바른 아이콘 표시
-- **부드러운 애니메이션**: 0.3초 CSS transition으로 자연스러운 전환
+- **부드러운 애니메이션**: CSS transition으로 자연스러운 전환
 - **테마 저장**: localStorage에 선택한 테마 자동 저장 (재방문 시 유지)
-- **일관된 디자인**: 모든 컴포넌트에 테마 색상 시스템 적용
 
 #### 📱 반응형 디자인
 
 - **모바일 퍼스트**: 작은 화면부터 설계하여 모든 기기에서 최적화
 - **Breakpoint 시스템**: Tailwind의 `sm:`, `md:`, `lg:` 유틸리티 활용
-- **유연한 레이아웃**: Flexbox와 Grid로 화면 크기에 따라 자동 조정
+- **유연한 레이아웃**: Flexbox로 화면 크기에 따라 자동 조정
 - **터치 친화적**: 모바일 환경을 고려한 버튼 크기 및 간격
 
 #### 🎨 미니멀 디자인 시스템
@@ -36,7 +35,7 @@ Next.js 16의 App Router와 Tailwind CSS v4를 활용하여 최신 웹 기술 �
 - **깔끔한 UI**: 불필요한 요소를 제거하고 콘텐츠에 집중
 - **일관된 색상**: HSL 기반 색상 시스템으로 라이트/다크 모드 통일
 - **타이포그래피**: Pretendard(한글), Geist(영문) 웹폰트 적용
-- **인터랙션**: 호버 효과, 클릭 피드백 등 사용자 경험 개선
+- **재사용 가능한 컴포넌트**: Tag, Icon, SocialLink 등 체계적인 컴포넌트 구조
 
 #### ⚡ 성능 최적화
 
@@ -48,9 +47,10 @@ Next.js 16의 App Router와 Tailwind CSS v4를 활용하여 최신 웹 기술 �
 #### 🛠️ 개발 경험
 
 - **TypeScript**: 타입 안정성으로 런타임 에러 방지
-- **모듈화**: 데이터와 UI 컴포넌트 분리로 유지보수 용이
-- **유틸리티 함수**: 경력 계산, 날짜 파싱 등 재사용 가능한 함수 분리
-- **GitHub Pages**: 자동 배포로 코드 푸시 시 즉시 반영
+- **중앙화된 타입 시스템**: `src/types/index.ts`에서 모든 타입 관리
+- **재사용 가능한 컴포넌트**: Tag, Icon, SocialLink 등 체계적인 구조
+- **스타일 상수화**: `src/constants/styles.ts`로 일관된 디자인 유지
+- **유틸리티 함수**: 경력 계산, 날짜 파싱, 문자열 포맷팅 등 분리
 
 ### 🎯 페이지 구성
 
@@ -101,28 +101,58 @@ Next.js 16의 App Router와 Tailwind CSS v4를 활용하여 최신 웹 기술 �
 glossybigbro.github.io/
 ├── src/
 │   ├── app/                    # Next.js App Router
-│   │   ├── layout.tsx         # 루트 레이아웃
-│   │   ├── page.tsx           # 메인 페이지
-│   │   └── globals.css        # 전역 스타일
+│   │   ├── layout.tsx         # 루트 레이아웃 (메타데이터, 폰트 설정)
+│   │   ├── page.tsx           # 메인 페이지 (모든 섹션 통합)
+│   │   └── globals.css        # 전역 스타일 (Tailwind, 테마 색상)
 │   ├── components/            # React 컴포넌트
-│   │   ├── Header.tsx         # 헤더 섹션
-│   │   ├── Introduce.tsx      # 소개 섹션
-│   │   ├── Experience.tsx     # 경력 섹션
-│   │   ├── Projects.tsx       # 프로젝트 섹션
-│   │   ├── Skills.tsx         # 스킬 섹션
-│   │   ├── Writing.tsx        # 글 섹션
-│   │   └── ThemeToggle.tsx    # 테마 전환 버튼
-│   └── data/                  # 데이터 파일
-│       ├── header.ts          # 헤더 정보
-│       ├── introduce.ts       # 소개 내용
-│       ├── experience.ts      # 경력 데이터
-│       ├── projects.ts        # 프로젝트 목록
-│       ├── skills.ts          # 기술 스택
-│       └── articles.ts        # 작성 글 목록
-├── public/                    # 정적 파일
-├── .github/workflows/         # GitHub Actions
-└── package.json
+│   │   ├── sections/          # 페이지 섹션 컴포넌트
+│   │   │   ├── HeaderSection.tsx      # 헤더 (이름, 연락처, 소셜 링크)
+│   │   │   ├── IntroduceSection.tsx   # 소개 (자기소개, 프로필)
+│   │   │   ├── ExperienceSection.tsx  # 경력 (회사별 경력 사항)
+│   │   │   ├── ProjectSection.tsx     # 프로젝트 (참여 프로젝트)
+│   │   │   ├── SkillSection.tsx       # 스킬 (기술 스택)
+│   │   │   └── WritingSection.tsx     # 글 (작성한 아티클)
+│   │   ├── ui/                # 재사용 가능한 UI 컴포넌트
+│   │   │   ├── SectionWrapper.tsx     # 섹션 래퍼
+│   │   │   └── SectionDivider.tsx     # 섹션 구분선
+│   │   ├── ThemeToggle.tsx    # 테마 전환 버튼
+│   │   └── theme-provider.tsx # 테마 프로바이더
+│   ├── data/                  # 📝 데이터 파일 (여기를 수정하세요!)
+│   │   ├── header.ts          # 헤더 정보 (이름, 이메일, 소셜 링크)
+│   │   ├── introduce.tsx      # 소개 내용 (자기소개, 프로필 이미지)
+│   │   ├── experience.ts      # 경력 데이터 (회사, 기간, 업무)
+│   │   ├── projects.ts        # 프로젝트 목록 (제목, 역할, 기술 스택)
+│   │   ├── skills.ts          # 기술 스택 (카테고리별 분류)
+│   │   └── articles.ts        # 작성 글 목록 (제목, 링크)
+│   ├── types/                 # TypeScript 타입 정의
+│   │   └── index.ts           # 모든 데이터 타입 (JSDoc 포함)
+│   ├── config/                # 설정 파일
+│   │   └── site.ts            # 사이트 메타데이터 (제목, 설명, URL)
+│   ├── constants/             # 전역 상수
+│   │   └── index.ts           # 섹션 ID, 애니메이션 시간 등
+│   ├── utils/                 # 유틸리티 함수
+│   │   ├── career.ts          # 경력 계산 함수
+│   │   └── date.ts            # 날짜 파싱 및 포맷팅
+│   └── lib/                   # 라이브러리 유틸리티
+│       └── utils.ts           # Tailwind 클래스 병합 (cn)
+├── public/                    # 정적 파일 (이미지, 아이콘 등)
+├── .github/workflows/         # GitHub Actions (자동 배포)
+├── next.config.ts             # Next.js 설정
+├── tailwind.config.ts         # Tailwind CSS 설정
+├── tsconfig.json              # TypeScript 설정
+└── package.json               # 프로젝트 의존성
 ```
+
+### 📂 주요 디렉토리 설명
+
+| 디렉토리 | 설명 | 수정 빈도 |
+|----------|------|-----------|
+| `src/data/` | **포트폴리오 콘텐츠 데이터** (가장 자주 수정) | ⭐⭐⭐ |
+| `src/types/` | TypeScript 타입 정의 (JSDoc 주석 포함) | ⭐ |
+| `src/config/` | 사이트 메타데이터 및 설정 | ⭐⭐ |
+| `src/constants/` | 전역 상수 (섹션 ID, 애니메이션 시간 등) | ⭐ |
+| `src/components/` | React 컴포넌트 (UI 구조) | ⭐ |
+| `src/utils/` | 유틸리티 함수 (경력 계산, 날짜 처리) | ⭐ |
 
 ---
 

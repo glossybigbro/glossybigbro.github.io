@@ -1,10 +1,15 @@
-export interface ArticleItem {
-    text: string;
-    href: string;
-    summary?: string;
-    keywords?: string[];
-}
+import type { ArticleItem } from "@/types";
 
+/**
+ * 작성 글/아티클 데이터
+ * 
+ * 이 파일을 수정하여 작성한 글을 변경할 수 있습니다.
+ * 각 항목은 다음 필드를 포함합니다:
+ * - text: 글 제목 (링크 텍스트로 표시)
+ * - href: 글 URL
+ * - summary: 글 요약 (선택사항)
+ * - keywords: 관련 키워드/태그 (선택사항, 배열)
+ */
 export const articles: ArticleItem[] = [
     {
         text: "[OKR과 애자일: 변화의 시작과 도전]",

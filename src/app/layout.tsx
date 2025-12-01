@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "하윤형 | 프리랜서 개발자",
-  description: "개인 이력서 및 포트폴리오",
+  title: "하윤형 | 이력서",
+  description: "Senior Android Developer 하윤형의 이력서",
 };
 
 export default function RootLayout({

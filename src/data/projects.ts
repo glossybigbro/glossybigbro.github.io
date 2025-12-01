@@ -1,47 +1,57 @@
-export interface ProjectItem {
-    id: string;
-    period: string;
-    title: string;
-    role: string;
-    description: string[];
-    tags: string[];
-    links?: { text: string; href: string }[];
-}
+import type { ProjectItem } from "@/types";
 
+/**
+ * 프로젝트 데이터
+ * 
+ * 이 파일을 수정하여 프로젝트 정보를 변경할 수 있습니다.
+ * 각 항목은 다음 필드를 포함합니다:
+ * - id: 고유 식별자 (중복 불가, 예: "proj-1")
+ * - period: 프로젝트 기간 (예: "2023.01 ~ 2025.01")
+ * - title: 프로젝트 제목
+ * - role: 프로젝트에서의 역할
+ * - description: 프로젝트 상세 설명 (배열)
+ * - tags: 사용된 기술 스택 및 도구 (배열)
+ * - links: 관련 링크 (선택사항, 배열)
+ */
 export const projectsData: ProjectItem[] = [
     {
         id: "proj-1",
-        period: "2023.08 ~ 2025.01",
-        title: "헬로마켓 아키텍처 대전환 및 생산성 혁신",
-        role: "주요 역할: 앱 아키텍처 전면 개편 및 DevOps/품질 시스템 구축",
+        period: "2023.01 ~ 2025.01",
+        title: "앱 아키텍처 전면 개편 및 성능 최적화",
+        role: "주요 역할: 레거시 리팩토링 및 아키텍처 설계",
         description: [
-            "문제: 유지보수 한계에 다다른 Java/MVC 레거시 코드와 수동 배포 프로세스의 비효율 및 인적 오류 위험",
-            "Architecture: 100% Java → Kotlin 전환, Clean Architecture+MVVM 도입으로 로직 분리 및 유닛 테스트 환경 마련, 멀티 모듈로 의존성 최적화",
-            "Performance: 콜백 지옥을 Coroutine & Flow로 전환하여 비동기 안정성 확보, Gradle Kotlin DSL/Version Catalog 도입으로 빌드 표준화",
-            "DevOps: GitHub Actions로 정적분석(Detekt)/테스트/Firebase 자동 배포 파이프라인을 구축하여 데이터 기반 품질 관리 체계 확립",
-            "성과: 배포 준비 시간 90% 단축 및 인적 오류 원천 차단, Crashlytics 모니터링 고도화를 통해 Crash-free 99.9% 달성",
+            "개요: 유지보수가 한계에 다다른 Java/MVC 레거시 코드를 현대적인 아키텍처로 전환하여 개발 생산성 확보",
+            "Modern Android 전환: 100% Java 코드를 Kotlin으로 전환하고, Clean Architecture + MVVM 도입으로 비즈니스 로직 분리 및 유닛 테스트 환경 마련",
+            "Multi-Module 구축: Layered Architecture를 Feature, Domain, Core 단위의 멀티 모듈로 재설계하여 빌드 속도 단축 및 모듈 간 의존성 최적화",
+            "비동기 처리 개선: 콜백 지옥을 Coroutine & Flow로 전환하여 데이터 처리 안정성 확보",
+            "빌드 환경 최적화: Gradle Kotlin DSL 및 Version Catalog 도입으로 의존성 관리 중앙화 및 빌드 환경 표준화",
+            "성과: 기술 부채 해소로 신규 기능 개발 속도 향상 및 유지보수 효율 30% 증대",
         ],
         tags: [
-            "Clean Architecture", "Multi-Module", "MVC", "MVVM", "MVI", "Java", "Kotlin",
-            "Jetpack Compose", "Hilt", "Room", "DataStore", "Coroutines", "Flow", "Firebase App Distribution",
-            "CI/CD", "GitHub Actions", "Gradle Kotlin DSL", "Version Catalog", "Detekt", "Etc"
+            "Clean Architecture", "Multi-Module", "MVC", "MVVM", "Java", "Kotlin",
+            "Jetpack Compose", "Hilt", "Room", "Coroutines", "Flow", "Gradle Kotlin DSL", "Version Catalog",
+            "Etc"
         ],
     },
     {
         id: "proj-2",
-        period: "2024.05 ~ 2025.01",
-        title: "SDUI (Server Driven UI) 기반 홈 피드 구축",
-        role: "주요 역할: SDUI 클라이언트 설계 및 구현",
+        period: "2023.05 ~ 2025.01",
+        title: "DevOps 구축 및 앱 안정성(Quality) 고도화",
+        role: "주요 역할: CI/CD 파이프라인 구축 및 품질 관리 시스템 운영",
         description: [
-            "문제 정의: 잦은 홈 화면 UI 변경 요청으로 인한 반복적인 앱 배포와 심사 대기 시간의 비효율 발생",
-            "SDUI 구현: GraphQL과 Apollo Client를 활용해 서버 주도형 동적 UI 렌더링 구조 설계",
-            "운영 효율 30% 증대: 기획전/배너 변경 시 앱 심사 및 배포 과정 없이 즉시 반영 가능하도록 개선",
-            "네트워크 최적화: 필요한 데이터만 쿼리하여 오버페칭 방지 및 데이터 전송량 감소",
+            "개요: 수동 배포의 비효율 제거 및 데이터 기반 품질 관리 체계 구축",
+            "CI/CD 파이프라인: GitHub Actions로 정적 분석(Detekt), 테스트, 빌드 자동화 및 Firebase 자동 배포 구현",
+            "배포 효율화: 배포 준비 시간을 90% 이상 단축하고 인적 오류(Human Error) 원천 차단",
+            "앱 안정성 확보: Crashlytics 모니터링 고도화로 이슈 선제 대응 체계 마련, Crash-free 비율 99.9% 이상 유지",
+            "성과: 배포 리드타임 90% 단축 및 무사고 운영(Crash-free 99.9%) 달성",
         ],
-        tags: ["GraphQL", "Apollo Client", "SDUI", "Jetpack Compose", "Optimization"],
+        tags: [
+            "DevOps", "CI/CD", "GitHub Actions", "Firebase App Distribution", "Crashlytics", "Detekt",
+            "Etc"
+        ],
     },
     {
-        id: "proj-3",
+        id: "proj-4",
         period: "2023.01 ~ 2025.01",
         title: "판매자(Seller) 비즈니스 기능 고도화",
         role: "주요 역할: 판매자(Seller) 비즈니스 로직 구현 및 UI/UX 고도화",
@@ -59,26 +69,27 @@ export const projectsData: ProjectItem[] = [
         ],
     },
     {
-        id: "proj-4",
+        id: "proj-5",
         period: "2021.10 ~ 2022.07",
-        title: "중고차 라이브 커머스 플랫폼 '차란차 스튜디오'",
-        role: "주요 역할: 안드로이드 메인 개발",
+        title: "중고차 라이브 커머스 플랫폼 '차란차 스튜디오' 신규 개발",
+        role: "주요 역할: 안드로이드 메인 개발 (초기 설계 및 구현)",
         description: [
-            "기능 구현: 실시간 영상 송출/채팅(Tencent SDK), VOD 다시보기 서비스 개발",
-            "구조 개선: Single Activity 및 Navigation Component 도입",
+            "라이브 스트리밍 기능 구현: Tencent SDK 및 ExoPlayer2를 활용해 방송 송출, 실시간 채팅, VOD 기능을 개발하여 딜러-고객 간 양방향 소통 환경 제공",
+            "성능 및 구조 최적화: Single Activity Architecture(Navigation Component) 도입으로 불필요한 리소스 낭비를 줄이고 화면 전환 속도 개선",
+            "확장성 있는 아키텍처: 초기 단계부터 Clean Architecture(MVVM)를 적용하여 유지보수와 기능 확장이 용이한 코드베이스 마련"
         ],
         tags: [
-            "Clean Architecture", "MVVM", "Navigation Component", "Coroutine", "Tencent SDK", "ExoPlayer2", "Etc"
+            "Kotlin", "MVVM", "Clean Architecture", "Tencent SDK", "ExoPlayer2",
+            "Navigation Component", "Single Activity", "Coroutines", "Retrofit2", "Etc"
         ],
     },
     {
-        id: "proj-5",
+        id: "proj-6",
         period: "2018.05 ~ 2021.09",
         title: "농협하나로유통 디지털 풀필먼트(DFC) 및 PDA 솔루션",
         role: "주요 역할: 안드로이드 PDA 앱 개발",
         description: [
             "DFC (디지털 풀필먼트 센터): 총량 피킹 리스트 연동 및 트레이 매핑, DAS 데이터 전송 기능 개발",
-            "Tech: Clean Architecture (MVP), RxJava, Jetpack (ViewModel, LiveData, Room)",
             "(신)PCS 고도화: 기존 존(Zone)별 피킹을 주문별 피킹 방식으로 전환 및 시스템 이관",
             "공통: Honeywell SDK를 활용한 고속 바코드 스캔 처리 및 데이터 정합성 확보",
         ],
@@ -87,7 +98,7 @@ export const projectsData: ProjectItem[] = [
         ],
     },
     {
-        id: "proj-6",
+        id: "proj-7",
         period: "2017.09 ~ 2017.11",
         title: "플레이키보드 (PlayKeyboard)",
         role: "주요 역할: 초기 멤버 및 안드로이드 개발",
