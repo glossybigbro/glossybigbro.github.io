@@ -79,6 +79,19 @@ glossybigbro.github.io/
 
 ---
 
+## 📄 페이지 구성 (Page Structure)
+
+| 섹션 | 내용 | 주요 기능 |
+|------|------|----------|
+| **Header** | 이름, 직함, 연락처, 소셜 링크 | 이메일 클릭 시 클립보드 복사 |
+| **Introduce** | 자기소개, 핵심 가치 | 프로필 이미지 포함 |
+| **Experience** | 경력 사항, 주요 업무 | 총 경력 자동 계산 |
+| **Project** | 프로젝트 목록, 역할 | 기간별 정렬, 태그 시스템 |
+| **Skill** | 기술 스택, 도구 | 카테고리별 분류 |
+| **Writing** | 작성한 글, 아티클 | 외부 링크 연결 |
+
+---
+
 ## 🎁 이 프로젝트를 내 포트폴리오로 만들기 (How to use)
 
 이 프로젝트는 오픈소스로 공개되어 있습니다. 누구나 자유롭게 Fork하여 자신만의 멋진 이력서를 만들 수 있습니다!
@@ -132,6 +145,81 @@ npm test
 | `projects.ts` | 프로젝트 목록 |
 | `skills.ts` | 보유 기술 |
 | `articles.ts` | 작성 글 |
+
+---
+
+## ✏️ 콘텐츠 커스터마이징 (Customization Guide)
+
+### 📝 데이터 수정
+
+포트폴리오 내용을 수정하려면 `src/data/` 폴더의 파일을 편집하세요.
+
+#### 1. 기본 정보 (`header.ts`)
+
+```typescript
+export const headerData = {
+  name: "하윤형",              // 이름
+  title: "Product Manager",    // 직함
+  email: "your@email.com",     // 이메일
+  github: "https://github.com/username",
+  // ...
+}
+```
+
+#### 2. 경력 사항 (`experience.ts`)
+
+```typescript
+{
+  id: "exp-1",
+  period: "2022.08 ~ 2025.01",  // 재직 기간
+  role: "회사명",
+  description: ["주요 업무 1", "주요 업무 2"],
+  tags: ["Android Lead", "Kotlin"]
+}
+```
+
+#### 3. 프로젝트 (`projects.ts`)
+
+```typescript
+{
+  id: "proj-1",
+  period: "2023.01 ~ 2025.01",
+  title: "프로젝트명",
+  role: "주요 역할: ...",
+  description: ["성과 1", "성과 2"],
+  tags: ["Kotlin", "Clean Architecture"]
+}
+```
+
+#### 4. 기술 스택 (`skills.ts`)
+
+```typescript
+{
+  title: "Languages",
+  skills: ["Kotlin", "Java", "TypeScript"]
+}
+```
+
+#### 5. 작성 글 (`articles.ts`)
+
+```typescript
+{
+  text: "글 제목",
+  href: "https://...",
+  summary: "글 요약",
+  keywords: ["키워드1", "키워드2"]
+}
+```
+
+### ✅ 데이터 검증
+
+수정 후 반드시 테스트를 실행하여 데이터 형식이 올바른지 확인하세요:
+
+```bash
+npm test
+```
+
+잘못된 형식(예: 이메일 형식 오류, URL 누락)이 있으면 테스트가 실패하며 어디를 고쳐야 하는지 알려줍니다.
 
 ---
 
