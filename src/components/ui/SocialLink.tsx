@@ -24,8 +24,8 @@ export interface SocialLinkProps {
      */
     type: "github" | "linkedin" | "portfolio";
 
-    /** 링크 URL */
-    href: string;
+    /** 링크 URL (비어있으면 렌더링되지 않음) */
+    href?: string | null;
 
     /** 
      * 아이콘 크기
