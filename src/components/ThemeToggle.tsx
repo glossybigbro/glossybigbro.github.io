@@ -32,8 +32,8 @@ export function ThemeToggle() {
         );
     }
 
-    const toggleTheme = (e: React.MouseEvent<HTMLButtonElement>) => {
-        transitionTheme(e, () => setTheme(isDark ? "light" : "dark"));
+    const toggleTheme = () => {
+        transitionTheme(() => setTheme(isDark ? "light" : "dark"));
     };
 
     return (
@@ -41,8 +41,7 @@ export function ThemeToggle() {
             onClick={toggleTheme}
             className={cn(
                 "transition-colors duration-200",
-                !isMobile && "hover:text-blue-600 dark:hover:text-blue-400", // PC에만 호버 효과
-                "outline-none ring-0 focus:ring-0 focus:outline-none active:bg-transparent tap-highlight-transparent"
+                !isMobile && "hover:text-blue-600 dark:hover:text-blue-400" // PC에만 호버 효과
             )}
             aria-label={isDark ? "라이트 모드로 전환" : "다크 모드로 전환"}
             title={isDark ? "라이트 모드로 전환" : "다크 모드로 전환"}

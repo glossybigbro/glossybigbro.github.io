@@ -2,7 +2,6 @@ import Link from "next/link";
 
 import { Icon } from "./Icon";
 import { cn } from "@/lib/utils";
-import { LINK_STYLES } from "@/constants/styles";
 import { useIsMobile } from "@/hooks/useIsMobile";
 
 /**
@@ -77,7 +76,7 @@ export function SocialLink({ type, href, size = "md", className }: SocialLinkPro
             className={cn(
                 "transition-colors duration-200",
                 !isMobile && "hover:text-blue-600 dark:hover:text-blue-400", // PC에만 호버 효과
-                "outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded tap-highlight-transparent",
+                "focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded",
                 className
             )}
             aria-label={ariaLabels[type]}

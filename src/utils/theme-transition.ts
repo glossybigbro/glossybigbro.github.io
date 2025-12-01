@@ -15,13 +15,9 @@
 /**
  * View Transitions API를 사용한 테마 전환
  * 
- * @param event - 클릭 이벤트 (애니메이션 시작 위치 계산용)
  * @param callback - 테마 변경 함수
  */
-export function transitionTheme(
-    event: React.MouseEvent<HTMLButtonElement>,
-    callback: () => void
-): void {
+export function transitionTheme(callback: () => void): void {
     // View Transitions API 지원 확인
     if (!(document as any).startViewTransition) {
         callback();
