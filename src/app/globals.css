@@ -98,23 +98,18 @@
   }
 }
 
-/* View Transition API */
+/* View Transition API - 양방향 애니메이션 */
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation: none;
   mix-blend-mode: normal;
 }
 
-::view-transition-old(root) {
-  z-index: 1;
-}
+/* 항상 새로운 테마가 위에서 퍼져나가도록 설정 */
 ::view-transition-new(root) {
   z-index: 9999;
 }
 
-.dark::view-transition-old(root) {
-  z-index: 9999;
-}
-.dark::view-transition-new(root) {
+::view-transition-old(root) {
   z-index: 1;
 }
