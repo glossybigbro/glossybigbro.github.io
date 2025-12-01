@@ -1,7 +1,9 @@
 import Link from "next/link";
+
 import { Icon } from "./Icon";
 import { cn } from "@/lib/utils";
 import { LINK_STYLES } from "@/constants/styles";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 /**
  * 소셜 링크 컴포넌트
@@ -64,12 +66,20 @@ export function SocialLink({ type, href, size = "md", className }: SocialLinkPro
         portfolio: "Portfolio Website",
     };
 
+    // 모바일 감지 (커스텀 훅 사용)
+    const isMobile = useIsMobile();
+
     return (
         <Link
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className={cn(LINK_STYLES.SOCIAL, className)}
+            className={cn(
+                "transition-colors duration-200",
+                !isMobile && "hover:text-blue-600 dark:hover:text-blue-400", // PC에만 호버 효과
+                "outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded tap-highlight-transparent",
+                className
+            )}
             aria-label={ariaLabels[type]}
         >
             <Icon
