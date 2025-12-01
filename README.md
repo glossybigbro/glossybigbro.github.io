@@ -79,6 +79,22 @@ glossybigbro.github.io/
 
 ---
 
+## 🎁 이 프로젝트를 내 포트폴리오로 만들기 (How to use)
+
+이 프로젝트는 오픈소스로 공개되어 있습니다. 누구나 자유롭게 Fork하여 자신만의 멋진 이력서를 만들 수 있습니다!
+
+1. **Fork**: 우측 상단의 'Fork' 버튼을 눌러 이 저장소를 자신의 GitHub 계정으로 복제합니다.
+2. **Clone**: 복제한 저장소를 로컬 컴퓨터에 다운로드합니다.
+3. **Data Update**: `src/data/` 폴더의 내용을 본인의 정보로 수정합니다.
+   - `header.ts`: 이름, 연락처 수정
+   - `experience.ts`: 경력 사항 수정
+   - `projects.ts`: 프로젝트 경험 수정
+4. **Deploy**: GitHub Repository의 `Settings` > `Pages`에서 배포 소스를 설정하면 자동으로 배포됩니다.
+
+> **Tip**: `npm test`를 실행하여 수정한 데이터가 올바른 형식을 갖췄는지 확인해보세요!
+
+---
+
 ## 🚀 시작하기 (Getting Started)
 
 ### 설치 및 실행

@@ -52,7 +52,7 @@ export const projectsData: ProjectItem[] = [
     },
     {
         id: "proj-3",
-        period: "2024.05 ~ 2025.01",
+        period: "2023.06 ~ 2023.12",
         title: "SDUI (Server Driven UI) 기반 홈 피드 구축",
         role: "주요 역할: SDUI 클라이언트 설계 및 구현",
         description: [

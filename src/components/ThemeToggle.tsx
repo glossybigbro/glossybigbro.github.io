@@ -28,9 +28,48 @@ export function ThemeToggle() {
     // resolvedTheme은 실제 적용된 테마 ("light" 또는 "dark")
     const isDark = resolvedTheme === "dark";
 
+    const toggleTheme = (e: React.MouseEvent<HTMLButtonElement>) => {
+        const newTheme = isDark ? "light" : "dark";
+
+        // View Transitions API 지원 확인
+        if (!(document as any).startViewTransition) {
+            setTheme(newTheme);
+            return;
+        }
+
+        const x = e.clientX;
+        const y = e.clientY;
+        const endRadius = Math.hypot(
+            Math.max(x, innerWidth - x),
+            Math.max(y, innerHeight - y)
+        );
+
+        const transition = (document as any).startViewTransition(() => {
+            setTheme(newTheme);
+        });
+
+        transition.ready.then(() => {
+            const clipPath = [
+                `circle(0px at ${x}px ${y}px)`,
+                `circle(${endRadius}px at ${x}px ${y}px)`,
+            ];
+
+            document.documentElement.animate(
+                {
+                    clipPath: clipPath,
+                },
+                {
+                    duration: 500,
+                    easing: "ease-in-out",
+                    pseudoElement: "::view-transition-new(root)",
+                }
+            );
+        });
+    };
+
     return (
         <button
-            onClick={() => setTheme(isDark ? "light" : "dark")}
+            onClick={toggleTheme}
             className={cn(LINK_STYLES.BASE)}
             aria-label={isDark ? "라이트 모드로 전환" : "다크 모드로 전환"}
             title={isDark ? "라이트 모드로 전환" : "다크 모드로 전환"}

@@ -97,3 +97,24 @@
     @apply text-xs bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-300 rounded-lg pl-2 pr-2;
   }
 }
+
+/* View Transition API */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+::view-transition-new(root) {
+  z-index: 9999;
+}
+
+.dark::view-transition-old(root) {
+  z-index: 9999;
+}
+.dark::view-transition-new(root) {
+  z-index: 1;
+}
