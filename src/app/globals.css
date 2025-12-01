@@ -90,7 +90,7 @@
   /* 모바일 탭 하이라이트 및 포커스 상태 제거 */
   button,
   a {
-    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
   }
 
   button:focus,
@@ -112,6 +112,13 @@
 
   .xs-badge {
     @apply text-xs bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-300 rounded-lg pl-2 pr-2;
+  }
+}
+
+/* 호버 효과는 마우스가 있는 장치에서만 적용 (모바일 터치 시 잔상 방지) */
+@media (hover: hover) {
+  .hover\:rotate-12:hover {
+    transform: rotate(12deg);
   }
 }
 

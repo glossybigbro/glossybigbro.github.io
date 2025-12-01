@@ -48,7 +48,7 @@ export function ThemeToggle() {
             <Icon
                 name={isDark ? "sun" : "moon"}
                 size={20}
-                className="sm:w-6 sm:h-6 transition-transform duration-200 hover:rotate-12"
+                className="sm:w-6 sm:h-6 transition-transform duration-200"
             />
         </button>
     );
