@@ -30,6 +30,11 @@ export function ThemeToggle() {
     const isDark = resolvedTheme === "dark";
 
     const toggleTheme = (e: React.MouseEvent<HTMLButtonElement>) => {
+        const button = e.currentTarget;
+
+        // 클릭 후 포커스 제거 (파란색 outline 방지)
+        button.blur();
+
         transitionTheme(e, () => setTheme(isDark ? "light" : "dark"));
     };
 
