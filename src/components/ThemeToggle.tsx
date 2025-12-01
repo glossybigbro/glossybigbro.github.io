@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { Icon } from "./ui/Icon";
 import { LINK_STYLES } from "@/constants/styles";
 import { cn } from "@/lib/utils";
+import { transitionTheme } from "@/utils/theme-transition";
 
 export function ThemeToggle() {
     const { resolvedTheme, setTheme } = useTheme();
@@ -29,42 +30,7 @@ export function ThemeToggle() {
     const isDark = resolvedTheme === "dark";
 
     const toggleTheme = (e: React.MouseEvent<HTMLButtonElement>) => {
-        const newTheme = isDark ? "light" : "dark";
-
-        // View Transitions API 지원 확인
-        if (!(document as any).startViewTransition) {
-            setTheme(newTheme);
-            return;
-        }
-
-        const x = e.clientX;
-        const y = e.clientY;
-        const endRadius = Math.hypot(
-            Math.max(x, innerWidth - x),
-            Math.max(y, innerHeight - y)
-        );
-
-        const transition = (document as any).startViewTransition(() => {
-            setTheme(newTheme);
-        });
-
-        transition.ready.then(() => {
-            const clipPath = [
-                `circle(0px at ${x}px ${y}px)`,
-                `circle(${endRadius}px at ${x}px ${y}px)`,
-            ];
-
-            document.documentElement.animate(
-                {
-                    clipPath: clipPath,
-                },
-                {
-                    duration: 500,
-                    easing: "ease-in-out",
-                    pseudoElement: "::view-transition-new(root)",
-                }
-            );
-        });
+        transitionTheme(e, () => setTheme(isDark ? "light" : "dark"));
     };
 
     return (
