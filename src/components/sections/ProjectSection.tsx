@@ -44,7 +44,7 @@ export function ProjectSection() {
                                             <li key={i}>
                                                 {label ? (
                                                     <>
-                                                        <span className="font-bold text-foreground">{label}:</span>
+                                                        <span className="font-bold text-foreground">{label}:</span>{" "}
                                                         <span>{value}</span>
                                                     </>
                                                 ) : (

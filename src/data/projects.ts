@@ -51,6 +51,20 @@ export const projectsData: ProjectItem[] = [
         ],
     },
     {
+        id: "proj-3",
+        period: "2024.05 ~ 2025.01",
+        title: "SDUI (Server Driven UI) 기반 홈 피드 구축",
+        role: "주요 역할: SDUI 클라이언트 설계 및 구현",
+        description: [
+            "문제 정의: 잦은 홈 화면 UI 변경 요청으로 인한 반복적인 앱 배포와 심사 대기 시간의 비효율 발생",
+            "SDUI 구현: GraphQL과 Apollo Client를 활용해 서버 주도형 동적 UI 렌더링 구조 설계",
+            "개발 리소스 30% 절감: 홈 화면 UI를 동적으로 변경할 수 있도록 개선하여 반복적인 수정 업무 및 배포 비용 감소",
+            "네트워크 최적화: 필요한 데이터만 쿼리(GraphQL)하여 오버페칭을 방지하고, 데이터 전송량 감소를 통해 서버 비용 절감에 기여",
+            "안정성 확보: 타입 안정성을 보장하는 설계로 UI 관련 에러 발생 0건을 유지하며 안정적인 운영 환경 구축",
+        ],
+        tags: ["GraphQL", "Apollo Client", "SDUI", "Jetpack Compose", "Optimization", "Etc"],
+    },
+    {
         id: "proj-4",
         period: "2023.01 ~ 2025.01",
         title: "판매자(Seller) 비즈니스 기능 고도화",

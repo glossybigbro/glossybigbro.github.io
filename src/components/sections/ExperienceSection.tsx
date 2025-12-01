@@ -19,7 +19,7 @@ export function ExperienceSection() {
         if (label) {
             return (
                 <>
-                    <span className="font-bold text-foreground">{label}:</span>
+                    <span className="font-bold text-foreground">{label}:</span>{" "}
                     <span>{value}</span>
                 </>
             );
