@@ -92,19 +92,89 @@ glossybigbro.github.io/
 
 ---
 
-## 🎁 이 프로젝트를 내 포트폴리오로 만들기 (How to use)
+## 🎁 이 프로젝트를 내 포트폴리오로 만들기 (Step-by-Step Guide)
 
-이 프로젝트는 오픈소스로 공개되어 있습니다. 누구나 자유롭게 Fork하여 자신만의 멋진 이력서를 만들 수 있습니다!
+### 1️⃣ Fork & Clone
 
-1. **Fork**: 우측 상단의 'Fork' 버튼을 눌러 이 저장소를 자신의 GitHub 계정으로 복제합니다.
-2. **Clone**: 복제한 저장소를 로컬 컴퓨터에 다운로드합니다.
-3. **Data Update**: `src/data/` 폴더의 내용을 본인의 정보로 수정합니다.
-   - `header.ts`: 이름, 연락처 수정
-   - `experience.ts`: 경력 사항 수정
-   - `projects.ts`: 프로젝트 경험 수정
-4. **Deploy**: GitHub Repository의 `Settings` > `Pages`에서 배포 소스를 설정하면 자동으로 배포됩니다.
+```bash
+# 1. GitHub에서 이 저장소를 Fork 합니다 (우측 상단 Fork 버튼)
 
-> **Tip**: `npm test`를 실행하여 수정한 데이터가 올바른 형식을 갖췄는지 확인해보세요!
+# 2. Fork한 저장소를 클론합니다
+git clone https://github.com/YOUR_USERNAME/glossybigbro.github.io.git
+cd glossybigbro.github.io
+
+# 3. 의존성 설치
+npm install
+```
+
+### 2️⃣ Repository 이름 변경 (중요!)
+
+GitHub Pages를 `https://YOUR_USERNAME.github.io` 주소로 사용하려면:
+
+1. GitHub Repository 페이지에서 `Settings` 클릭
+2. `Repository name`을 `YOUR_USERNAME.github.io`로 변경
+   - 예: `john.github.io`, `jane-doe.github.io`
+3. `Rename` 버튼 클릭
+
+> **참고:** 다른 이름(예: `my-portfolio`)을 사용하려면 `next.config.ts`의 `basePath` 주석을 해제하고 수정해야 합니다.
+
+### 3️⃣ 데이터 수정
+
+`src/data/` 폴더의 파일들을 본인의 정보로 수정합니다:
+
+- `header.ts`: 이름, 이메일, GitHub 링크 등
+- `introduce.tsx`: 자기소개 내용
+- `experience.ts`: 경력 사항
+- `projects.ts`: 프로젝트 목록
+- `skills.ts`: 보유 기술
+- `articles.ts`: 작성한 글
+
+### 4️⃣ 프로필 이미지 교체
+
+```bash
+# public/images/profile.jpeg 파일을 본인 사진으로 교체
+# 권장 사이즈: 400x400px 이상 (정사각형)
+```
+
+### 5️⃣ 데이터 검증
+
+```bash
+# 수정한 데이터가 올바른 형식인지 확인
+npm test
+
+# 로컬에서 미리보기
+npm run dev
+# http://localhost:3000 에서 확인
+```
+
+### 6️⃣ GitHub Pages 배포 설정
+
+**방법 1: GitHub Actions (권장)**
+
+1. GitHub Repository > `Settings` > `Pages`
+2. `Source`를 **GitHub Actions**로 선택
+3. 코드를 `main` 브랜치에 푸시하면 자동 배포됩니다
+
+```bash
+git add .
+git commit -m "feat: 내 포트폴리오로 커스터마이징"
+git push origin main
+```
+
+4. `Actions` 탭에서 배포 진행 상황 확인
+5. 완료되면 `https://YOUR_USERNAME.github.io`에서 확인!
+
+**방법 2: 수동 배포 (선택사항)**
+
+```bash
+npm run deploy
+```
+
+### 7️⃣ 배포 완료! 🎉
+
+- 배포 주소: `https://YOUR_USERNAME.github.io`
+- 배포 시간: 약 2-3분 소요
+- 수정 후 다시 푸시하면 자동으로 재배포됩니다
 
 ---
 

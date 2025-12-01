@@ -80,7 +80,17 @@
 
   body {
     @apply bg-background text-foreground;
+  }
+
+  /* View Transition이 없을 때만 부드러운 전환 적용 */
+  body:not(.view-transitioning) {
     transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* 모바일 탭 하이라이트 제거 */
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
   }
 }
 

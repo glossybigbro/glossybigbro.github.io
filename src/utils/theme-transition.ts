@@ -37,6 +37,9 @@ export function transitionTheme(
         Math.max(y, innerHeight - y)
     );
 
+    // CSS transition 비활성화를 위한 클래스 추가
+    document.body.classList.add('view-transitioning');
+
     // View Transition 시작
     const transition = (document as any).startViewTransition(callback);
 
@@ -55,5 +58,10 @@ export function transitionTheme(
                 pseudoElement: "::view-transition-new(root)",
             }
         );
+    });
+
+    // 애니메이션 완료 후 클래스 제거
+    transition.finished.finally(() => {
+        document.body.classList.remove('view-transitioning');
     });
 }
