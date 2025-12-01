@@ -87,10 +87,17 @@
     transition: background-color 0.3s ease, color 0.3s ease;
   }
 
-  /* 모바일 탭 하이라이트 제거 */
+  /* 모바일 탭 하이라이트 및 포커스 상태 제거 */
   button,
   a {
     -webkit-tap-highlight-color: transparent;
+  }
+
+  button:focus,
+  button:focus-visible,
+  button:active {
+    outline: none;
+    box-shadow: none;
   }
 }
 
