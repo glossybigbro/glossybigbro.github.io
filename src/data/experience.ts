@@ -51,9 +51,9 @@ export const experienceData: ExperienceItem[] = [
     {
         id: "exp-4",
         period: "2017.09 ~ 2017.11",
-        role: "비트바이트",
+        role: "비트바이트 (BitByte)",
         description: [
-            "'플레이키보드' 초기 멤버: 인터랙티브 키보드 테마 엔진 개발 및 UI/UX 구현",
+            "플레이키보드 UI 개발: ConstraintLayout을 도입하여 신규 기능 화면을 구성하고, 디자이너와 협업하여 정교한 UI 레이아웃 구현",
         ],
         tags: ["Android Developer"],
     },

@@ -1,13 +1,17 @@
 import Image from "next/image";
-import { introduceData } from "@/data/introduce";
+import { IntroduceData } from "@/types";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
 import { SectionDivider } from "@/components/ui/SectionDivider";
 
-export function IntroduceSection() {
+interface IntroduceSectionProps {
+    data: IntroduceData;
+}
+
+export function IntroduceSection({ data }: IntroduceSectionProps) {
     return (
         <SectionWrapper>
             <div className="text-3xl sm:text-4xl mb-2 font-bold">
-                {introduceData.title}
+                {data.title}
             </div>
             <div className="mb-4"><SectionDivider variant="title" /></div>
 
@@ -15,7 +19,7 @@ export function IntroduceSection() {
 
                 <div className="hidden md:block md:float-left md:mr-8 md:mb-2 relative w-[280px] lg:w-[300px] aspect-[3/4] rounded-3xl shadow-lg dark:shadow-2xl dark:shadow-blue-500/10 overflow-hidden ring-1 ring-gray-200 dark:ring-gray-700">
                     <Image
-                        src={introduceData.profileImage}
+                        src={data.profileImage}
                         alt="Profile"
                         fill
                         className="object-cover"
@@ -24,9 +28,9 @@ export function IntroduceSection() {
                 </div>
 
                 <div className="space-y-6">
-                    {introduceData.content.map((paragraph, index) => (
+                    {data.content.map((paragraph, index) => (
                         <div key={index}>
-                            {index === introduceData.content.length - 1 ? (
+                            {index === data.content.length - 1 ? (
                                 <span className="font-medium text-foreground">
                                     {paragraph}
                                 </span>

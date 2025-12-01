@@ -114,13 +114,12 @@ export const projectsData: ProjectItem[] = [
     {
         id: "proj-7",
         period: "2017.09 ~ 2017.11",
-        title: "플레이키보드 (PlayKeyboard)",
-        role: "주요 역할: 초기 멤버 및 안드로이드 개발",
+        title: "플레이키보드 신규 기능 UI 및 레이아웃 구현",
+        role: "주요 역할: ConstraintLayout 기반 UI 개발",
         description: [
-            "기능 구현: 인터랙티브 키보드 테마 엔진 개발 및 신규 UI 화면 구성",
+            "UI 기술 도입: ConstraintLayout을 도입하여 신규 기능 화면을 구성하고 레이아웃 구조 효율화",
+            "협업 및 구현: 디자이너와 협업하여 가이드에 맞춘 정확한 UI 레이아웃 구현 및 신규 기능 화면 개발",
         ],
-        tags: [
-            "Java", "ConstraintLayout", "Etc"
-        ],
+        tags: ["Android", "ConstraintLayout", "UI/UX", "XML"],
     },
 ];

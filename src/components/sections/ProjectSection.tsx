@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { projectsData } from "@/data/projects";
+import { ProjectItem } from "@/types";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
 import { SectionDivider } from "@/components/ui/SectionDivider";
 import { Tag } from "@/components/ui/Tag";
@@ -7,22 +7,26 @@ import { parseRole, parseDescription } from "@/utils/formatters";
 import { DIVIDER_STYLES } from "@/constants/styles";
 import { cn } from "@/lib/utils";
 
-export function ProjectSection() {
+interface ProjectSectionProps {
+    data: ProjectItem[];
+}
+
+export function ProjectSection({ data }: ProjectSectionProps) {
     return (
         <SectionWrapper>
             <div className="text-3xl sm:text-4xl mb-2 font-bold">Project.</div>
             <div className="mb-4"><SectionDivider variant="title" /></div>
 
-            <div className="space-y-6">
-                {projectsData.map((project, index) => {
-                    const { label: roleLabel, value: roleValue } = parseRole(project.role);
+            <div className="flex flex-col gap-8 sm:gap-12">
+                {data.map((project, index) => {
+                    const { label, value } = parseRole(project.role);
 
                     return (
                         <div
                             key={project.id}
                             className={cn(
                                 "flex flex-col md:flex-row gap-4 md:gap-8",
-                                index !== projectsData.length - 1 && `${DIVIDER_STYLES.DOTTED} pb-6`
+                                index !== data.length - 1 && `${DIVIDER_STYLES.DOTTED} pb-6`
                             )}
                         >
                             <div className="w-full md:w-1/3 flex-shrink-0">
@@ -32,8 +36,8 @@ export function ProjectSection() {
                                 <div className="text-2xl sm:text-3xl font-medium mb-4">{project.title}</div>
 
                                 <div className="mb-4 text-lg">
-                                    <span className="font-bold">{roleLabel}:</span>
-                                    <span>{roleValue}</span>
+                                    <span className="font-bold">{label}:</span>
+                                    <span>{value}</span>
                                 </div>
 
                                 <ul className="list-disc pl-5 space-y-2 text-muted-foreground leading-relaxed mb-6">

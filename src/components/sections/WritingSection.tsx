@@ -1,9 +1,13 @@
-import { articles } from "@/data/articles";
+import { ArticleItem } from "@/types";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
 import { SectionDivider } from "@/components/ui/SectionDivider";
 
-export function WritingSection() {
-    if (!articles || articles.length === 0) {
+interface WritingSectionProps {
+    data: ArticleItem[];
+}
+
+export function WritingSection({ data }: WritingSectionProps) {
+    if (!data || data.length === 0) {
         return null;
     }
 
@@ -19,7 +23,7 @@ export function WritingSection() {
             <div className="mb-4"><SectionDivider variant="title" /></div>
 
             <div className="mt-4 space-y-2">
-                {articles.map((article, index) => (
+                {data.map((article, index) => (
                     <div key={article.href + index} className="mb-6">
                         <div className="text-xl font-bold mb-2">
                             {article.text}

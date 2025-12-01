@@ -34,6 +34,25 @@ export interface HeaderData {
 }
 
 /**
+ * 소개 섹션 데이터 타입
+ * 
+ * 자기소개 및 프로필 이미지 정보를 나타냅니다.
+ */
+export interface IntroduceData {
+    /** 섹션 제목 (예: "Introduce.") */
+    title: string;
+
+    /** 프로필 이미지 경로 (public 폴더 기준) */
+    profileImage: string;
+
+    /** 
+     * 자기소개 내용 (문단 배열)
+     * 문자열 또는 React 노드(JSX)를 포함할 수 있습니다.
+     */
+    content: React.ReactNode[];
+}
+
+/**
  * 경력 항목 타입
  * 
  * 각 회사/조직에서의 경력 사항을 나타냅니다.

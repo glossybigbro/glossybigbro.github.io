@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { experienceData } from "@/data/experience";
+import { ExperienceItem } from "@/types";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
 import { SectionDivider } from "@/components/ui/SectionDivider";
 import { Tag } from "@/components/ui/Tag";
@@ -8,10 +8,14 @@ import { parseDescription } from "@/utils/formatters";
 import { DIVIDER_STYLES } from "@/constants/styles";
 import { cn } from "@/lib/utils";
 
-export function ExperienceSection() {
+interface ExperienceSectionProps {
+    data: ExperienceItem[];
+}
+
+export function ExperienceSection({ data }: ExperienceSectionProps) {
     const totalDuration = useMemo(() => {
-        return calculateTotalCareer(experienceData);
-    }, []);
+        return calculateTotalCareer(data);
+    }, [data]);
 
     const renderDescription = (text: string) => {
         const { label, value } = parseDescription(text);
@@ -38,12 +42,12 @@ export function ExperienceSection() {
             <div className="mb-4"><SectionDivider variant="title" /></div>
 
             <div className="space-y-6">
-                {experienceData.map((item, index) => (
+                {data.map((item, index) => (
                     <div
                         key={item.id}
                         className={cn(
                             "flex flex-col md:flex-row gap-4 md:gap-8",
-                            index !== experienceData.length - 1 && `${DIVIDER_STYLES.DOTTED} pb-6`
+                            index !== data.length - 1 && `${DIVIDER_STYLES.DOTTED} pb-6`
                         )}
                     >
                         <div className="w-full md:w-1/3 flex-shrink-0">
