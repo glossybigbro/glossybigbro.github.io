@@ -6,6 +6,7 @@ import { ExperienceSection } from "@/components/sections/ExperienceSection";
 import { ProjectSection } from "@/components/sections/ProjectSection";
 import { SkillSection } from "@/components/sections/SkillSection";
 import { WritingSection } from "@/components/sections/WritingSection";
+import { Footer } from "@/components/Footer";
 
 import { headerData } from "@/data/header";
 import { introduceData } from "@/data/introduce";
@@ -25,7 +26,7 @@ export default function Home() {
         <SkillSection data={skillsData} />
         <WritingSection data={articles} />
       </div>
+      <Footer />
     </main>
   );
 }
-

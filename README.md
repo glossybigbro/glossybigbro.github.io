@@ -34,7 +34,8 @@ Next.js 16의 App Router와 Tailwind CSS v4를 활용하여 최신 웹 기술 �
 
 - **CVA (Class Variance Authority)**: `Tag`, `Button` 등 UI 컴포넌트의 스타일 변형(Variant)을 선언적으로 관리합니다.
 - **Tailwind CSS v4**: 최신 엔진을 사용하여 빌드 성능을 극대화하고, 불필요한 CSS를 제거했습니다.
-- **다크 모드**: `next-themes`와 CSS Variables를 활용하여 시스템 테마에 완벽하게 대응합니다.
+- **4-Way 테마 시스템**: Chrome 시스템 테마와 웹사이트 테마 토글을 모두 감지하여 4가지 조합에서 각각 다른 스타일 제공 (`@media (prefers-color-scheme)` + `.dark` 클래스)
+- **View Transitions API**: 랜덤 위치에서 원형으로 퍼져나가는 부드러운 테마 전환 애니메이션
 
 ---
 
@@ -68,6 +69,8 @@ glossybigbro.github.io/
 │   ├── components/             # Presenter (순수 UI)
 │   │   ├── sections/           # 페이지 섹션
 │   │   └── ui/                 # 재사용 가능한 UI 컴포넌트 (CVA 적용)
+│   ├── config/                 # ⚙️ 사이트 설정 (메타데이터 등)
+│   ├── constants/              # 🎯 상수 정의 (UI 설정, 애니메이션 등)
 │   ├── data/                   # 📝 데이터 파일
 │   │   ├── __tests__/          # ✅ 데이터 무결성 테스트 (Vitest)
 │   │   └── ...                 # 실제 콘텐츠 데이터
@@ -92,7 +95,7 @@ glossybigbro.github.io/
 
 ---
 
-## 🎁 이 프로젝트를 내 포트폴리오로 만들기 (Step-by-Step Guide)
+## 🚀 내 이력서로 만들기 (Step-by-Step Guide)
 
 ### 1️⃣ Fork & Clone
 
@@ -157,7 +160,7 @@ npm run dev
 
 ```bash
 git add .
-git commit -m "feat: 내 포트폴리오로 커스터마이징"
+git commit -m "feat: 내 이력서로 커스터마이징"
 git push origin main
 ```
 
@@ -178,51 +181,11 @@ npm run deploy
 
 ---
 
-## 🚀 시작하기 (Getting Started)
-
-### 설치 및 실행
-
-```bash
-# 1. 저장소 클론
-git clone https://github.com/glossybigbro/glossybigbro.github.io.git
-
-# 2. 의존성 설치
-npm install
-
-# 3. 개발 서버 실행
-npm run dev
-```
-
-### 테스트 실행
-
-데이터 무결성을 검증하려면 다음 명령어를 실행하세요.
-
-```bash
-npm test
-```
-
----
-
-## ✏️ 콘텐츠 수정 가이드
-
-이력서 내용을 수정하려면 `src/data/` 폴더의 파일을 편집하세요.  
-편집 후 `npm test`를 실행하면 데이터 형식이 올바른지 검증할 수 있습니다.
-
-| 파일 | 내용 |
-|------|------|
-| `header.ts` | 기본 정보 및 연락처 |
-| `experience.ts` | 경력 사항 |
-| `projects.ts` | 프로젝트 목록 |
-| `skills.ts` | 보유 기술 |
-| `articles.ts` | 작성 글 |
-
----
-
 ## ✏️ 콘텐츠 커스터마이징 (Customization Guide)
 
 ### 📝 데이터 수정
 
-포트폴리오 내용을 수정하려면 `src/data/` 폴더의 파일을 편집하세요.
+이력서 내용을 수정하려면 `src/data/` 폴더의 파일을 편집하세요.
 
 #### 1. 기본 정보 (`header.ts`)
 

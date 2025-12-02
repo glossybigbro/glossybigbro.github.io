@@ -12,6 +12,8 @@ import type { ProjectItem } from "@/types";
  * - description: 프로젝트 상세 설명 (배열)
  * - tags: 사용된 기술 스택 및 도구 (배열)
  * - links: 관련 링크 (선택사항, 배열)
+ *   - text: 링크 텍스트
+ *   - href: 링크 URL
  */
 export const projectsData: ProjectItem[] = [
     {

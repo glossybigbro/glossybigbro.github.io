@@ -3,11 +3,27 @@
  * 
  * SVG 아이콘을 중앙에서 관리하는 컴포넌트입니다.
  * 모든 아이콘은 currentColor를 사용하여 부모 요소의 색상을 상속받습니다.
+ * 
+ * **사용 가능한 아이콘:**
+ * - `github`: GitHub 로고 (소셜 링크)
+ * - `linkedin`: LinkedIn 로고 (소셜 링크)
+ * - `globe`: 웹사이트 아이콘 (소셜 링크)
+ * - `email`: 이메일 아이콘 (연락처)
+ * - `sun`: 라이트 모드 아이콘 (테마 토글)
+ * - `moon`: 다크 모드 아이콘 (테마 토글)
+ * - `playstore`: Google Play Store 로고 (PlayStoreBadge)
+ * - `building`: 기업/빌딩 아이콘 (EnterpriseBadge)
+ * 
+ * @example
+ * ```tsx
+ * <Icon name="github" size={24} />
+ * <Icon name="playstore" size={16} className="text-green-500" />
+ * ```
  */
 
 export interface IconProps {
     /** 아이콘 이름 */
-    name: "github" | "linkedin" | "globe" | "email" | "sun" | "moon";
+    name: "github" | "linkedin" | "globe" | "email" | "sun" | "moon" | "playstore" | "building";
 
     /** 아이콘 크기 (픽셀) */
     size?: number;
@@ -117,6 +133,44 @@ export function Icon({ name, size = 24, className = "" }: IconProps) {
                 className={className}
             >
                 <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+            </svg>
+        ),
+        playstore: (
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width={size}
+                height={size}
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className={className}
+            >
+                <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.802 8.99l-2.303 2.303-8.635-8.635z" />
+            </svg>
+        ),
+        building: (
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width={size}
+                height={size}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className={className}
+            >
+                <rect width="16" height="20" x="4" y="2" rx="2" ry="2" />
+                <path d="M9 22v-4h6v4" />
+                <path d="M8 6h.01" />
+                <path d="M16 6h.01" />
+                <path d="M12 6h.01" />
+                <path d="M12 10h.01" />
+                <path d="M12 14h.01" />
+                <path d="M16 10h.01" />
+                <path d="M16 14h.01" />
+                <path d="M8 10h.01" />
+                <path d="M8 14h.01" />
             </svg>
         ),
     };

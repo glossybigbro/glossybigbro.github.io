@@ -19,6 +19,7 @@ export function ProjectSection({ data }: ProjectSectionProps) {
 
             <div className="flex flex-col gap-8 sm:gap-12">
                 {data.map((project, index) => {
+                    // 역할 파싱 (예: "주요 역할: 개발 리딩" -> label="주요 역할", value="개발 리딩")
                     const { label, value } = parseRole(project.role);
 
                     return (
@@ -26,6 +27,7 @@ export function ProjectSection({ data }: ProjectSectionProps) {
                             key={project.id}
                             className={cn(
                                 "flex flex-col md:flex-row gap-4 md:gap-8",
+                                // 마지막 항목이 아니면 점선 구분선 추가
                                 index !== data.length - 1 && `${DIVIDER_STYLES.DOTTED} pb-6`
                             )}
                         >
@@ -42,6 +44,7 @@ export function ProjectSection({ data }: ProjectSectionProps) {
 
                                 <ul className="list-disc pl-5 space-y-2 text-muted-foreground leading-relaxed mb-6">
                                     {project.description.map((desc, i) => {
+                                        // 설명 텍스트 파싱 (Label: Value 형식 지원)
                                         const { label, value } = parseDescription(desc);
 
                                         return (
@@ -58,6 +61,7 @@ export function ProjectSection({ data }: ProjectSectionProps) {
                                         );
                                     })}
 
+                                    {/* 관련 링크 렌더링 */}
                                     {project.links?.map((link, i) => (
                                         <li key={`link-${i}`} className="list-none -ml-5">
                                             <Link

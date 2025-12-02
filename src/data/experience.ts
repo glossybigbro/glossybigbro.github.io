@@ -9,7 +9,11 @@ import type { ExperienceItem } from "@/types";
  * - period: 근무 기간 (예: "2022.08 ~ 2025.01")
  * - role: 회사명 또는 조직명
  * - description: 주요 업무 및 성과 (배열)
+ *   - 문자열: 일반적인 설명
+ *   - 객체: { text: "설명", subItems: ["세부 항목1", "세부 항목2"] } 형태 (하위 항목 포함 시)
  * - tags: 관련 기술 스택 또는 역할 태그 (배열)
+ * - playStoreUrl: Google Play Store 링크 (선택사항)
+ * - isEnterprise: 기업용 솔루션 여부 (선택사항, true일 경우 Enterprise 배지 표시)
  */
 export const experienceData: ExperienceItem[] = [
     {
@@ -25,6 +29,7 @@ export const experienceData: ExperienceItem[] = [
             "생산성 혁신: 멀티 모듈 아키텍처 도입 및 GitHub Actions 기반 CI/CD 파이프라인 구축 (배포 자동화)",
         ],
         tags: ["Android Lead", "Seller Squad Development Team Lead"],
+        playStoreUrl: "https://play.google.com/store/apps/details?id=com.tuck.hellomarket",
     },
     {
         id: "exp-2",
@@ -36,6 +41,7 @@ export const experienceData: ExperienceItem[] = [
             "아키텍처 설계: 초기 단계부터 Clean Architecture(MVVM)를 적용하여 유지보수와 기능 확장이 용이한 코드베이스 마련",
         ],
         tags: ["Android Developer"],
+        playStoreUrl: "https://play.google.com/store/apps/details?id=com.charancha.broadcast",
     },
     {
         id: "exp-3",
@@ -47,14 +53,16 @@ export const experienceData: ExperienceItem[] = [
             "기업용 물류/영업 시스템 구축: 동서식품, 팔도 등 대형 기업의 영업 지원 및 물류 관리(WMS) PDA 앱 개발",
         ],
         tags: ["Android Developer", "대리"],
+        isEnterprise: true,
     },
     {
         id: "exp-4",
         period: "2017.09 ~ 2017.11",
-        role: "비트바이트 (BitByte)",
+        role: "비트바이트",
         description: [
             "플레이키보드 UI 개발: ConstraintLayout을 도입하여 신규 기능 화면을 구성하고, 디자이너와 협업하여 정교한 UI 레이아웃 구현",
         ],
         tags: ["Android Developer"],
+        playStoreUrl: "https://play.google.com/store/apps/details?id=kr.bitbyte.playkeyboard",
     },
 ];

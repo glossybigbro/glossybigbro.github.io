@@ -1,6 +1,7 @@
 import { ArticleItem } from "@/types";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
 import { SectionDivider } from "@/components/ui/SectionDivider";
+import { Tag } from "@/components/ui/Tag";
 
 interface WritingSectionProps {
     data: ArticleItem[];
@@ -36,9 +37,7 @@ export function WritingSection({ data }: WritingSectionProps) {
                         {article.keywords && (
                             <div className="flex gap-2 flex-wrap">
                                 {article.keywords.map((keyword) => (
-                                    <span key={keyword} className="text-sm bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-100 px-2.5 py-1 rounded font-medium">
-                                        {keyword}
-                                    </span>
+                                    <Tag key={keyword}>{keyword}</Tag>
                                 ))}
                             </div>
                         )}

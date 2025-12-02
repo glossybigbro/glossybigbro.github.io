@@ -3,6 +3,9 @@ import React from "react";
 
 /**
  * 헤더 데이터 스키마
+ * 
+ * 필수: name, title, email
+ * 선택: phone, github, linkedin, portfolio (빈 문자열 허용)
  */
 export const headerSchema = z.object({
     name: z.string().min(1, "이름은 필수입니다."),
@@ -25,6 +28,11 @@ export const introduceSchema = z.object({
 
 /**
  * 경력 아이템 스키마
+ * 
+ * - period: "YYYY.MM ~ YYYY.MM" 또는 "YYYY.MM ~ 현재" 형식 (Regex 검증)
+ * - description: 문자열 또는 { text, subItems } 객체 배열
+ * - playStoreUrl: 선택사항 (URL 형식)
+ * - isEnterprise: 선택사항 (Boolean)
  */
 export const experienceItemSchema = z.object({
     id: z.string(),
@@ -40,10 +48,15 @@ export const experienceItemSchema = z.object({
         ])
     ),
     tags: z.array(z.string()),
+    playStoreUrl: z.string().url("유효한 URL이어야 합니다.").optional(),
+    isEnterprise: z.boolean().optional(),
 });
 
 /**
  * 프로젝트 아이템 스키마
+ * 
+ * - period: "YYYY.MM ~ YYYY.MM" 형식 (Regex 검증)
+ * - links: 선택사항 ({ text, href } 객체 배열)
  */
 export const projectItemSchema = z.object({
     id: z.string(),

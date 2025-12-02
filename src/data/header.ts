@@ -7,10 +7,10 @@ import type { HeaderData } from "@/types";
  * - name: 표시될 이름
  * - title: 직함 또는 역할
  * - email: 이메일 주소 (클릭 시 클립보드에 복사)
- * - phone: 전화번호 (빈 문자열이면 표시되지 않음)
- * - github: GitHub 프로필 URL (빈 문자열이면 표시되지 않음)
- * - linkedin: LinkedIn 프로필 URL (빈 문자열이면 표시되지 않음)
- * - portfolio: 개인 웹사이트 URL (빈 문자열이면 표시되지 않음)
+ * - phone: 전화번호 (선택사항, 빈 문자열이면 표시되지 않음)
+ * - github: GitHub 프로필 URL (선택사항, 빈 문자열이면 표시되지 않음)
+ * - linkedin: LinkedIn 프로필 URL (선택사항, 빈 문자열이면 표시되지 않음)
+ * - portfolio: 개인 웹사이트 URL (선택사항, 빈 문자열이면 표시되지 않음)
  */
 export const headerData: HeaderData = {
     name: "하윤형",

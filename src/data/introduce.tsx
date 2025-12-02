@@ -1,5 +1,13 @@
 import React from "react";
 
+/**
+ * 소개 섹션 데이터
+ * 
+ * 이 파일을 수정하여 자기소개 내용을 변경할 수 있습니다.
+ * - title: 섹션 제목 (예: "Introduce.")
+ * - profileImage: 프로필 이미지 경로 (public/images 폴더 내)
+ * - content: 자기소개 본문 (ReactNode 배열, HTML 태그 사용 가능)
+ */
 export const introduceData = {
     title: "Introduce.",
     profileImage: "/images/profile.jpeg",

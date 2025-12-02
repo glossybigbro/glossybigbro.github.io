@@ -19,10 +19,12 @@
 export function parseRole(role: string): { label: string; value: string } {
     const colonIndex = role.indexOf(":");
 
+    // 콜론이 없으면 전체를 값으로 처리 (레이블 없음)
     if (colonIndex === -1) {
         return { label: "", value: role };
     }
 
+    // 콜론을 기준으로 레이블과 값 분리
     return {
         label: role.substring(0, colonIndex).trim(),
         value: role.substring(colonIndex + 1).trim(),
@@ -48,10 +50,12 @@ export function parseRole(role: string): { label: string; value: string } {
 export function parseDescription(description: string): { label?: string; value: string } {
     const colonIndex = description.indexOf(":");
 
+    // 콜론이 없으면 전체를 값으로 반환
     if (colonIndex === -1) {
         return { value: description };
     }
 
+    // 콜론을 기준으로 분리하여 레이블과 값 반환
     return {
         label: description.substring(0, colonIndex).trim(),
         value: description.substring(colonIndex + 1).trim(),
