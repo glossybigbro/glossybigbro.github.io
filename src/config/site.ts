@@ -32,7 +32,7 @@ export const siteConfig = {
      * public 폴더 기준 경로
      * 예: "/og-image.png"
      */
-    ogImage: "/og-image.png",
+    ogImage: "/images/profile.jpeg",
 
     /** 
      * 언어 설정 (HTML lang 속성)
