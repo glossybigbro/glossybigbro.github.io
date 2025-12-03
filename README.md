@@ -158,7 +158,7 @@ npm run dev
 
 ### 6️⃣ GitHub Pages 배포 설정
 
-**방법 1: GitHub Actions (권장)**
+### 방법 1: GitHub Actions (권장)
 
 1. GitHub Repository > `Settings` > `Pages`
 2. `Source`를 **GitHub Actions**로 선택
@@ -173,7 +173,7 @@ git push origin main
 4. `Actions` 탭에서 배포 진행 상황 확인
 5. 완료되면 `https://YOUR_USERNAME.github.io`에서 확인!
 
-**방법 2: 수동 배포 (선택사항)**
+### 방법 2: 수동 배포 (선택사항)
 
 ```bash
 npm run deploy
@@ -264,7 +264,7 @@ npm test
 
 ## 👤 작성자
 
-**하윤형 (Ha Yun-hyeong)**
+### 하윤형 (Ha Yun-hyeong)
 
 - Email: <glossy.bigbro@gmail.com>
 - GitHub: [@glossybigbro](https://github.com/glossybigbro)
