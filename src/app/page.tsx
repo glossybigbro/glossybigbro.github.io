@@ -18,7 +18,7 @@ import { articles } from "@/data/articles";
 export default function Home() {
   return (
     <main className="min-h-screen bg-background text-foreground selection:bg-accent selection:text-white">
-      <div className="container mx-auto px-6 pb-20 max-w-6xl">
+      <div className="container mx-auto px-6 pb-2 max-w-6xl">
         <HeaderSection data={headerData} />
         <IntroduceSection data={introduceData} />
         <ExperienceSection data={experienceData} />

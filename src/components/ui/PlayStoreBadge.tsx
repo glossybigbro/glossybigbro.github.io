@@ -1,7 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import { Icon } from "./Icon";
 import { cn } from "@/lib/utils";
 import { ICON_SIZES, FOCUS_RING_COLORS } from "@/constants/ui";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 /**
  * Google Play Store 배지 컴포넌트
@@ -38,19 +41,27 @@ export interface PlayStoreBadgeProps {
  * PlayStoreBadge 컴포넌트
  */
 export function PlayStoreBadge({ url, className }: PlayStoreBadgeProps) {
+    // 모바일 감지 (커스텀 훅 사용)
+    const isMobile = useIsMobile();
+
     return (
         <Link
             href={url}
             target="_blank"
             rel="noopener noreferrer"
             className={cn(
-                "playstore-badge",
+                "playstore-badge group",
+                // PC에서만 transition과 hover 효과 적용
+                !isMobile && "transition-all duration-200 hover:shadow-lg hover:scale-105 hover:border-green-600 dark:hover:border-green-300 hover:bg-green-50 dark:hover:bg-green-900",
                 FOCUS_RING_COLORS.GREEN,
                 className
             )}
             aria-label="Google Play에서 다운로드"
         >
-            <Icon name="playstore" size={ICON_SIZES.BADGE} />
+            <Icon
+                name="playstore"
+                size={ICON_SIZES.BADGE}
+            />
             <span>Google Play</span>
         </Link>
     );

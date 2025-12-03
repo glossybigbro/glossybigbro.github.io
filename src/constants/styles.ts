@@ -9,14 +9,14 @@
  * 링크 스타일
  */
 export const LINK_STYLES = {
-    /** 기본 링크 스타일 (호버 시 파란색) */
-    BASE: "hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200",
+    /** 기본 링크 스타일 (호버 시 파란색) - 모바일 제외 */
+    BASE: "sm:hover:text-blue-600 sm:dark:hover:text-blue-400 transition-colors duration-200",
 
-    /** 소셜 링크 스타일 (아이콘 링크용) */
-    SOCIAL: "hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded",
+    /** 소셜 링크 스타일 (아이콘 링크용) - 모바일 제외 */
+    SOCIAL: "sm:hover:text-blue-600 sm:dark:hover:text-blue-400 transition-colors duration-200 outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded",
 
-    /** 외부 링크 스타일 (밑줄 포함) */
-    EXTERNAL: "text-blue-500 hover:underline",
+    /** 외부 링크 스타일 (밑줄 포함) - 모바일 제외 */
+    EXTERNAL: "text-blue-500 sm:hover:underline",
 } as const;
 
 /**

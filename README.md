@@ -37,6 +37,12 @@ Next.js 16의 App Router와 Tailwind CSS v4를 활용하여 최신 웹 기술 �
 - **4-Way 테마 시스템**: Chrome 시스템 테마와 웹사이트 테마 토글을 모두 감지하여 4가지 조합에서 각각 다른 스타일 제공 (`@media (prefers-color-scheme)` + `.dark` 클래스)
 - **View Transitions API**: 랜덤 위치에서 원형으로 퍼져나가는 부드러운 테마 전환 애니메이션
 
+### 4. 모바일 UX 최적화 (Mobile UX Optimization)
+
+- **useIsMobile 훅**: User Agent 기반 모바일 기기 감지로 터치 디바이스와 마우스 디바이스를 구분합니다.
+- **조건부 호버 효과**: 데스크탑에서만 호버 애니메이션을 활성화하여 모바일에서 터치 후 스타일이 남는 문제를 방지합니다.
+- **일관된 인터랙션**: 모든 버튼과 링크가 기기 타입에 맞는 최적화된 사용자 경험을 제공합니다.
+
 ---
 
 ## 🛠️ 기술 스택 (Tech Stack)

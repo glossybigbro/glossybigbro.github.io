@@ -61,13 +61,12 @@ export function ProjectSection({ data }: ProjectSectionProps) {
                                         );
                                     })}
 
-                                    {/* 관련 링크 렌더링 */}
                                     {project.links?.map((link, i) => (
                                         <li key={`link-${i}`} className="list-none -ml-5">
                                             <Link
                                                 href={link.href}
                                                 target="_blank"
-                                                className="text-blue-500 hover:underline flex items-center gap-1"
+                                                className="text-blue-500 sm:hover:underline flex items-center gap-1"
                                             >
                                                 • {link.text}
                                             </Link>
