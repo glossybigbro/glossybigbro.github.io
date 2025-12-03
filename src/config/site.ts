@@ -17,9 +17,9 @@ export const siteConfig = {
 
     /** 
      * 사이트 설명 (SEO용, 검색 결과에 표시)
-     * 예: "Senior Android Developer 하윤형의 이력서"
+     * 예: "Senior Android Developer | 하윤형의 이력서"
      */
-    description: "Senior Android Developer 하윤형의 이력서",
+    description: "Senior Android Developer | 하윤형의 이력서",
 
     /** 
      * 사이트 URL (배포된 주소)
@@ -44,6 +44,49 @@ export const siteConfig = {
      * 작성자 이름
      */
     author: "하윤형",
+
+    /**
+     * 기본 키워드 (SEO)
+     * skills.ts에서 가져온 키워드와 병합됩니다.
+     */
+    keywords: [
+        // Core
+        "Resume",
+        "Portfolio",
+        "Android Developer",
+        "Mobile App Developer",
+        "Kotlin",
+        "Java",
+
+        // Modern Android
+        "Jetpack Compose",
+        "Coroutines",
+        "Flow",
+        "Hilt",
+        "Dagger",
+        "Retrofit",
+
+        // Architecture
+        "Clean Architecture",
+        "MVVM",
+        "MVI",
+        "Modularization",
+
+        // Korean Keywords
+        "안드로이드 개발자",
+        "앱 개발자",
+        "모바일 앱 개발",
+        "포트폴리오",
+        "이력서",
+        "하윤형",
+    ],
+
+    /**
+     * 소셜 링크 및 외부 링크
+     */
+    links: {
+        github: "https://github.com/glossybigbro",
+    },
 } as const;
 
 /**

@@ -43,6 +43,12 @@ Next.js 16의 App Router와 Tailwind CSS v4를 활용하여 최신 웹 기술 �
 - **조건부 호버 효과**: 데스크탑에서만 호버 애니메이션을 활성화하여 모바일에서 터치 후 스타일이 남는 문제를 방지합니다.
 - **일관된 인터랙션**: 모든 버튼과 링크가 기기 타입에 맞는 최적화된 사용자 경험을 제공합니다.
 
+### 5. 검색 엔진 최적화 (SEO Optimization)
+
+- **동적 메타데이터 생성**: `src/config/site.ts`와 `src/data/skills.ts`의 데이터를 결합하여 풍부한 메타데이터(Open Graph, Twitter Cards)를 자동 생성합니다.
+- **자동 사이트맵/Robots 생성**: 빌드 시점에 `sitemap.xml`과 `robots.txt`를 자동으로 생성하여 검색 엔진 색인을 돕습니다.
+- **스마트 키워드 추출**: 보유 기술 스택(`skills.ts`)을 자동으로 SEO 키워드로 변환하여, 실제 역량과 검색 결과의 일치도를 높였습니다.
+
 ---
 
 ## 🛠️ 기술 스택 (Tech Stack)
@@ -164,11 +170,11 @@ npm run dev
 2. `Source`를 **GitHub Actions**로 선택
 3. 코드를 `main` 브랜치에 푸시하면 자동 배포됩니다
 
-```bash
-git add .
-git commit -m "feat: 내 이력서로 커스터마이징"
-git push origin main
-```
+   ```bash
+   git add .
+   git commit -m "feat: 내 이력서로 커스터마이징"
+   git push origin main
+   ```
 
 4. `Actions` 탭에서 배포 진행 상황 확인
 5. 완료되면 `https://YOUR_USERNAME.github.io`에서 확인!

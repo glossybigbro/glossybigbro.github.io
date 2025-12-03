@@ -101,3 +101,11 @@ export const skillsData: SkillCategory[] = [
         ],
     },
 ];
+
+/**
+ * 모든 기술 스택을 평탄화하여 반환합니다.
+ * SEO 키워드 생성 등에 사용됩니다.
+ */
+export const getAllSkills = (): string[] => {
+    return skillsData.flatMap((category) => category.skills);
+};
