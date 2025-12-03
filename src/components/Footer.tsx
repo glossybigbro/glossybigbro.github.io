@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Icon } from "./ui/Icon";
+import { SectionDivider } from "./ui/SectionDivider";
 import { useIsMobile } from "@/hooks/useIsMobile";
 import { cn } from "@/lib/utils";
 
@@ -15,10 +16,11 @@ export function Footer() {
     const isMobile = useIsMobile();
 
     return (
-        <footer className="mt-8 sm:mt-8">
-            <div className="max-w-4xl mx-auto px-6 py-10">
-                {/* 상단 구분선 - 섹션과 조화 */}
-                <div className="w-full h-px bg-border/50 mb-10" />
+        <footer className="mt-24 sm:mt-24">
+            {/* 상단 구분선 - 섹션과 조화 */}
+            <SectionDivider className="py-0" />
+
+            <div className="px-6 py-8">
 
                 <div className="flex flex-col items-center text-center space-y-6">
                     {/* 메인 메시지 */}

@@ -25,8 +25,8 @@ export default function Home() {
         <ProjectSection data={projectsData} />
         <SkillSection data={skillsData} />
         <WritingSection data={articles} />
+        <Footer />
       </div>
-      <Footer />
     </main>
   );
 }
