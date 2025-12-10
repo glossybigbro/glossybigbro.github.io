@@ -12,10 +12,10 @@ import type { ArticleItem } from "@/types";
  */
 export const articles: ArticleItem[] = [
     {
-        text: "[OKR과 애자일: 변화의 시작과 도전]",
-        href: "https://example.com",
+        text: "[OKR + 애자일로 3개월 만에 조직을 바꾼 방법]",
+        href: "https://velog.io/@glossybigbro/OKR-%EC%95%A0%EC%9E%90%EC%9D%BC%EB%A1%9C-3%EA%B0%9C%EC%9B%94-%EB%A7%8C%EC%97%90-%EC%A1%B0%EC%A7%81%EC%9D%84-%EB%B0%94%EA%BE%BC-%EB%B0%A9%EB%B2%95",
         summary:
-            "리브랜딩 과정에서 도입된 OKR과 애자일 체제 속에서, 스쿼드 팀장으로서 겪은 변화와 적응 과정을 담았습니다. 3개월 단위의 목표 설정, 스프린트 실행, 그리고 JIRA를 활용한 투명한 협업을 통해 '팀 전체가 하나의 목표를 향해 달리는 문화'를 만들어간 경험기입니다.",
-        keywords: ["OKR", "Agile", "Scrum", "Team Building"],
+            "이거 제 일 아닌데요? 서로 미루던 조직이 '되는 방법'을 먼저 제안하기까지. 막연한 탑다운 지시 대신 3개월 단위의 OKR 정렬을 도입하여, 개발자가 기획에 참여하고 디자이너가 공수를 고민하게 만든 스쿼드팀의 실전 변화 기록입니다.",
+        keywords: ["OKR", "애자일", "스타트업", "조직문화", "일하는 방식"],
     },
 ];
