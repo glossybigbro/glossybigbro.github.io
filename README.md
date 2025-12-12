@@ -53,19 +53,22 @@
 ### 🗺️ 로드맵 시각화
 
 ```mermaid
-graph LR
-    A[Phase 1<br/>설정 통합<br/>✅] --> B[Phase 2<br/>문서화<br/>✅]
-    B --> C[Phase 3<br/>CLI 생성기<br/>🚧]
-    C --> D[Phase 4<br/>배포 자동화<br/>🚧]
-    D --> E[Phase 5<br/>테마 시스템<br/>🚧]
-    E --> F[Phase 6<br/>CMS 통합<br/>🚧]
+%%{init: {'theme':'base', 'themeVariables': { 'primaryColor':'#4ade80','primaryTextColor':'#fff','primaryBorderColor':'#22c55e','lineColor':'#94a3b8','secondaryColor':'#fbbf24','tertiaryColor':'#f3f4f6'}}}%%
+flowchart TD
+    A["✅ Phase 1: 설정 파일 통합<br/><small>한 파일만 수정하면 끝!</small>"]
+    B["✅ Phase 2: 문서화 강화<br/><small>친절한 가이드 제공</small>"]
+    C["🚧 Phase 3: CLI 생성기<br/><small>명령어로 자동 생성</small>"]
+    D["🚧 Phase 4: 배포 자동화<br/><small>원클릭 배포</small>"]
+    E["🚧 Phase 5: 테마 시스템<br/><small>다양한 디자인 선택</small>"]
+    F["🚧 Phase 6: CMS 통합<br/><small>코드 없이 관리</small>"]
     
-    style A fill:#4ade80
-    style B fill:#4ade80
-    style C fill:#fbbf24
-    style D fill:#fbbf24
-    style E fill:#fbbf24
-    style F fill:#fbbf24
+    A --> B --> C --> D --> E --> F
+    
+    classDef completed fill:#4ade80,stroke:#22c55e,stroke-width:3px,color:#fff
+    classDef inProgress fill:#fbbf24,stroke:#f59e0b,stroke-width:2px,color:#000
+    
+    class A,B completed
+    class C,D,E,F inProgress
 ```
 
 ---
