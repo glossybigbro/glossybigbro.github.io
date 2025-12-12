@@ -1,9 +1,72 @@
 # 🎯 이력서 웹사이트
 
-> **하윤형**의 개인 이력서 웹사이트  
+> **5분 만에 나만의 이력서 웹사이트 만들기** ✨  
 > Next.js 16 + Tailwind CSS v4로 구축한 모던 웹 이력서
 
 🔗 **Live**: [https://glossybigbro.github.io/](https://glossybigbro.github.io/)
+
+---
+
+## 🎯 왜 이 템플릿인가?
+
+이 프로젝트는 단순한 이력서 템플릿을 넘어, **누구나 쉽게 자신만의 이력서 웹사이트를 만들 수 있도록** 6단계로 진화하고 있습니다:
+
+### ✅ Phase 1: 설정 파일 통합 (완료)
+
+- **문제**: 여러 파일을 찾아다니며 수정해야 함
+- **해결**: 한 파일만 수정하면 모든 정보가 업데이트
+- **효과**: 초보자도 5분 만에 커스터마이징 가능
+
+### ✅ Phase 2: 문서화 강화 (완료)
+
+- **문제**: 초보자는 어디서부터 시작해야 할지 모름
+- **해결**: 상세한 가이드, 예시 템플릿, FAQ 제공
+- **효과**: 코딩 경험 없어도 따라할 수 있는 친절한 문서
+
+### 🚧 Phase 3: CLI 템플릿 생성기 (진행 예정)
+
+- **문제**: 코드를 직접 수정하는 것도 부담스러움
+- **해결**: 대화형 질문에 답하면 자동으로 파일 생성
+- **효과**: `npm run create-resume` 명령어 하나로 완성
+
+### 🚧 Phase 4: 배포 자동화 개선 (진행 예정)
+
+- **문제**: 배포 과정이 복잡하고 플랫폼마다 다름
+- **해결**: 원클릭으로 GitHub Pages, Vercel, Netlify에 배포
+- **효과**: 비개발자도 쉽게 배포 가능
+
+### 🚧 Phase 5: 테마 시스템 확장 (진행 예정)
+
+- **문제**: 디자인을 바꾸려면 CSS를 알아야 함
+- **해결**: Minimal, Modern, Classic, Creative 등 다양한 테마 제공
+- **효과**: 설정 파일에서 테마만 선택하면 완전히 다른 디자인
+
+### 🚧 Phase 6: CMS 통합 (진행 예정)
+
+- **문제**: 코드를 수정하는 것 자체가 어려움
+- **해결**: Notion이나 웹 인터페이스에서 클릭만으로 관리
+- **효과**: 코드 한 줄 없이 이력서 업데이트
+
+> 💡 **현재 진행 상황**: Phase 1-2 완료! 이미 사용 가능한 템플릿입니다.  
+> Phase 3-6는 순차적으로 개발 중이며, 각 단계마다 더 쉽고 편리해집니다.
+
+### 🗺️ 로드맵 시각화
+
+```mermaid
+graph LR
+    A[Phase 1<br/>설정 통합<br/>✅] --> B[Phase 2<br/>문서화<br/>✅]
+    B --> C[Phase 3<br/>CLI 생성기<br/>🚧]
+    C --> D[Phase 4<br/>배포 자동화<br/>🚧]
+    D --> E[Phase 5<br/>테마 시스템<br/>🚧]
+    E --> F[Phase 6<br/>CMS 통합<br/>🚧]
+    
+    style A fill:#4ade80
+    style B fill:#4ade80
+    style C fill:#fbbf24
+    style D fill:#fbbf24
+    style E fill:#fbbf24
+    style F fill:#fbbf24
+```
 
 ---
 
@@ -15,7 +78,7 @@ Next.js 16의 App Router와 Tailwind CSS v4를 활용하여 최신 웹 기술 �
 
 ---
 
-## 🏗️ 아키텍처 및 엔지니어링 (Architecture & Engineering)
+## �🏗️ 아키텍처 및 엔지니어링 (Architecture & Engineering)
 
 이 프로젝트는 단순한 정적 사이트가 아닙니다. 유지보수성과 확장성을 고려하여 **엔터프라이즈급 아키텍처**를 적용했습니다.
 
@@ -311,3 +374,106 @@ Fork하여 본인의 이력서로 만들어 사용하세요!
 
 - Email: <glossy.bigbro@gmail.com>
 - GitHub: [@glossybigbro](https://github.com/glossybigbro)
+
+## 🔧 문제 해결 (Troubleshooting)
+
+### ❌ 빌드가 실패해요
+
+**증상**: `npm run build` 실행 시 에러 발생
+
+**해결 방법**:
+
+1. Node.js 버전 확인
+
+   ```bash
+   node --version  # 16.x 이상이어야 함
+   ```
+
+2. 의존성 재설치
+
+   ```bash
+   rm -rf node_modules package-lock.json
+   npm install
+   ```
+
+3. 캐시 삭제
+
+   ```bash
+   npm run clean  # 또는 rm -rf .next
+   ```
+
+### ❌ 배포 후 404 에러가 나요
+
+**증상**: GitHub Pages에서 페이지가 안 보임
+
+**해결 방법**:
+
+1. Repository 이름 확인
+   - `YOUR_USERNAME.github.io` 형식이어야 함
+   - 다른 이름이면 `next.config.ts`에서 `basePath` 설정 필요
+
+2. GitHub Pages 설정 확인
+   - Settings > Pages > Source를 "GitHub Actions"로 설정
+   - `main` 브랜치에 코드가 푸시되어 있는지 확인
+
+3. Actions 탭에서 배포 로그 확인
+   - 빌드 에러가 있는지 확인
+
+### ❌ 데이터 수정했는데 반영이 안 돼요
+
+**증상**: `resume.config.tsx` 수정 후에도 변경사항이 안 보임
+
+**해결 방법**:
+
+1. 개발 서버 재시작
+
+   ```bash
+   # Ctrl+C로 중단 후
+   npm run dev
+   ```
+
+2. 브라우저 캐시 삭제 (Cmd+Shift+R 또는 Ctrl+Shift+R)
+3. `.next` 폴더 삭제 후 재빌드
+
+   ```bash
+   rm -rf .next
+   npm run dev
+   ```
+
+### ❌ 이미지가 안 보여요
+
+**증상**: 프로필 이미지나 다른 이미지가 표시되지 않음
+
+**해결 방법**:
+
+1. 이미지 경로 확인
+   - `public/images/` 폴더에 이미지가 있는지 확인
+   - 파일명 대소문자 정확히 일치하는지 확인
+
+2. 이미지 형식 확인
+   - `.jpg`, `.jpeg`, `.png`, `.webp` 지원
+   - 파일 크기가 너무 크지 않은지 확인 (권장: 1MB 이하)
+
+### ❌ 타입 에러가 발생해요
+
+**증상**: TypeScript 타입 에러
+
+**해결 방법**:
+
+1. `resume.config.tsx`의 데이터 형식 확인
+   - 각 필드가 올바른 타입인지 확인
+   - 필수 필드가 누락되지 않았는지 확인
+
+2. 예시 템플릿 참고
+
+   ```bash
+   # resume.config.example.tsx 파일 참고
+   ```
+
+### 💡 그래도 해결이 안 된다면?
+
+1. [GitHub Issues](https://github.com/glossybigbro/glossybigbro.github.io/issues)에 질문 남기기
+2. 에러 메시지 전체를 복사해서 공유하기
+3. 어떤 단계에서 문제가 발생했는지 설명하기
+
+---
