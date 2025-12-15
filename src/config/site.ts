@@ -106,3 +106,4 @@ export const themeConfig = {
      */
     transitionDuration: 300,
 } as const;
+

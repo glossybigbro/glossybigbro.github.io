@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Icon } from "./ui/Icon";
 import { SectionDivider } from "./ui/SectionDivider";
 import { useIsMobile } from "@/hooks/useIsMobile";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { cn } from "@/lib/utils";
 
 /**
@@ -11,9 +12,14 @@ import { cn } from "@/lib/utils";
  * 
  * 페이지 하단에 표시되는 푸터로, GitHub 저장소 링크와
  * 템플릿 사용 안내를 제공합니다.
+ * 
+ * **다국어 지원**:
+ * - LanguageContext의 `t()` 함수를 사용하여 번역
+ * - 한국어/영어 자동 전환
  */
 export function Footer() {
     const isMobile = useIsMobile();
+    const { t } = useLanguage();
 
     return (
         <footer className="mt-24 sm:mt-24">
@@ -26,11 +32,11 @@ export function Footer() {
                     {/* 메인 메시지 */}
                     <div className="space-y-3">
                         <h3 className="text-xl font-bold text-foreground">
-                            이 이력서 템플릿이 마음에 드시나요?
+                            {t('footer.title')}
                         </h3>
                         <p className="text-sm text-muted-foreground max-w-2xl leading-relaxed">
-                            GitHub에서 포크하여 나만의 이력서를 만들어보세요.<br />
-                            <span className="text-xs opacity-80">Next.js 16 + Tailwind CSS v4 • 4-Way 테마 시스템 • View Transitions API</span>
+                            {t('footer.description')}<br />
+                            <span className="text-xs opacity-80">{t('footer.features')}</span>
                         </p>
                     </div>
 
@@ -45,7 +51,7 @@ export function Footer() {
                         )}
                     >
                         <Icon name="github" size={24} className={cn("transition-transform duration-300", !isMobile && "group-hover:rotate-12")} />
-                        <span className="text-base">GitHub에서 보기</span>
+                        <span className="text-base">{t('footer.button')}</span>
                         <svg
                             className={cn("w-4 h-4 transition-transform duration-300", !isMobile && "group-hover:translate-x-1")}
                             fill="none"
@@ -58,8 +64,8 @@ export function Footer() {
 
                     {/* 추가 정보 */}
                     <div className="pt-2 text-xs text-muted-foreground space-y-1">
-                        <p className="font-medium">Built with Modern Web Technologies</p>
-                        <p className="opacity-70">Next.js • Tailwind CSS • TypeScript • Zod • Vitest</p>
+                        <p className="font-medium">{t('footer.builtWith')}</p>
+                        <p className="opacity-70">{t('footer.techStack')}</p>
                     </div>
                 </div>
             </div>
