@@ -1,23 +1,17 @@
-import type { HeaderData } from "@/types";
-
 /**
  * 헤더 섹션 데이터
  * 
- * 이 파일을 수정하여 개인 정보를 변경할 수 있습니다.
- * - name: 표시될 이름
- * - title: 직함 또는 역할
- * - email: 이메일 주소 (클릭 시 클립보드에 복사)
- * - phone: 전화번호 (선택사항, 빈 문자열이면 표시되지 않음)
- * - github: GitHub 프로필 URL (선택사항, 빈 문자열이면 표시되지 않음)
- * - linkedin: LinkedIn 프로필 URL (선택사항, 빈 문자열이면 표시되지 않음)
- * - portfolio: 개인 웹사이트 URL (선택사항, 빈 문자열이면 표시되지 않음)
+ * ⚠️ 이 파일은 더 이상 직접 수정하지 마세요!
+ * 대신 `src/resume.config.ko.tsx` 또는 `src/resume.config.en.tsx` 파일의 `header` 섹션을 수정하세요.
+ * 
+ * 이 파일은 하위 호환성을 위해 유지되며, 현재 언어에 맞는 설정 파일에서 데이터를 가져옵니다.
  */
-export const headerData: HeaderData = {
-    name: "하윤형",
-    title: "Senior Android Developer",
-    email: "glossy.bigbro@gmail.com",
-    phone: "",
-    github: "https://github.com/glossybigbro",
-    linkedin: "https://www.linkedin.com/in/yunhyeong-ha",
-    portfolio: "",
-};
+import { getResumeConfig } from "@/resume.config";
+import type { HeaderData } from "@/types";
+
+export function getHeaderData(language: 'ko' | 'en'): HeaderData {
+    return getResumeConfig(language).header;
+}
+
+// 기본 export (한국어) - 하위 호환성
+export { header as headerData } from "@/resume.config";

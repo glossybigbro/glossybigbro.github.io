@@ -234,19 +234,44 @@ GitHub Pages를 `https://YOUR_USERNAME.github.io` 주소로 사용하려면:
 
 > **참고:** 다른 이름(예: `my-portfolio`)을 사용하려면 `next.config.ts`의 `basePath` 주석을 해제하고 수정해야 합니다.
 
-### 3️⃣ 데이터 수정
+### 3️⃣ 데이터 수정 (가장 중요!)
 
-`src/data/` 폴더의 파일들을 본인의 정보로 수정합니다:
+**🎯 `src/resume.config.tsx` 파일 하나만 수정하면 됩니다!**
 
-> ⚠️ **주의**: 현재 main 브랜치는 옛날 방식입니다.  
-> **Phase 1-2가 병합되면** `src/resume.config.tsx` 파일 하나만 수정하면 됩니다!
+이 파일에 모든 이력서 정보가 통합되어 있습니다:
 
-- `header.ts`: 이름, 이메일, GitHub 링크 등
-- `introduce.tsx`: 자기소개 내용
-- `experience.ts`: 경력 사항
-- `projects.ts`: 프로젝트 목록
-- `skills.ts`: 보유 기술
-- `articles.ts`: 작성한 글
+```typescript
+// src/resume.config.tsx
+
+// 📌 헤더 정보
+export const header: HeaderData = {
+    name: "당신의 이름",
+    title: "당신의 직함",
+    email: "your@email.com",
+    github: "https://github.com/username",
+    // ...
+};
+
+// 📌 자기소개
+export const introduce = {
+    title: "Introduce.",
+    profileImage: "/images/profile.jpeg",
+    content: [
+        <p key="p1">
+            당신의 자기소개를 작성하세요...
+        </p>,
+        // ...
+    ]
+};
+
+// 📌 경력, 프로젝트, 기술, 작성글도 동일하게 수정
+export const experience: ExperienceItem[] = [ /* ... */ ];
+export const projects: ProjectItem[] = [ /* ... */ ];
+export const skills: SkillCategory[] = [ /* ... */ ];
+export const articles: ArticleItem[] = [ /* ... */ ];
+```
+
+> 💡 **Tip**: `src/resume.config.example.tsx` 파일을 참고하세요!
 
 ### 4️⃣ 프로필 이미지 교체
 
