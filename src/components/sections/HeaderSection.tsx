@@ -4,6 +4,7 @@ import { useState } from "react";
 import { HeaderData } from "@/types";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { SocialLink } from "@/components/ui/SocialLink";
 import { Icon } from "@/components/ui/Icon";
 import { LINK_STYLES, FOCUS_STYLES, TEXT_COLORS } from "@/constants/styles";
@@ -41,11 +42,15 @@ export function HeaderSection({ data }: HeaderSectionProps) {
                 </div>
 
                 <div className="flex flex-col items-end gap-1 sm:gap-2 text-sm sm:text-lg ml-auto flex-shrink-0">
-                    <div className="flex items-center gap-2 justify-end">
+                    <div className="flex items-center gap-2 sm:gap-3 justify-end">
                         <div className="flex gap-2 sm:gap-4 text-foreground">
                             <SocialLink type="github" href={data.github} />
                             <SocialLink type="linkedin" href={data.linkedin} />
                             <SocialLink type="portfolio" href={data.portfolio} />
+                        </div>
+                        <div className="h-5 sm:h-6 w-px bg-muted-foreground/20" />
+                        <div className="flex gap-2 sm:gap-3 text-foreground">
+                            <LanguageSwitcher />
                             <ThemeToggle />
                         </div>
                     </div>
