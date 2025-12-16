@@ -9,16 +9,19 @@ import { calculateTotalCareer } from "@/utils/career";
 import { parseDescription } from "@/utils/formatters";
 import { DIVIDER_STYLES } from "@/constants/styles";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface ExperienceSectionProps {
     data: ExperienceItem[];
 }
 
 export function ExperienceSection({ data }: ExperienceSectionProps) {
+    const { language } = useLanguage();
+
     // 총 경력 기간 계산 (데이터가 변경될 때만 재계산)
     const totalDuration = useMemo(() => {
-        return calculateTotalCareer(data);
-    }, [data]);
+        return calculateTotalCareer(data, language);
+    }, [data, language]);
 
     // 설명 텍스트 파싱 및 렌더링 (형식: "Label: Value")
     const renderDescription = (text: string) => {
@@ -40,7 +43,7 @@ export function ExperienceSection({ data }: ExperienceSectionProps) {
             <div className="flex items-end gap-3 mb-2">
                 <div className="text-3xl sm:text-4xl font-bold">Experience.</div>
                 <div className="text-muted-foreground italic pb-1">
-                    총 경력: {totalDuration}
+                    {language === 'ko' ? '총 경력:' : 'Total Experience:'} {totalDuration}
                 </div>
             </div>
             <div className="mb-4"><SectionDivider variant="title" /></div>

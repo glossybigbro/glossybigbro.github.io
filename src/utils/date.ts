@@ -25,17 +25,30 @@ export function calculateMonthsBetween(start: Date, end: Date): number {
 /**
  * 개월 수를 "N년 M개월" 형식의 문자열로 변환합니다.
  * @param totalMonths - 총 개월 수
+ * @param language - 언어 설정 ('ko' | 'en'), 기본값은 'ko'
  * @returns 포맷된 기간 문자열
  */
-export function formatDuration(totalMonths: number): string {
+export function formatDuration(totalMonths: number, language: 'ko' | 'en' = 'ko'): string {
     const years = Math.floor(totalMonths / 12);
     const months = totalMonths % 12;
 
     if (years === 0 && months === 0) {
-        return "신입";
+        return language === 'ko' ? "신입" : "Entry Level";
     }
-    if (years > 0) {
-        return months > 0 ? `${years}년 ${months}개월` : `${years}년`;
+
+    if (language === 'ko') {
+        if (years > 0) {
+            return months > 0 ? `${years}년 ${months}개월` : `${years}년`;
+        }
+        return `${months}개월`;
+    } else {
+        // English
+        const yearText = years === 1 ? 'year' : 'years';
+        const monthText = months === 1 ? 'month' : 'months';
+
+        if (years > 0) {
+            return months > 0 ? `${years} ${yearText} ${months} ${monthText}` : `${years} ${yearText}`;
+        }
+        return `${months} ${monthText}`;
     }
-    return `${months}개월`;
 }
