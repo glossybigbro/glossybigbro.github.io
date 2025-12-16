@@ -9,9 +9,10 @@ interface ExperiencePeriod {
  * 겹치는 기간은 한 번만 계산됩니다.
  * 
  * @param data - 경력 데이터 배열
- * @returns "N년 M개월" 형식의 총 경력 문자열
+ * @param language - 언어 설정 ('ko' | 'en'), 기본값은 'ko'
+ * @returns "N년 M개월" 또는 "N years M months" 형식의 총 경력 문자열
  */
-export function calculateTotalCareer<T extends ExperiencePeriod>(data: T[]): string {
+export function calculateTotalCareer<T extends ExperiencePeriod>(data: T[], language: 'ko' | 'en' = 'ko'): string {
     const periods = data.map((item) => {
         const [startStr, endStr] = item.period.split(/~|-/).map((s) => s.trim());
         return {
@@ -49,6 +50,6 @@ export function calculateTotalCareer<T extends ExperiencePeriod>(data: T[]): str
         totalMonths += calculateMonthsBetween(period.start, period.end);
     }
 
-    // 4. "N년 M개월" 형식으로 변환하여 반환
-    return formatDuration(totalMonths);
+    // 4. "N년 M개월" 또는 "N years M months" 형식으로 변환하여 반환
+    return formatDuration(totalMonths, language);
 }
