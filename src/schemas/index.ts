@@ -83,12 +83,19 @@ export const skillCategorySchema = z.object({
 
 /**
  * 아티클 아이템 스키마
+ * 
+ * @property text - 글 제목
+ * @property href - 글 URL
+ * @property summary - 글 요약 (선택사항)
+ * @property keywords - 관련 키워드/태그 (선택사항)
+ * @property seriesName - 시리즈 이름 (선택사항, 예: "Android 개발자의 웹 개발 도전기")
  */
 export const articleItemSchema = z.object({
     text: z.string(),
     href: z.string().url("유효한 URL이어야 합니다."),
     summary: z.string().optional(),
     keywords: z.array(z.string()).optional(),
+    seriesName: z.string().optional(),
 });
 
 // 타입 추출 (z.infer 사용)

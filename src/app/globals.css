@@ -304,6 +304,59 @@
   }
 }
 
+/* Series Badge - Purple/Indigo */
+.series-badge {
+  /* Chrome Light + Website Light */
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  border-width: 2px;
+  border-color: rgb(196 181 253);
+  /* purple-300 */
+  background-color: rgb(243 232 255);
+  /* purple-100 */
+  color: rgb(88 28 135);
+  /* purple-900 */
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+}
+
+.dark .series-badge {
+  /* Chrome Light + Website Dark */
+  border-color: rgb(167 139 250);
+  /* purple-400 */
+  background-color: rgb(88 28 135);
+  /* purple-900 */
+  color: rgb(243 232 255);
+  /* purple-100 */
+}
+
+@media (prefers-color-scheme: dark) {
+  .series-badge {
+    /* Chrome Dark + Website Light */
+    border-color: rgb(196 181 253);
+    /* purple-300 */
+    background-color: rgb(237 233 254);
+    /* purple-50 */
+    color: rgb(76 29 149);
+    /* purple-950 */
+  }
+
+  .dark .series-badge {
+    /* Chrome Dark + Website Dark */
+    border-color: rgb(147 51 234);
+    /* purple-600 */
+    background-color: rgb(59 7 100);
+    /* purple-950 */
+    color: rgb(216 180 254);
+    /* purple-300 */
+  }
+}
+
+
 /* Footer GitHub Button - 4-Way Theme System (Enhanced) */
 .footer-github-button {
   /* Chrome Light + Website Light */

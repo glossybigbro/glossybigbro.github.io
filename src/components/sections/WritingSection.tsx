@@ -4,6 +4,7 @@ import { ArticleItem } from "@/types";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
 import { SectionDivider } from "@/components/ui/SectionDivider";
 import { Tag } from "@/components/ui/Tag";
+import { SeriesBadge } from "@/components/ui/SeriesBadge";
 import { useIsMobile } from "@/hooks/useIsMobile";
 import { cn } from "@/lib/utils";
 
@@ -38,6 +39,9 @@ export function WritingSection({ data }: WritingSectionProps) {
                             !isMobile && "group hover:shadow-md hover:border-primary/50 hover:-translate-y-0.5"
                         )}
                     >
+                        {article.seriesName && (
+                            <SeriesBadge seriesName={article.seriesName} />
+                        )}
                         <div className={cn(
                             "text-xl font-bold mb-2 transition-colors",
                             !isMobile && "group-hover:text-primary"

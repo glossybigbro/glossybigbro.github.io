@@ -376,8 +376,16 @@ export const getAllSkills = (): string[] => {
  * @property href - 글 URL
  * @property summary - 글 요약 (선택사항)
  * @property keywords - 관련 키워드/태그 (선택사항)
+ * @property seriesName - 시리즈 이름 (선택사항, 시리즈 뱃지로 표시됨)
  */
 export const articles: ArticleItem[] = [
+    {
+        text: "1편. 어? 이거 Kotlin이랑 똑같잖아?",
+        href: "https://velog.io/@glossybigbro/1%ED%8E%B8.-%EC%96%B4-%EC%9D%B4%EA%B1%B0-Kotlin%EC%9D%B4%EB%9E%91-%EB%98%91%EA%B0%99%EC%9E%96%EC%95%84",
+        summary: "Android 개발자가 웹 개발에 도전하며 발견한 Kotlin↔TypeScript, Compose↔React의 놀라운 유사점.",
+        keywords: ["Android", "Kotlin", "Web", "Next.js", "TypeScript"],
+        seriesName: "Android 개발자의 웹 개발 도전기",
+    },
     {
         text: "[OKR + 애자일로 3개월 만에 조직을 바꾼 방법]",
         href: "https://velog.io/@glossybigbro/OKR-%EC%95%A0%EC%9E%90%EC%9D%BC%EB%A1%9C-3%EA%B0%9C%EC%9B%94-%EB%A7%8C%EC%97%90-%EC%A1%B0%EC%A7%81%EC%9D%84-%EB%B0%94%EA%BE%BC-%EB%B0%A9%EB%B2%95",
