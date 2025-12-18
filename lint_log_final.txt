@@ -1,0 +1,14 @@
+
+> portfolio@0.1.0 lint
+> eslint
+
+
+/Users/mozzmily/glossybigbro/glossybigbro.github.io/src/app/layout.tsx
+   7:7  warning  'geistSans' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  12:7  warning  'geistMono' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/mozzmily/glossybigbro/glossybigbro.github.io/src/hooks/useClipboard.ts
+  30:18  warning  'err' is defined but never used  @typescript-eslint/no-unused-vars
+
+✖ 3 problems (0 errors, 3 warnings)
+

@@ -12,6 +12,7 @@ export function ThemeToggle() {
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setMounted(true);
     }, []);
 
@@ -40,8 +41,8 @@ export function ThemeToggle() {
         <button
             onClick={toggleTheme}
             className={cn(
-                "transition-colors duration-200",
-                !isMobile && "hover:text-blue-600 dark:hover:text-blue-400" // PC에만 호버 효과
+                "relative inline-flex items-center justify-center transition-colors duration-200",
+                !isMobile && "icon-hover" // PC에만 호버 효과
             )}
             aria-label={isDark ? "라이트 모드로 전환" : "다크 모드로 전환"}
             title={isDark ? "라이트 모드로 전환" : "다크 모드로 전환"}
