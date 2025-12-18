@@ -21,18 +21,14 @@ import type { HeaderData, ExperienceItem, ProjectItem, SkillCategory, ArticleIte
  * 웹사이트 상단에 표시될 기본 정보
  * 
  * @property name - 이름
- * @property title - 직함 또는 역할 (예: "Senior Android Developer")
  * @property email - 이메일 주소 (클릭 시 클립보드에 복사됨)
- * @property phone - 전화번호 (선택사항, 빈 문자열이면 표시 안 됨)
  * @property github - GitHub 프로필 URL (선택사항)
  * @property linkedin - LinkedIn 프로필 URL (선택사항)
  * @property portfolio - 개인 웹사이트 URL (선택사항)
  */
 export const header: HeaderData = {
-    name: "Yunhyeong Ha",
-    title: "Senior Android Developer",
+    name: "Glossybigbro.",
     email: "glossy.bigbro@gmail.com",
-    phone: "",
     github: "https://github.com/glossybigbro",
     linkedin: "https://www.linkedin.com/in/yunhyeong-ha",
     portfolio: "",
@@ -59,7 +55,7 @@ export const introduce = {
             I believe project success comes from <strong className="font-bold">user satisfaction and team growth</strong>. When efficient collaboration and smooth communication support the team, we can truly <strong className="font-bold">achieve business goals</strong> and create services that satisfy users. As a <strong className="font-bold">proactive developer</strong>, I solve team challenges and support every member to perform at their best.
         </p>,
         <p key="p3">
-            <strong className="font-bold">'Action', 'Consistency', and 'Habit Formation'</strong>. These three keywords define my approach to work and life. Physical strength built through running and weight training translates into <strong className="font-bold">tireless focus</strong> at work, while extensive reading and continuous exploration of new technologies lead to <strong className="font-bold">flexible thinking and technical vision</strong>. I believe that small repetitions become habits, then attitudes, and ultimately <strong className="font-bold">irreplaceable skills</strong>. Daily focus and consistency accumulated silently create <strong className="font-bold">significant changes in teams and services</strong>.
+            <strong className="font-bold">&apos;Action&apos;, &apos;Consistency&apos;, and &apos;Habit Formation&apos;</strong>. These three keywords define my approach to work and life. Physical strength built through running and weight training translates into <strong className="font-bold">tireless focus</strong> at work, while extensive reading and continuous exploration of new technologies lead to <strong className="font-bold">flexible thinking and technical vision</strong>. I believe that small repetitions become habits, then attitudes, and ultimately <strong className="font-bold">irreplaceable skills</strong>. Daily focus and consistency accumulated silently create <strong className="font-bold">significant changes in teams and services</strong>.
         </p>
     ]
 };
@@ -379,10 +375,17 @@ export const getAllSkills = (): string[] => {
  */
 export const articles: ArticleItem[] = [
     {
+        text: "Part 1. Huh? This is just like Kotlin?",
+        href: "https://velog.io/@glossybigbro/1%ED%8E%B8.-%EC%96%B4-%EC%9D%B4%EA%B1%B0-Kotlin%EC%9D%B4%EB%9E%91-%EB%98%91%EA%B0%99%EC%9E%96%EC%95%84",
+        summary: "First story of an 8-year Android developer's web development challenge. Sharing the surprising similarities felt by a developer used to Kotlin and Jetpack Compose while learning TypeScript and React, and the real reason for studying web development.",
+        keywords: ["Android", "Kotlin", "Web", "Next.js", "TypeScript"],
+        seriesName: "Android Developer's Web Dev Challenge",
+    },
+    {
         text: "[How We Transformed Our Organization in 3 Months with OKR + Agile]",
         href: "https://velog.io/@glossybigbro/OKR-%EC%95%A0%EC%9E%90%EC%9D%BC%EB%A1%9C-3%EA%B0%9C%EC%9B%94-%EB%A7%8C%EC%97%90-%EC%A1%B0%EC%A7%81%EC%9D%84-%EB%B0%94%EA%BE%BC-%EB%B0%A9%EB%B2%95",
         summary:
-            "From 'That's not my job' to proactively proposing solutions. A practical record of how a squad team transformed by introducing quarterly OKR alignment instead of vague top-down directives, enabling developers to participate in planning and designers to consider development effort.",
+            "From &apos;That&apos;s not my job&apos; to proactively proposing solutions. A practical record of how a squad team transformed by introducing quarterly OKR alignment instead of vague top-down directives, enabling developers to participate in planning and designers to consider development effort.",
         keywords: ["OKR", "Agile", "Startup", "Organizational Culture", "Work Methods"],
     },
 ];

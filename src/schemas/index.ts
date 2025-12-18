@@ -4,14 +4,12 @@ import React from "react";
 /**
  * 헤더 데이터 스키마
  * 
- * 필수: name, title, email
- * 선택: phone, github, linkedin, portfolio (빈 문자열 허용)
+ * 필수: name, email
+ * 선택: github, linkedin, portfolio (빈 문자열 허용)
  */
 export const headerSchema = z.object({
     name: z.string().min(1, "이름은 필수입니다."),
-    title: z.string().min(1, "직함은 필수입니다."),
     email: z.string().email("유효한 이메일 주소여야 합니다."),
-    phone: z.string().optional(),
     github: z.string().url("유효한 URL이어야 합니다.").optional().or(z.literal("")),
     linkedin: z.string().url("유효한 URL이어야 합니다.").optional().or(z.literal("")),
     portfolio: z.string().url("유효한 URL이어야 합니다.").optional().or(z.literal("")),
@@ -89,6 +87,7 @@ export const articleItemSchema = z.object({
     href: z.string().url("유효한 URL이어야 합니다."),
     summary: z.string().optional(),
     keywords: z.array(z.string()).optional(),
+    seriesName: z.string().optional(),
 });
 
 // 타입 추출 (z.infer 사용)

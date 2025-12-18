@@ -1,5 +1,7 @@
 'use client';
 
+
+
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useIsMobile } from '@/hooks/useIsMobile';
 import { Icon } from '@/components/ui/Icon';
@@ -46,8 +48,8 @@ export function LanguageSwitcher() {
         <button
             onClick={toggleLanguage}
             className={cn(
-                "flex items-center gap-1 transition-colors duration-200",
-                !isMobile && "hover:text-blue-600 dark:hover:text-blue-400"
+                "relative inline-flex items-center justify-center gap-1 transition-colors duration-200",
+                !isMobile && "lang-hover"
             )}
             aria-label={language === 'ko' ? 'Switch to English' : '한국어로 전환'}
             title={language === 'ko' ? 'Switch to English' : '한국어로 전환'}

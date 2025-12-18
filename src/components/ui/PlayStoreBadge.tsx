@@ -50,9 +50,9 @@ export function PlayStoreBadge({ url, className }: PlayStoreBadgeProps) {
             target="_blank"
             rel="noopener noreferrer"
             className={cn(
-                "playstore-badge group",
-                // PC에서만 transition과 hover 효과 적용
-                !isMobile && "transition-all duration-200 hover:shadow-lg hover:scale-105 hover:border-green-600 dark:hover:border-green-300 hover:bg-green-50 dark:hover:bg-green-900",
+                "playstore-badge group transition-all duration-200",
+                // PC에서만 hover 효과 적용
+                !isMobile && "hover:shadow-lg hover:scale-105 hover:border-green-600 dark:hover:border-green-300 hover:bg-green-50 dark:hover:bg-green-900",
                 FOCUS_RING_COLORS.GREEN,
                 className
             )}

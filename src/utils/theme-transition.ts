@@ -23,6 +23,17 @@ import { THEME_TRANSITION_CONFIG } from "@/constants/ui";
  * ```
  */
 
+// View Transitions API를 위한 인터페이스 정의
+// Document를 직접 확장하면 표준 타입과 충돌할 수 있으므로 분리된 인터페이스 사용
+interface DocumentWithViewTransition {
+    startViewTransition(callback: () => void): {
+        ready: Promise<void>;
+        finished: Promise<void>;
+        updateCallbackDone: Promise<void>;
+        skipTransition: () => void;
+    };
+}
+
 /**
  * View Transitions API를 사용한 테마 전환
  * 
@@ -30,7 +41,7 @@ import { THEME_TRANSITION_CONFIG } from "@/constants/ui";
  */
 export function transitionTheme(callback: () => void): void {
     // View Transitions API 지원 확인
-    if (!(document as any).startViewTransition) {
+    if (!(document as unknown as DocumentWithViewTransition).startViewTransition) {
         // 미지원 브라우저는 즉시 전환
         callback();
         return;
@@ -52,7 +63,7 @@ export function transitionTheme(callback: () => void): void {
     document.body.classList.add('view-transitioning');
 
     // View Transition 시작
-    const transition = (document as any).startViewTransition(callback);
+    const transition = (document as unknown as DocumentWithViewTransition).startViewTransition(callback);
 
     // 애니메이션 준비 완료 후 실행
     transition.ready.then(() => {

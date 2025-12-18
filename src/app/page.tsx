@@ -39,9 +39,9 @@ export default function Home() {
   const config = getResumeConfig(language);
 
   return (
-    <main className="min-h-screen bg-background text-foreground selection:bg-accent selection:text-white">
-      <div className="container mx-auto px-6 pb-2 max-w-6xl">
-        <HeaderSection data={config.header} />
+    <main className="min-h-screen bg-background text-foreground selection:bg-accent selection:text-[#EEEEEE]">
+      <HeaderSection data={config.header} />
+      <div className="pt-20 container mx-auto px-6 pb-2 max-w-6xl">
         <IntroduceSection data={config.introduce} />
         <ExperienceSection data={config.experience} />
         <ProjectSection data={config.projects} />

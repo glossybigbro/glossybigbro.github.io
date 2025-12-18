@@ -47,6 +47,7 @@ const translations = {
         'header.projects': '프로젝트',
         'header.skills': '기술',
         'header.writing': '작성글',
+        'header.emailCopied': '이메일 주소가 복사되었습니다',
 
         // 공통 문구
         'common.readMore': '더 보기',
@@ -68,6 +69,7 @@ const translations = {
         'header.projects': 'Projects',
         'header.skills': 'Skills',
         'header.writing': 'Writing',
+        'header.emailCopied': 'Email copied to clipboard',
 
         // 공통 문구
         'common.readMore': 'Read More',
@@ -106,6 +108,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     useEffect(() => {
         const savedLanguage = localStorage.getItem('language') as Language;
         if (savedLanguage && (savedLanguage === 'ko' || savedLanguage === 'en')) {
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             setLanguageState(savedLanguage);
         }
     }, []);

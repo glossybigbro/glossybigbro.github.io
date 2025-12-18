@@ -22,9 +22,7 @@ import type { HeaderData, ExperienceItem, ProjectItem, SkillCategory, ArticleIte
  */
 export const header: HeaderData = {
     name: "홍길동",                              // 이름
-    title: "Full Stack Developer",              // 직함
     email: "hong@example.com",                   // 이메일
-    phone: "",                                   // 전화번호 (선택사항)
     github: "https://github.com/hong",           // GitHub URL (선택사항)
     linkedin: "https://linkedin.com/in/hong",    // LinkedIn URL (선택사항)
     portfolio: "",                               // 포트폴리오 URL (선택사항)

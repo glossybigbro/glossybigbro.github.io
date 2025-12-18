@@ -21,18 +21,14 @@ import type { HeaderData, ExperienceItem, ProjectItem, SkillCategory, ArticleIte
  * 웹사이트 상단에 표시될 기본 정보
  * 
  * @property name - 이름
- * @property title - 직함 또는 역할 (예: "Senior Android Developer")
  * @property email - 이메일 주소 (클릭 시 클립보드에 복사됨)
- * @property phone - 전화번호 (선택사항, 빈 문자열이면 표시 안 됨)
  * @property github - GitHub 프로필 URL (선택사항)
  * @property linkedin - LinkedIn 프로필 URL (선택사항)
  * @property portfolio - 개인 웹사이트 URL (선택사항)
  */
 export const header: HeaderData = {
-    name: "하윤형",
-    title: "Senior Android Developer",
+    name: "Glossybigbro.",
     email: "glossy.bigbro@gmail.com",
-    phone: "",
     github: "https://github.com/glossybigbro",
     linkedin: "https://www.linkedin.com/in/yunhyeong-ha",
     portfolio: "",
@@ -59,7 +55,7 @@ export const introduce = {
             저는 프로젝트의 성공을 <strong className="font-bold">사용자 만족과 팀의 성장</strong>이라 생각합니다. 팀의 효율적인 협업과 원활한 커뮤니케이션이 뒷받침될 때, 비로소 <strong className="font-bold">비즈니스 목표를 실현</strong>하고 사용자가 만족하는 서비스를 만들 수 있다고 믿습니다. <strong className="font-bold">주도적인 개발자</strong>로서 팀의 문제를 해결하며, 모든 팀원이 최고의 퍼포먼스를 발휘할 수 있도록 지원합니다.
         </p>,
         <p key="p3">
-            <strong className="font-bold">'실천'과 '꾸준함', 그리고 '습관화'</strong>. 이 세 가지는 제가 일과 삶을 대하는 태도를 관통하는 키워드입니다. 러닝과 웨이트 트레이닝으로 다진 체력은 업무에 대한 <strong className="font-bold">지치지 않는 몰입</strong>으로, 폭넓은 독서와 멈추지 않는 신기술 탐구는 <strong className="font-bold">유연한 사고와 기술적 시야</strong>로 이어지고 있습니다. 사소한 반복이 모여 습관이 되고, 태도가 되며, 결국 <strong className="font-bold">누구도 대체할 수 없는 실력</strong>이 된다는 믿음으로, 묵묵히 쌓아 올린 매일의 몰입과 꾸준함이 결국 <strong className="font-bold">팀과 서비스에 큰 변화</strong>를 만들어낸다고 생각합니다.
+            <strong className="font-bold">&apos;실천&apos;과 &apos;꾸준함&apos;, 그리고 &apos;습관화&apos;</strong>. 이 세 가지는 제가 일과 삶을 대하는 태도를 관통하는 키워드입니다. 러닝과 웨이트 트레이닝으로 다진 체력은 업무에 대한 <strong className="font-bold">지치지 않는 몰입</strong>으로, 폭넓은 독서와 멈추지 않는 신기술 탐구는 <strong className="font-bold">유연한 사고와 기술적 시야</strong>로 이어지고 있습니다. 사소한 반복이 모여 습관이 되고, 태도가 되며, 결국 <strong className="font-bold">누구도 대체할 수 없는 실력</strong>이 된다는 믿음으로, 묵묵히 쌓아 올린 매일의 몰입과 꾸준함이 결국 <strong className="font-bold">팀과 서비스에 큰 변화</strong>를 만들어낸다고 생각합니다.
         </p>
     ]
 };
@@ -376,8 +372,16 @@ export const getAllSkills = (): string[] => {
  * @property href - 글 URL
  * @property summary - 글 요약 (선택사항)
  * @property keywords - 관련 키워드/태그 (선택사항)
+ * @property seriesName - 시리즈 이름 (선택사항, 시리즈 뱃지로 표시됨)
  */
 export const articles: ArticleItem[] = [
+    {
+        text: "1편. 어? 이거 Kotlin이랑 똑같잖아?",
+        href: "https://velog.io/@glossybigbro/1%ED%8E%B8.-%EC%96%B4-%EC%9D%B4%EA%B1%B0-Kotlin%EC%9D%B4%EB%9E%91-%EB%98%91%EA%B0%99%EC%9E%96%EC%95%84",
+        summary: "8년차 Android 개발자의 웹 개발 도전기 첫 번째 이야기. Kotlin과 Jetpack Compose를 사용하던 개발자가 TypeScript와 React를 배우며 느낀 놀라운 유사점, 그리고 웹 개발을 공부하게 된 진짜 이유를 공유합니다.",
+        keywords: ["Android", "Kotlin", "Web", "Next.js", "TypeScript"],
+        seriesName: "Android 개발자의 웹 개발 도전기",
+    },
     {
         text: "[OKR + 애자일로 3개월 만에 조직을 바꾼 방법]",
         href: "https://velog.io/@glossybigbro/OKR-%EC%95%A0%EC%9E%90%EC%9D%BC%EB%A1%9C-3%EA%B0%9C%EC%9B%94-%EB%A7%8C%EC%97%90-%EC%A1%B0%EC%A7%81%EC%9D%84-%EB%B0%94%EA%BE%BC-%EB%B0%A9%EB%B2%95",
