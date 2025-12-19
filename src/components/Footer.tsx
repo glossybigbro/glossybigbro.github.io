@@ -52,14 +52,7 @@ export function Footer() {
                     >
                         <Icon name="github" size={24} className={cn("transition-transform duration-300", !isMobile && "group-hover:rotate-12")} />
                         <span className="text-base">{t('footer.button')}</span>
-                        <svg
-                            className={cn("w-4 h-4 transition-transform duration-300", !isMobile && "group-hover:translate-x-1")}
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                        >
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
+                        <Icon name="arrow-right" size={16} className={cn("transition-transform duration-300", !isMobile && "group-hover:translate-x-1")} />
                     </Link>
 
                     {/* 추가 정보 */}

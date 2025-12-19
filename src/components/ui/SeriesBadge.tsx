@@ -1,6 +1,6 @@
 "use client";
 
-import { BookOpen } from "lucide-react";
+import { Icon } from "@/components/ui/Icon";
 
 /**
  * 시리즈 뱃지 컴포넌트
@@ -28,7 +28,7 @@ export interface SeriesBadgeProps {
 export function SeriesBadge({ seriesName }: SeriesBadgeProps) {
     return (
         <div className="series-badge mb-2">
-            <BookOpen className="w-3.5 h-3.5" />
+            <Icon name="book" size={14} />
             <span>{seriesName}</span>
         </div>
     );

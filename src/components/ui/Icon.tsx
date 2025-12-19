@@ -23,7 +23,7 @@
 
 export interface IconProps {
     /** 아이콘 이름 */
-    name: "github" | "linkedin" | "globe" | "email" | "sun" | "moon" | "playstore" | "building";
+    name: "github" | "linkedin" | "globe" | "email" | "sun" | "moon" | "playstore" | "building" | "book" | "x" | "arrow-right";
 
     /** 아이콘 크기 (픽셀) */
     size?: number;
@@ -171,6 +171,55 @@ export function Icon({ name, size = 24, className = "" }: IconProps) {
                 <path d="M16 14h.01" />
                 <path d="M8 10h.01" />
                 <path d="M8 14h.01" />
+            </svg>
+        ),
+        book: (
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width={size}
+                height={size}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className={className}
+            >
+                <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+            </svg>
+        ),
+        x: (
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width={size}
+                height={size}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className={className}
+            >
+                <path d="M18 6 6 18" />
+                <path d="m6 6 12 12" />
+            </svg>
+        ),
+        "arrow-right": (
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width={size}
+                height={size}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className={className}
+            >
+                <path d="M9 5l7 7-7 7" />
             </svg>
         ),
     };

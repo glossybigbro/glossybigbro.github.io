@@ -61,6 +61,9 @@ const translations = {
         'footer.button': 'GitHub에서 보기',
         'footer.builtWith': 'Built with Modern Web Technologies',
         'footer.techStack': 'Next.js • Tailwind CSS • TypeScript • Zod • Vitest',
+
+        // Project
+        'project.links': '관련 링크',
     },
     en: {
         // 헤더 네비게이션
@@ -83,6 +86,9 @@ const translations = {
         'footer.button': 'View on GitHub',
         'footer.builtWith': 'Built with Modern Web Technologies',
         'footer.techStack': 'Next.js • Tailwind CSS • TypeScript • Zod • Vitest',
+
+        // Project
+        'project.links': 'Links',
     }
 };
 

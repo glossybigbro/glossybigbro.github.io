@@ -142,6 +142,40 @@ export const experience: ExperienceItem[] = [
  */
 export const projects: ProjectItem[] = [
     {
+        id: "proj-0",
+        period: "2024.11 ~ Present",
+        title: "First Web Project: Building a Resume Website",
+        role: "Main Role: Web Development (Planning, Design, Development, Deployment)",
+        description: [
+            "Background: While preparing for freelance work, discovered many projects requiring 'web + mobile' and 'full-stack' skills, leading to the decision to learn web development. Built resume website as first project, discovering more similarities with Android development than expected. Sharing the learning journey through Velog series",
+            "Architecture: Separated data and UI with Container-Presenter pattern, ensured type safety with Zod schema, built reusable component system with CVA. Applied professional-level design despite being a learning project",
+            "Internationalization & Theme: Context API-based Korean/English toggle, dark mode combining Chrome system theme and website toggle (4 combinations), random-position circular transition animation with View Transition API",
+            "SEO & UX: Search engine optimization with dynamic metadata generation and automatic sitemap, optimized experience by distinguishing mobile touch and desktop hover with useIsMobile hook",
+            "User-Friendly Design: Centralized all data (name, experience, projects, skills, etc.) in resume.config.tsx file for single-point management. Wrote comprehensive README with step-by-step guide and example templates for beginners to follow",
+            "Knowledge Sharing: Publishing 'Android Developer's Web Dev Challenge' series on Velog. Planning to cover various topics including similarities between Kotlin and TypeScript, Compose and React, Tailwind CSS, dark mode, i18n, Zod type validation, and more",
+
+        ],
+        tags: [
+            "Next.js 15", "TypeScript", "React", "Tailwind CSS v4",
+            "Context API", "GitHub Actions", "GitHub Pages",
+            "View Transition API", "Responsive Design", "i18n", "Dark Mode"
+        ],
+        links: [
+            {
+                text: "GitHub Repository",
+                href: "https://github.com/glossybigbro/glossybigbro.github.io"
+            },
+            {
+                text: "Resume Website",
+                href: "https://glossybigbro.github.io"
+            },
+            {
+                text: "Velog Series",
+                href: "https://velog.io/@glossybigbro/series/Android-개발자의-웹-개발-도전기"
+            }
+        ],
+    },
+    {
         id: "proj-1",
         period: "2023.01 ~ 2025.01",
         title: "Complete App Architecture Overhaul and Performance Optimization",

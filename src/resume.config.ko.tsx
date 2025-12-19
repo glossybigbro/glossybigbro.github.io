@@ -142,6 +142,40 @@ export const experience: ExperienceItem[] = [
  */
 export const projects: ProjectItem[] = [
     {
+        id: "proj-0",
+        period: "2024.11 ~ 현재",
+        title: "웹 개발 첫 도전: 이력서 웹사이트 제작기",
+        role: "주요 역할: 웹 개발 (기획, 디자인, 개발, 배포)",
+        description: [
+            "배경: 프리랜서 준비 중 '웹 + 모바일', '풀스택' 요구사항을 보고 웹 개발 학습을 결심. 첫 프로젝트로 이력서 웹사이트를 만들면서 Android 개발과 생각보다 유사한 점이 많다는 걸 발견. 학습 과정을 Velog 시리즈로 공유 중",
+            "아키텍처: Container-Presenter 패턴으로 데이터와 UI를 분리하고, Zod 스키마로 타입 안전성을 보장하며, CVA로 재사용 가능한 컴포넌트 시스템 구축. 학습 프로젝트지만 실무 수준의 설계 적용",
+            "다국어 & 테마: Context API 기반 한영 토글, Chrome 시스템 테마와 웹사이트 토글을 조합한 다크모드(4가지 조합), View Transition API로 랜덤 위치 원형 전환 애니메이션",
+            "SEO & UX: 동적 메타데이터 생성 및 자동 사이트맵으로 검색 엔진 최적화, useIsMobile 훅으로 모바일 터치와 데스크톱 호버를 구분하여 최적화",
+            "사용자 친화적 설계: resume.config.tsx 파일에 모든 데이터(이름, 경력, 프로젝트, 기술 스택 등)를 통합하여 한 곳에서 관리. 초보자도 따라할 수 있도록 Step-by-Step 가이드와 예시 템플릿을 포함한 README 문서 작성",
+            "학습 공유: Velog에서 'Android 개발자의 웹 개발 도전기' 시리즈 연재 중. Kotlin과 TypeScript의 유사성, Compose와 React의 공통점, Tailwind CSS, 다크모드, 다국어 지원, Zod 타입 검증 등 다양한 주제를 다룰 예정",
+
+        ],
+        tags: [
+            "Next.js 15", "TypeScript", "React", "Tailwind CSS v4",
+            "Context API", "GitHub Actions", "GitHub Pages",
+            "View Transition API", "Responsive Design", "i18n", "Dark Mode"
+        ],
+        links: [
+            {
+                text: "GitHub Repository",
+                href: "https://github.com/glossybigbro/glossybigbro.github.io"
+            },
+            {
+                text: "이력서 웹사이트",
+                href: "https://glossybigbro.github.io"
+            },
+            {
+                text: "Velog 시리즈",
+                href: "https://velog.io/@glossybigbro/1%ED%8E%B8.-%EC%96%B4-%EC%9D%B4%EA%B1%B0-Kotlin%EC%9D%B4%EB%9E%91-%EB%98%91%EA%B0%99%EC%9E%96%EC%95%84"
+            }
+        ],
+    },
+    {
         id: "proj-1",
         period: "2023.01 ~ 2025.01",
         title: "앱 아키텍처 전면 개편 및 성능 최적화",

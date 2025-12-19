@@ -3,15 +3,21 @@ import { ProjectItem } from "@/types";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
 import { SectionDivider } from "@/components/ui/SectionDivider";
 import { Tag } from "@/components/ui/Tag";
+import { ProjectLink } from "@/components/ui/ProjectLink";
 import { parseRole, parseDescription } from "@/utils/formatters";
 import { DIVIDER_STYLES } from "@/constants/styles";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/contexts/LanguageContext";
+
+
 
 interface ProjectSectionProps {
     data: ProjectItem[];
 }
 
 export function ProjectSection({ data }: ProjectSectionProps) {
+    const { t } = useLanguage();
+
     return (
         <SectionWrapper>
             <div className="text-3xl sm:text-4xl mb-2 font-bold">Project.</div>
@@ -38,7 +44,7 @@ export function ProjectSection({ data }: ProjectSectionProps) {
                                 <div className="text-2xl sm:text-3xl font-medium mb-4">{project.title}</div>
 
                                 <div className="mb-4 text-lg">
-                                    <span className="font-bold">{label}:</span>
+                                    <span className="font-bold">{label}: </span>
                                     <span>{value}</span>
                                 </div>
 
@@ -60,22 +66,26 @@ export function ProjectSection({ data }: ProjectSectionProps) {
                                             </li>
                                         );
                                     })}
-
-                                    {project.links?.map((link, i) => (
-                                        <li key={`link-${i}`} className="list-none -ml-5">
-                                            <Link
-                                                href={link.href}
-                                                target="_blank"
-                                                className="text-blue-500 sm:hover:underline flex items-center gap-1"
-                                            >
-                                                • {link.text}
-                                            </Link>
-                                        </li>
-                                    ))}
                                 </ul>
 
+                                {/* Links - Separate Section with icon-hover style */}
+                                {project.links && project.links.length > 0 && (
+                                    <>
+                                        <div className="font-bold text-lg mb-2">{t('project.links')}</div>
+                                        <div className="mb-6 flex flex-col gap-1.5">
+                                            {project.links.map((link, i) => (
+                                                <ProjectLink
+                                                    key={`link-${i}`}
+                                                    href={link.href}
+                                                    text={link.text}
+                                                />
+                                            ))}
+                                        </div>
+                                    </>
+                                )}
+
                                 <div className="space-y-2">
-                                    <div className="font-bold text-lg">• Skill Keywords</div>
+                                    <div className="font-bold text-lg">Skill Keywords</div>
                                     <div className="flex gap-2 flex-wrap">
                                         {project.tags.map((tag) => (
                                             <Tag key={tag}>{tag}</Tag>
