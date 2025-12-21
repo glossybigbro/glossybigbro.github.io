@@ -78,3 +78,51 @@ export function parseDescription(description: string): { label?: string; value: 
 export function parseLabelValue(text: string): { label?: string; value: string } {
     return parseDescription(text);
 }
+
+/**
+ * 텍스트에서 마크다운 링크를 파싱하여 React 노드로 변환합니다.
+ * 
+ * @param text - 마크다운 링크가 포함된 텍스트
+ * @returns 파싱된 React 노드 배열 또는 원본 텍스트
+ * 
+ * @example
+ * ```typescript
+ * parseMarkdownLinks("텍스트 [링크](https://example.com) 더보기")
+ * // => ["텍스트 ", <InlineLink />, " 더보기"]
+ * ```
+ */
+export function parseMarkdownLinks(text: string): { parts: Array<{ type: 'text' | 'link', content: string, url?: string }> } {
+    const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
+    const parts: Array<{ type: 'text' | 'link', content: string, url?: string }> = [];
+    let lastIndex = 0;
+    let match;
+
+    while ((match = linkRegex.exec(text)) !== null) {
+        // Add text before link
+        if (match.index > lastIndex) {
+            parts.push({
+                type: 'text',
+                content: text.substring(lastIndex, match.index)
+            });
+        }
+
+        // Add link
+        parts.push({
+            type: 'link',
+            content: match[1], // link text
+            url: match[2]      // link url
+        });
+
+        lastIndex = match.index + match[0].length;
+    }
+
+    // Add remaining text
+    if (lastIndex < text.length) {
+        parts.push({
+            type: 'text',
+            content: text.substring(lastIndex)
+        });
+    }
+
+    return { parts: parts.length > 0 ? parts : [{ type: 'text', content: text }] };
+}

@@ -340,6 +340,90 @@
   }
 }
 
+
+/* Inline Link Badge - Purple/Violet (Chrome Light + Website Light) */
+.inline-link-badge {
+  border-color: rgb(192 132 252);
+  /* purple-400 */
+  background-color: rgb(243 232 255);
+  /* purple-100 */
+  color: rgb(109 40 217);
+  /* purple-700 */
+}
+
+.dark .inline-link-badge {
+  /* Chrome Light + Website Dark */
+  border-color: rgb(139 92 246);
+  /* violet-500 */
+  background-color: rgba(76, 29, 149, 0.4);
+  /* violet-900/40 */
+  color: rgb(196 181 253);
+  /* violet-300 */
+}
+
+@media (prefers-color-scheme: dark) {
+  .inline-link-badge {
+    /* Chrome Dark + Website Light */
+    border-color: rgb(192 132 252);
+    /* purple-400 */
+    background-color: rgb(243 232 255);
+    /* purple-100 */
+    color: rgb(109 40 217);
+    /* purple-700 */
+  }
+
+  .dark .inline-link-badge {
+    /* Chrome Dark + Website Dark */
+    border-color: rgb(139 92 246);
+    /* violet-500 */
+    background-color: rgba(76, 29, 149, 0.4);
+    /* violet-900/40 */
+    color: rgb(196 181 253);
+    /* violet-300 */
+  }
+}
+
+
+/* Inline Link Badge Hover - Only on hover-capable devices */
+@media (hover: hover) {
+  .inline-link-badge:hover {
+    border-color: rgb(168 85 247);
+    /* purple-500 */
+    background-color: rgb(233 213 255);
+    /* purple-200 */
+    color: rgb(88 28 135);
+    /* purple-800 */
+  }
+
+  .dark .inline-link-badge:hover {
+    border-color: rgb(167 139 250);
+    /* violet-400 */
+    background-color: rgba(91, 33, 182, 0.6);
+    /* violet-800/60 */
+    color: rgb(237 233 254);
+    /* violet-50 */
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .inline-link-badge:hover {
+      border-color: rgb(168 85 247);
+      /* purple-500 */
+      background-color: rgb(216 180 254);
+      /* purple-300 */
+      color: rgb(76 29 149);
+      /* purple-900 */
+    }
+
+    .dark .inline-link-badge:hover {
+      border-color: rgb(196 181 253);
+      /* violet-300 */
+      background-color: rgba(109, 40, 217, 0.6);
+      /* violet-700/60 */
+      color: rgb(250 245 255);
+      /* violet-50 */
+    }
+  }
+}
 /* Footer GitHub Button - 4-Way Theme System (Enhanced) */
 .footer-github-button {
   /* Chrome Light + Website Light */

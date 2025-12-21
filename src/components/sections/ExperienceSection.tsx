@@ -5,8 +5,9 @@ import { SectionDivider } from "@/components/ui/SectionDivider";
 import { Tag } from "@/components/ui/Tag";
 import { PlayStoreBadge } from "@/components/ui/PlayStoreBadge";
 import { EnterpriseBadge } from "@/components/ui/EnterpriseBadge";
+import { InlineLink } from "@/components/ui/InlineLink";
 import { calculateTotalCareer } from "@/utils/career";
-import { parseDescription } from "@/utils/formatters";
+import { parseDescription, parseMarkdownLinks } from "@/utils/formatters";
 import { DIVIDER_STYLES } from "@/constants/styles";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -23,19 +24,28 @@ export function ExperienceSection({ data }: ExperienceSectionProps) {
         return calculateTotalCareer(data, language);
     }, [data, language]);
 
-    // 설명 텍스트 파싱 및 렌더링 (형식: "Label: Value")
+    // 설명 텍스트 파싱 및 렌더링 (형식: "Label: Value", 마크다운 링크 지원)
     const renderDescription = (text: string) => {
         const { label, value } = parseDescription(text);
+        const { parts } = parseMarkdownLinks(value);
+
+        // 파싱된 parts를 React 노드로 변환
+        const renderedValue = parts.map((part, index) => {
+            if (part.type === 'link' && part.url) {
+                return <InlineLink key={index} href={part.url} text={part.content} />;
+            }
+            return part.content;
+        });
 
         if (label) {
             return (
                 <>
                     <span className="font-bold text-foreground">{label}:</span>{" "}
-                    <span>{value}</span>
+                    <span>{renderedValue}</span>
                 </>
             );
         }
-        return value;
+        return renderedValue;
     };
 
     return (

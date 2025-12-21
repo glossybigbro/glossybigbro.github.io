@@ -82,7 +82,7 @@ export const experience: ExperienceItem[] = [
         description: [
             "대규모 서비스 운영: 누적 다운로드 800만, MAU 130만 플랫폼의 앱 안정성(Crash-free) 99.9% 이상 유지",
             "셀러 스쿼드 개발 팀장: 스쿼드 내 개발 직군(iOS, FE, BE)의 일정 및 리소스를 관리하고, PM/디자이너와 소통하여 원활한 프로젝트 진행을 조율",
-            "OKR 및 애자일 실행: 리브랜딩 과정에서 분기별 목표(OKR)를 바탕으로 스프린트 일정을 수립하고 관리하여 비즈니스 요구사항에 대응",
+            "OKR 및 애자일 실행: 리브랜딩 과정에서 분기별 목표(OKR)를 바탕으로 스프린트 일정을 수립하고 관리하여 비즈니스 요구사항에 대응 [관련 글 보기](https://velog.io/@glossybigbro/OKR-애자일로-3개월-만에-조직을-바꾼-방법)",
             "안드로이드 리드: 3명 규모의 안드로이드 파트를 리딩하며 기술 공유 및 아키텍처 논의를 주도하고, 최신 트렌드(Paging3, GraphQL, Compose)를 실무에 적극 도입하여 기술 경쟁력 강화",
             "기술 고도화: 100% Java 코드를 Kotlin으로 전환하고, MVC를 Clean Architecture로 리팩토링 및 Jetpack Compose 점진적 도입",
             "생산성 혁신: 멀티 모듈 아키텍처 도입 및 GitHub Actions 기반 CI/CD 파이프라인 구축 (배포 자동화)",

@@ -82,7 +82,7 @@ export const experience: ExperienceItem[] = [
         description: [
             "Large-scale Service Operations: Maintained 99.9%+ crash-free rate for a platform with 8M cumulative downloads and 1.3M MAU",
             "Seller Squad Development Team Lead: Managed development resources (iOS, FE, BE) within the squad, coordinated schedules, and facilitated smooth project execution through collaboration with PM and designers",
-            "OKR & Agile Execution: Established and managed sprint schedules based on quarterly OKR objectives during rebranding process to address business requirements",
+            "OKR & Agile Execution: Established and managed sprint schedules based on quarterly OKR objectives during rebranding process to address business requirements [Read More](https://velog.io/@glossybigbro/OKR-애자일로-3개월-만에-조직을-바꾼-방법)",
             "Android Lead: Led a team of 3 Android developers, driving technical knowledge sharing and architecture discussions, and actively introducing latest trends (Paging3, GraphQL, Compose) to strengthen technical competitiveness",
             "Technical Advancement: Converted 100% Java codebase to Kotlin, refactored MVC to Clean Architecture, and progressively introduced Jetpack Compose",
             "Productivity Innovation: Implemented multi-module architecture and established CI/CD pipeline based on GitHub Actions (deployment automation)",
