@@ -32,7 +32,7 @@ export function InlineLink({ href, text }: InlineLinkProps) {
                 "inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg",
                 "border-2 font-semibold text-sm",
                 "transition-all duration-200",
-                !isMobile && "hover:shadow-sm"
+                !isMobile && "hover-enabled hover:shadow-sm"
             )}
         >
             <Icon
