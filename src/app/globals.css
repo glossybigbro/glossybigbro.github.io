@@ -262,6 +262,32 @@
   }
 }
 
+/* PlayStore Badge Hover - Only when hover-enabled class is present */
+.playstore-badge.hover-enabled:hover {
+  border-color: rgb(22 163 74); /* green-600 */
+  background-color: rgb(220 252 231); /* green-100 */
+  color: rgb(20 83 45); /* green-900 */
+}
+
+.dark .playstore-badge.hover-enabled:hover {
+  border-color: rgb(74 222 128); /* green-400 */
+  background-color: rgb(20 83 45); /* green-900 */
+  color: rgb(187 247 208); /* green-200 */
+}
+
+@media (prefers-color-scheme: dark) {
+  .playstore-badge.hover-enabled:hover {
+    border-color: rgb(22 163 74); /* green-600 */
+    background-color: rgb(220 252 231); /* green-100 */
+    color: rgb(20 83 45); /* green-900 */
+  }
+  .dark .playstore-badge.hover-enabled:hover {
+    border-color: rgb(134 239 172); /* green-300 */
+    background-color: rgb(5 46 22); /* green-950 */
+    color: rgb(134 239 172); /* green-300 */
+  }
+}
+
 /* Enterprise Badge - Amber (Chrome Light + Website Light) */
 .enterprise-badge {
   border-color: rgb(245 158 11);

@@ -52,7 +52,7 @@ export function PlayStoreBadge({ url, className }: PlayStoreBadgeProps) {
             className={cn(
                 "playstore-badge group transition-all duration-200",
                 // PC에서만 hover 효과 적용
-                !isMobile && "hover:shadow-lg hover:scale-105 hover:border-green-600 dark:hover:border-green-300 hover:bg-green-50 dark:hover:bg-green-900",
+                !isMobile && "hover-enabled hover:shadow-lg hover:scale-105",
                 FOCUS_RING_COLORS.GREEN,
                 className
             )}
