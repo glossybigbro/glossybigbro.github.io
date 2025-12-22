@@ -55,7 +55,7 @@ export const introduce = {
             I believe project success comes from <strong className="font-bold">user satisfaction and team growth</strong>. When efficient collaboration and smooth communication support the team, we can truly <strong className="font-bold">achieve business goals</strong> and create services that satisfy users. As a <strong className="font-bold">proactive developer</strong>, I solve team challenges and support every member to perform at their best.
         </p>,
         <p key="p3">
-            <strong className="font-bold">&apos;Action&apos;, &apos;Consistency&apos;, and &apos;Habit Formation&apos;</strong>. These three keywords define my approach to work and life. Physical strength built through running and weight training translates into <strong className="font-bold">tireless focus</strong> at work, while extensive reading and continuous exploration of new technologies lead to <strong className="font-bold">flexible thinking and technical vision</strong>. I believe that small repetitions become habits, then attitudes, and ultimately <strong className="font-bold">irreplaceable skills</strong>. Daily focus and consistency accumulated silently create <strong className="font-bold">significant changes in teams and services</strong>.
+            <strong className="font-bold">'Action', 'Consistency', and 'Habit Formation'</strong>. These three keywords define my approach to work and life. Physical strength built through running and weight training translates into <strong className="font-bold">tireless focus</strong> at work, while extensive reading and continuous exploration of new technologies lead to <strong className="font-bold">flexible thinking and technical vision</strong>. I believe that small repetitions become habits, then attitudes, and ultimately <strong className="font-bold">irreplaceable skills</strong>. Daily focus and consistency accumulated silently create <strong className="font-bold">significant changes in teams and services</strong>.
         </p>
     ]
 };
@@ -143,7 +143,7 @@ export const experience: ExperienceItem[] = [
 export const projects: ProjectItem[] = [
     {
         id: "proj-0",
-        period: "2024.11 ~ Present",
+        period: "2025.12 ~ Present",
         title: "First Web Project: Building a Resume Website",
         role: "Main Role: Web Development (Planning, Design, Development, Deployment)",
         description: [
@@ -153,7 +153,6 @@ export const projects: ProjectItem[] = [
             "SEO & UX: Search engine optimization with dynamic metadata generation and automatic sitemap, optimized experience by distinguishing mobile touch and desktop hover with useIsMobile hook",
             "User-Friendly Design: Centralized all data (name, experience, projects, skills, etc.) in resume.config.tsx file for single-point management. Wrote comprehensive README with step-by-step guide and example templates for beginners to follow",
             "Knowledge Sharing: Publishing 'Android Developer's Web Dev Challenge' series on Velog. Planning to cover various topics including similarities between Kotlin and TypeScript, Compose and React, Tailwind CSS, dark mode, i18n, Zod type validation, and more",
-
         ],
         tags: [
             "Next.js 15", "TypeScript", "React", "Tailwind CSS v4",
@@ -419,7 +418,7 @@ export const articles: ArticleItem[] = [
         text: "[How We Transformed Our Organization in 3 Months with OKR + Agile]",
         href: "https://velog.io/@glossybigbro/OKR-%EC%95%A0%EC%9E%90%EC%9D%BC%EB%A1%9C-3%EA%B0%9C%EC%9B%94-%EB%A7%8C%EC%97%90-%EC%A1%B0%EC%A7%81%EC%9D%84-%EB%B0%94%EA%BE%BC-%EB%B0%A9%EB%B2%95",
         summary:
-            "From &apos;That&apos;s not my job&apos; to proactively proposing solutions. A practical record of how a squad team transformed by introducing quarterly OKR alignment instead of vague top-down directives, enabling developers to participate in planning and designers to consider development effort.",
+            "From 'That's not my job' to proactively proposing solutions. A practical record of how a squad team transformed by introducing quarterly OKR alignment instead of vague top-down directives, enabling developers to participate in planning and designers to consider development effort.",
         keywords: ["OKR", "Agile", "Startup", "Organizational Culture", "Work Methods"],
     },
 ];
