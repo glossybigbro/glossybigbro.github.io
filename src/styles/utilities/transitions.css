@@ -1,0 +1,60 @@
+/**
+ * View Transition API - 테마 전환 애니메이션
+ * 
+ * View Transition API를 사용한 부드러운 테마 전환 효과를 정의합니다.
+ * 
+ * 동작 방식:
+ * 1. 테마 전환 시 View Transition API가 활성화됨
+ * 2. 기본 애니메이션을 제거하고 커스텀 효과 사용
+ * 3. 새로운 테마가 위에서 퍼져나가는 효과 (z-index 제어)
+ * 
+ * 사용처:
+ * - ThemeToggle 컴포넌트
+ * - theme-transition.ts 유틸리티
+ * 
+ * 참고:
+ * - globals.css에도 동일한 스타일이 있음 (폴백용)
+ * - z-index 값은 globals.css의 CSS 변수 사용
+ */
+
+/* ============================================
+   View Transition 기본 설정
+   ============================================ */
+
+/**
+ * 기본 애니메이션 제거
+ * 
+ * View Transition API의 기본 fade 애니메이션을 제거하고
+ * 커스텀 애니메이션을 사용할 수 있도록 설정합니다.
+ */
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation: none;
+    /* 기본 애니메이션 제거 */
+    mix-blend-mode: normal;
+    /* 블렌드 모드 정상화 */
+}
+
+/* ============================================
+   Z-index 레이어 순서
+   ============================================ */
+
+/**
+ * 새로운 테마 레이어
+ * 
+ * 항상 위에 표시되어 새로운 테마가 퍼져나가는 효과를 만듭니다.
+ * z-index: 9999 (--z-transition-new)
+ */
+::view-transition-new(root) {
+    z-index: var(--z-transition-new);
+}
+
+/**
+ * 이전 테마 레이어
+ * 
+ * 아래에 표시되어 새로운 테마에 가려집니다.
+ * z-index: 1 (--z-transition-old)
+ */
+::view-transition-old(root) {
+    z-index: var(--z-transition-old);
+}

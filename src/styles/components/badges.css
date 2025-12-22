@@ -1,0 +1,277 @@
+/**
+ * Badge Components - 뱃지 컴포넌트 스타일
+ * 
+ * 프로젝트 및 경력 섹션에서 사용하는 다양한 뱃지 스타일을 정의합니다.
+ * 4-Way 테마 시스템을 지원합니다.
+ * 
+ * 뱃지 종류:
+ * - .tag-badge: 일반 태그 (기술 스택, 키워드 등)
+ * - .playstore-badge: PlayStore 링크 뱃지 (클릭 가능)
+ * - .enterprise-badge: Enterprise 프로젝트 표시
+ * - .series-badge: 시리즈 프로젝트 표시
+ * - .inline-link-badge: 인라인 링크 뱃지 (글 내부 링크)
+ * 
+ * 특징:
+ * - CSS 변수 기반 색상 시스템 (four-way.css에서 정의)
+ * - 데스크톱에서만 호버 효과 (.hover-enabled 클래스 사용)
+ * - 4-Way 테마 자동 적응
+ */
+
+/* ============================================
+   뱃지 공통 스타일
+   ============================================ */
+
+/**
+ * 기본 뱃지 레이아웃
+ * 
+ * 모든 뱃지에 공통으로 적용되는 기본 스타일입니다.
+ * 아이콘 + 텍스트 조합을 위한 flexbox 레이아웃을 사용합니다.
+ */
+.tag-badge,
+.playstore-badge,
+.enterprise-badge,
+.series-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  /* 아이콘과 텍스트 사이 간격 */
+  border-width: 2px;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.375rem;
+  /* 둥근 모서리 */
+  font-size: 0.875rem;
+  /* 14px */
+  line-height: 1.25rem;
+  font-weight: 500;
+  /* Medium */
+  text-decoration: none;
+  /* 링크일 경우 밑줄 제거 */
+  transition: all 0.2s ease;
+}
+
+/**
+ * 시리즈 뱃지 패딩 조정
+ * 
+ * 시리즈 뱃지는 다른 뱃지보다 약간 더 큰 패딩을 사용합니다.
+ */
+.series-badge {
+  padding: 0.375rem 0.75rem;
+}
+
+/* ============================================
+   개별 뱃지 스타일 (CSS 변수 사용)
+   ============================================ */
+
+/**
+ * Tag Badge - 일반 태그
+ * 
+ * 사용처: 기술 스택, 키워드, 카테고리 등
+ * 색상: Slate 계열 (회색)
+ */
+.tag-badge {
+  border-color: var(--badge-tag-border);
+  background-color: var(--badge-tag-bg);
+  color: var(--badge-tag-text);
+}
+
+/**
+ * PlayStore Badge - PlayStore 링크
+ * 
+ * 사용처: PlayStore 앱 다운로드 링크
+ * 색상: Green 계열 (초록색)
+ * 특징: 클릭 가능, 호버 효과 있음
+ */
+.playstore-badge {
+  border-color: var(--badge-playstore-border);
+  background-color: var(--badge-playstore-bg);
+  color: var(--badge-playstore-text);
+}
+
+/**
+ * PlayStore Badge 호버 효과
+ * 
+ * 데스크톱에서만 활성화됩니다 (.hover-enabled 클래스 필요)
+ * 모바일에서는 useIsMobile 훅으로 .hover-enabled 클래스를 제거합니다.
+ */
+.playstore-badge.hover-enabled:hover {
+  border-color: var(--badge-playstore-hover-border);
+  background-color: var(--badge-playstore-hover-bg);
+  color: var(--badge-playstore-hover-text);
+}
+
+/**
+ * Enterprise Badge - 기업 프로젝트
+ * 
+ * 사용처: 기업용/엔터프라이즈 프로젝트 표시
+ * 색상: Amber 계열 (주황색)
+ */
+.enterprise-badge {
+  border-color: var(--badge-enterprise-border);
+  background-color: var(--badge-enterprise-bg);
+  color: var(--badge-enterprise-text);
+}
+
+/**
+ * Series Badge - 시리즈 프로젝트
+ * 
+ * 사용처: 연재 중인 프로젝트 표시
+ * 색상: Purple 계열 (보라색)
+ */
+.series-badge {
+  border-color: var(--badge-series-border);
+  background-color: var(--badge-series-bg);
+  color: var(--badge-series-text);
+}
+
+/**
+ * Inline Link Badge - 인라인 링크
+ * 
+ * 사용처: 프로젝트 설명 내부의 링크
+ * 색상: Purple/Violet 계열 (보라색)
+ * 특징: 다른 뱃지보다 작고 가벼운 스타일
+ */
+.inline-link-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  /* 더 작은 간격 */
+  border-width: 1.5px;
+  /* 더 얇은 테두리 */
+  padding: 0.125rem 0.5rem;
+  /* 더 작은 패딩 */
+  border-radius: 0.375rem;
+  font-size: 0.8125rem;
+  /* 13px - 더 작은 폰트 */
+  line-height: 1.25rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border-color: var(--badge-inline-border);
+  background-color: var(--badge-inline-bg);
+  color: var(--badge-inline-text);
+}
+
+/**
+ * Inline Link Badge 호버 효과
+ * 
+ * 데스크톱에서만 활성화됩니다 (.hover-enabled 클래스 필요)
+ */
+.inline-link-badge.hover-enabled:hover {
+  border-color: var(--badge-inline-hover-border);
+  background-color: var(--badge-inline-hover-bg);
+  color: var(--badge-inline-hover-text);
+}
+
+/* ============================================
+   Tag 변형 스타일 (4-Way 테마 시스템)
+   ============================================ */
+
+/**
+ * Tag Primary - 파란색 태그
+ * 
+ * 사용처: 주요 기술, 강조할 키워드
+ * 색상: Blue 계열
+ */
+.tag-primary {
+  background-color: rgb(219 234 254);
+  /* blue-100 */
+  color: rgb(30 64 175);
+  /* blue-800 */
+}
+
+.dark .tag-primary {
+  background-color: rgb(30 58 138);
+  /* blue-900 */
+  color: rgb(219 234 254);
+  /* blue-100 */
+}
+
+@media (prefers-color-scheme: dark) {
+  .tag-primary {
+    background-color: rgb(219 234 254);
+    /* blue-100 */
+    color: rgb(30 64 175);
+    /* blue-800 */
+  }
+
+  .dark .tag-primary {
+    background-color: rgb(30 58 138);
+    /* blue-900 */
+    color: rgb(219 234 254);
+    /* blue-100 */
+  }
+}
+
+/**
+ * Tag Success - 초록색 태그
+ * 
+ * 사용처: 완료된 프로젝트, 성공 상태
+ * 색상: Green 계열
+ */
+.tag-success {
+  background-color: rgb(220 252 231);
+  /* green-100 */
+  color: rgb(22 101 52);
+  /* green-800 */
+}
+
+.dark .tag-success {
+  background-color: rgb(20 83 45);
+  /* green-900 */
+  color: rgb(220 252 231);
+  /* green-100 */
+}
+
+@media (prefers-color-scheme: dark) {
+  .tag-success {
+    background-color: rgb(220 252 231);
+    /* green-100 */
+    color: rgb(22 101 52);
+    /* green-800 */
+  }
+
+  .dark .tag-success {
+    background-color: rgb(20 83 45);
+    /* green-900 */
+    color: rgb(220 252 231);
+    /* green-100 */
+  }
+}
+
+/**
+ * Tag Outline - 테두리만 있는 태그
+ * 
+ * 사용처: 덜 강조되는 태그, 보조 정보
+ * 색상: Gray 계열
+ * 특징: 배경 투명, 테두리만 표시
+ */
+.tag-outline {
+  border: 1px solid rgb(209 213 219);
+  /* gray-300 */
+  color: rgb(31 41 55);
+  /* gray-800 */
+  background-color: transparent;
+}
+
+.dark .tag-outline {
+  border-color: rgb(75 85 99);
+  /* gray-600 */
+  color: rgb(243 244 246);
+  /* gray-100 */
+}
+
+@media (prefers-color-scheme: dark) {
+  .tag-outline {
+    border-color: rgb(209 213 219);
+    /* gray-300 */
+    color: rgb(31 41 55);
+    /* gray-800 */
+  }
+
+  .dark .tag-outline {
+    border-color: rgb(75 85 99);
+    /* gray-600 */
+    color: rgb(243 244 246);
+    /* gray-100 */
+  }
+}

@@ -1,0 +1,387 @@
+/**
+ * 4-Way Theme System - 4방향 테마 시스템
+ * 
+ * Chrome 시스템 테마와 웹사이트 테마를 조합한 4가지 테마 모드를 지원합니다.
+ * 
+ * 4가지 테마 조합:
+ * 1. Chrome Light + Website Light (기본 상태)
+ * 2. Chrome Light + Website Dark (.dark 클래스)
+ * 3. Chrome Dark + Website Light (@media prefers-color-scheme: dark)
+ * 4. Chrome Dark + Website Dark (@media + .dark)
+ * 
+ * 동작 방식:
+ * - Chrome 시스템 테마: OS 설정에 따라 자동 감지 (prefers-color-scheme)
+ * - 웹사이트 테마: 사용자가 수동으로 선택 (.dark 클래스 토글)
+ * - next-themes 라이브러리가 .dark 클래스를 관리
+ * 
+ * 적용 대상:
+ * - 뱃지 색상 (Tag, PlayStore, Enterprise, Series, Inline Link)
+ * - 스킬 뱃지 색상
+ * - XS 뱃지 색상
+ * - 프로필 이미지 테두리 및 그림자
+ */
+
+/* ============================================
+   뱃지 색상 변수 - Light Mode
+   (Chrome Light + Website Light)
+   ============================================ */
+
+/**
+ * :root - 기본 Light Mode 색상
+ * 
+ * Chrome과 Website 모두 Light일 때 사용되는 색상입니다.
+ * 밝은 배경에 어두운 텍스트를 사용합니다.
+ */
+:root {
+  /* Tag Badge - Slate (회색 계열) */
+  --badge-tag-border: var(--slate-300);
+  /* 밝은 회색 테두리 */
+  --badge-tag-bg: var(--slate-50);
+  /* 매우 밝은 회색 배경 */
+  --badge-tag-text: var(--slate-700);
+  /* 어두운 회색 텍스트 */
+
+  /* PlayStore Badge - Green (초록색 계열) */
+  --badge-playstore-border: var(--green-500);
+  /* 중간 초록색 테두리 */
+  --badge-playstore-bg: var(--green-50);
+  /* 매우 밝은 초록색 배경 */
+  --badge-playstore-text: var(--green-700);
+  /* 어두운 초록색 텍스트 */
+
+  /* PlayStore Badge Hover - 호버 시 더 진한 색상 */
+  --badge-playstore-hover-border: var(--green-600);
+  --badge-playstore-hover-bg: var(--green-100);
+  --badge-playstore-hover-text: var(--green-900);
+
+  /* Enterprise Badge - Amber (주황색 계열) */
+  --badge-enterprise-border: var(--amber-500);
+  /* 중간 주황색 테두리 */
+  --badge-enterprise-bg: var(--amber-50);
+  /* 매우 밝은 주황색 배경 */
+  --badge-enterprise-text: var(--amber-700);
+  /* 어두운 주황색 텍스트 */
+
+  /* Series Badge - Purple (보라색 계열) */
+  --badge-series-border: var(--purple-500);
+  /* 중간 보라색 테두리 */
+  --badge-series-bg: var(--purple-100);
+  /* 밝은 보라색 배경 */
+  --badge-series-text: var(--purple-900);
+  /* 매우 어두운 보라색 텍스트 */
+
+  /* Inline Link Badge - Purple/Violet (보라색 계열) */
+  --badge-inline-border: var(--purple-400);
+  /* 밝은 보라색 테두리 */
+  --badge-inline-bg: var(--purple-50);
+  /* 매우 밝은 보라색 배경 */
+  --badge-inline-text: var(--purple-800);
+  /* 어두운 보라색 텍스트 */
+
+  /* Inline Link Badge Hover - 호버 시 더 진한 색상 */
+  --badge-inline-hover-border: var(--purple-500);
+  --badge-inline-hover-bg: var(--purple-200);
+  --badge-inline-hover-text: var(--purple-800);
+}
+
+/* ============================================
+   뱃지 색상 변수 - Dark Mode
+   (Chrome Light + Website Dark)
+   ============================================ */
+
+/**
+ * .dark - Website Dark Mode 색상
+ * 
+ * 사용자가 다크 모드를 선택했을 때 사용되는 색상입니다.
+ * 어두운 배경에 밝은 텍스트를 사용합니다.
+ */
+.dark {
+  /* Tag Badge - Slate (회색 계열) */
+  --badge-tag-border: var(--slate-400);
+  /* 중간 회색 테두리 */
+  --badge-tag-bg: var(--slate-800);
+  /* 어두운 회색 배경 */
+  --badge-tag-text: var(--slate-200);
+  /* 밝은 회색 텍스트 */
+
+  /* PlayStore Badge - Green (초록색 계열) */
+  --badge-playstore-border: var(--green-400);
+  /* 밝은 초록색 테두리 */
+  --badge-playstore-bg: var(--green-900);
+  /* 매우 어두운 초록색 배경 */
+  --badge-playstore-text: var(--green-200);
+  /* 밝은 초록색 텍스트 */
+
+  /* PlayStore Badge Hover - 다크 모드에서는 색상 변화 최소화 */
+  --badge-playstore-hover-border: var(--green-400);
+  --badge-playstore-hover-bg: var(--green-900);
+  --badge-playstore-hover-text: var(--green-200);
+
+  /* Enterprise Badge - Amber (주황색 계열) */
+  --badge-enterprise-border: var(--amber-500);
+  /* 중간 주황색 테두리 */
+  --badge-enterprise-bg: var(--amber-900);
+  /* 매우 어두운 주황색 배경 */
+  --badge-enterprise-text: var(--amber-50);
+  /* 매우 밝은 주황색 텍스트 */
+
+  /* Series Badge - Purple (보라색 계열) */
+  --badge-series-border: var(--purple-400);
+  /* 밝은 보라색 테두리 */
+  --badge-series-bg: var(--purple-900);
+  /* 매우 어두운 보라색 배경 */
+  --badge-series-text: var(--purple-100);
+  /* 밝은 보라색 텍스트 */
+
+  /* Inline Link Badge - Violet (보라색 계열) */
+  --badge-inline-border: var(--violet-500);
+  /* 중간 보라색 테두리 */
+  --badge-inline-bg: rgba(91, 33, 182, 0.3);
+  /* 반투명 보라색 배경 */
+  --badge-inline-text: var(--violet-50);
+  /* 매우 밝은 보라색 텍스트 */
+
+  /* Inline Link Badge Hover - 호버 시 배경 불투명도 증가 */
+  --badge-inline-hover-border: var(--violet-400);
+  --badge-inline-hover-bg: rgba(91, 33, 182, 0.6);
+  --badge-inline-hover-text: var(--violet-50);
+}
+
+/* ============================================
+   Chrome Dark Mode 대응
+   (Chrome Dark + Website Light/Dark)
+   ============================================ */
+
+/**
+ * @media (prefers-color-scheme: dark)
+ * 
+ * Chrome이 다크 모드일 때의 색상 조정입니다.
+ * Website Light/Dark 상태에 따라 다시 분기됩니다.
+ */
+@media (prefers-color-scheme: dark) {
+
+  /**
+   * Chrome Dark + Website Light
+   * 
+   * Chrome은 다크지만 Website는 라이트 모드를 유지합니다.
+   * 약간 조정된 밝은 색상을 사용합니다.
+   */
+  :root {
+    /* Tag Badge - 약간 더 진한 색상 사용 */
+    --badge-tag-border: var(--slate-400);
+    --badge-tag-bg: var(--slate-100);
+    --badge-tag-text: var(--slate-800);
+
+    /* PlayStore Badge - 약간 더 진한 색상 사용 */
+    --badge-playstore-border: var(--green-600);
+    --badge-playstore-bg: var(--green-50);
+    --badge-playstore-text: var(--green-800);
+
+    /* PlayStore Badge Hover */
+    --badge-playstore-hover-border: var(--green-600);
+    --badge-playstore-hover-bg: var(--green-100);
+    --badge-playstore-hover-text: var(--green-900);
+
+    /* Enterprise Badge */
+    --badge-enterprise-border: var(--amber-500);
+    --badge-enterprise-bg: var(--amber-50);
+    --badge-enterprise-text: var(--amber-700);
+
+    /* Series Badge */
+    --badge-series-border: var(--purple-500);
+    --badge-series-bg: var(--purple-100);
+    --badge-series-text: var(--purple-900);
+
+    /* Inline Link Badge */
+    --badge-inline-border: var(--purple-500);
+    --badge-inline-bg: var(--purple-100);
+    --badge-inline-text: var(--purple-900);
+
+    /* Inline Link Badge Hover */
+    --badge-inline-hover-border: var(--purple-500);
+    --badge-inline-hover-bg: var(--purple-300);
+    --badge-inline-hover-text: var(--purple-900);
+  }
+
+  /**
+   * Chrome Dark + Website Dark
+   * 
+   * Chrome과 Website 모두 다크 모드입니다.
+   * 가장 어두운 색상을 사용합니다.
+   */
+  .dark {
+    /* Tag Badge - 가장 어두운 색상 */
+    --badge-tag-border: var(--slate-500);
+    --badge-tag-bg: var(--slate-900);
+    --badge-tag-text: var(--slate-300);
+
+    /* PlayStore Badge - 가장 어두운 색상 */
+    --badge-playstore-border: var(--green-400);
+    --badge-playstore-bg: var(--green-950);
+    --badge-playstore-text: var(--green-300);
+
+    /* PlayStore Badge Hover */
+    --badge-playstore-hover-border: var(--green-300);
+    --badge-playstore-hover-bg: var(--green-950);
+    --badge-playstore-hover-text: var(--green-300);
+
+    /* Enterprise Badge */
+    --badge-enterprise-border: var(--amber-500);
+    --badge-enterprise-bg: var(--amber-950);
+    --badge-enterprise-text: var(--amber-50);
+
+    /* Series Badge */
+    --badge-series-border: var(--purple-400);
+    --badge-series-bg: var(--purple-950);
+    --badge-series-text: var(--purple-100);
+
+    /* Inline Link Badge */
+    --badge-inline-border: var(--violet-300);
+    --badge-inline-bg: rgba(109, 40, 217, 0.3);
+    --badge-inline-text: var(--violet-50);
+
+    /* Inline Link Badge Hover */
+    --badge-inline-hover-border: var(--violet-300);
+    --badge-inline-hover-bg: rgba(109, 40, 217, 0.6);
+    --badge-inline-hover-text: var(--violet-50);
+  }
+}
+
+/* ============================================
+   Skills Badge - 스킬 뱃지 색상
+   ============================================ */
+
+/**
+ * 기본 스킬 뱃지 (Light Mode)
+ * 
+ * 사용처: 기술 스택 표시
+ * 색상: Gray 계열
+ */
+.skills {
+  background-color: rgb(229 231 235);
+  /* gray-200 */
+  color: rgb(31 41 55);
+  /* gray-800 */
+}
+
+/**
+ * 스킬 뱃지 Dark Mode
+ */
+.dark .skills {
+  background-color: rgb(55 65 81);
+  /* gray-700 */
+  color: rgb(243 244 246);
+  /* gray-100 */
+}
+
+/**
+ * Chrome Dark Mode 대응
+ */
+@media (prefers-color-scheme: dark) {
+  .skills {
+    background-color: rgb(229 231 235);
+    /* gray-200 */
+    color: rgb(31 41 55);
+    /* gray-800 */
+  }
+
+  .dark .skills {
+    background-color: rgb(55 65 81);
+    /* gray-700 */
+    color: rgb(243 244 246);
+    /* gray-100 */
+  }
+}
+
+/* ============================================
+   XS Badge - 작은 뱃지 색상
+   ============================================ */
+
+/**
+ * 기본 XS 뱃지 (Light Mode)
+ * 
+ * 사용처: 작은 크기의 보조 정보 표시
+ * 색상: Gray 계열
+ */
+.xs-badge {
+  background-color: rgb(229 231 235);
+  /* gray-200 */
+  color: rgb(55 65 81);
+  /* gray-700 */
+}
+
+/**
+ * XS 뱃지 Dark Mode
+ */
+.dark .xs-badge {
+  background-color: rgb(55 65 81);
+  /* gray-700 */
+  color: rgb(209 213 219);
+  /* gray-300 */
+}
+
+/**
+ * Chrome Dark Mode 대응
+ */
+@media (prefers-color-scheme: dark) {
+  .xs-badge {
+    background-color: rgb(229 231 235);
+    /* gray-200 */
+    color: rgb(55 65 81);
+    /* gray-700 */
+  }
+
+  .dark .xs-badge {
+    background-color: rgb(55 65 81);
+    /* gray-700 */
+    color: rgb(209 213 219);
+    /* gray-300 */
+  }
+}
+
+/* ============================================
+   Profile Image Container - 프로필 이미지 스타일
+   ============================================ */
+
+/**
+ * 기본 프로필 이미지 (Light Mode)
+ * 
+ * 사용처: 헤더의 프로필 이미지
+ * 특징: 그림자 + 테두리 효과
+ */
+.profile-image-container {
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --tw-ring-width: 1px;
+  --tw-ring-color: rgb(229 231 235);
+  /* gray-200 */
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  --tw-ring-shadow: 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+}
+
+/**
+ * 프로필 이미지 Dark Mode
+ * 
+ * 특징: 더 강한 그림자 + 파란색 글로우 효과
+ */
+.dark .profile-image-container {
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25), 0 0 20px rgb(59 130 246 / 0.1);
+  --tw-ring-color: rgb(55 65 81);
+  /* gray-700 */
+}
+
+/**
+ * Chrome Dark Mode 대응
+ */
+@media (prefers-color-scheme: dark) {
+  .profile-image-container {
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --tw-ring-color: rgb(229 231 235);
+    /* gray-200 */
+  }
+
+  .dark .profile-image-container {
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25), 0 0 20px rgb(59 130 246 / 0.1);
+    --tw-ring-color: rgb(55 65 81);
+    /* gray-700 */
+  }
+}

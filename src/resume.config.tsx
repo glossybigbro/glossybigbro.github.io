@@ -56,7 +56,20 @@ const configs = {
  * ```
  */
 export function getResumeConfig(language: 'ko' | 'en') {
-    return configs[language];
+    const config = configs[language];
+
+    // Development 환경에서만 검증 (성능 최적화)
+    if (process.env.NODE_ENV === 'development') {
+        try {
+            const { validateResumeConfig } = require('@/schemas/resume');
+            validateResumeConfig(config);
+            console.log(`✅ Resume config (${language}) validation passed`);
+        } catch (error) {
+            console.error(`❌ Resume config (${language}) validation failed:`, error);
+        }
+    }
+
+    return config;
 }
 
 /**

@@ -1,0 +1,62 @@
+/**
+ * Divider Styles - 구분선 스타일
+ * 
+ * 섹션 간 구분을 위한 점선 스타일을 정의합니다.
+ * 4-Way 테마 시스템을 지원합니다.
+ * 
+ * 사용처:
+ * - 프로젝트 섹션 구분선
+ * - 경력 섹션 구분선
+ * 
+ * 테마 적응:
+ * - Light Mode: gray-300 (밝은 회색)
+ * - Dark Mode: gray-600 (어두운 회색)
+ */
+
+/* ============================================
+   점선 구분선 (.divider-dotted)
+   ============================================ */
+
+/**
+ * 기본 점선 스타일 (Light Mode)
+ * 
+ * Chrome Light + Website Light
+ */
+.divider-dotted {
+    border-bottom-width: 1px;
+    border-bottom-style: dotted;
+    border-color: rgb(209 213 219);
+    /* gray-300 */
+}
+
+/**
+ * 다크 모드 점선 스타일
+ * 
+ * Chrome Light + Website Dark
+ */
+.dark .divider-dotted {
+    border-color: rgb(75 85 99);
+    /* gray-600 */
+}
+
+/**
+ * Chrome 다크 모드 + Website Light
+ * 
+ * Chrome의 다크 모드에서도 Website가 Light면 밝은 색상 유지
+ */
+@media (prefers-color-scheme: dark) {
+    .divider-dotted {
+        border-color: rgb(209 213 219);
+        /* gray-300 */
+    }
+
+    /**
+     * Chrome 다크 모드 + Website 다크 모드
+     * 
+     * 모든 모드가 다크일 때 가장 어두운 색상 사용
+     */
+    .dark .divider-dotted {
+        border-color: rgb(75 85 99);
+        /* gray-600 */
+    }
+}

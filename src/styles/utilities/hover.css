@@ -1,0 +1,153 @@
+/**
+ * Hover Utilities - 호버 효과 유틸리티
+ * 
+ * 헤더 아이콘 및 언어 스위처의 호버 효과를 정의합니다.
+ * 
+ * 포함된 클래스:
+ * - .icon-hover: 일반 아이콘용 원형 호버 효과
+ * - .lang-hover: 언어 스위처용 반응형 호버 효과
+ * 
+ * 사용 예:
+ * - GitHub, LinkedIn 등 아이콘: .icon-hover
+ * - 언어 스위처 (아이콘 + 텍스트): .lang-hover
+ */
+
+/* ============================================
+   아이콘 호버 효과 (.icon-hover)
+   ============================================ */
+
+/**
+ * 일반 아이콘용 원형 호버 효과
+ * 
+ * 사용처: GitHub, LinkedIn, Email, Portfolio, Theme Toggle 등
+ * 특징: 고정된 원형 배경 (모바일 2rem, 데스크톱 2.5rem)
+ */
+.icon-hover {
+    position: relative;
+    isolation: isolate;
+    /* z-index 컨텍스트 분리 */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+/* 원형 배경 (::before 의사 요소 사용) */
+.icon-hover::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 2rem;
+    /* 모바일: 32px */
+    height: 2rem;
+    border-radius: 9999px;
+    /* 완전한 원형 */
+    background-color: transparent;
+    transition: background-color 0.2s ease;
+    z-index: -1;
+    /* 아이콘 뒤에 배치 */
+}
+
+/* 데스크톱: 크기 증가 */
+@media (min-width: 640px) {
+    .icon-hover::before {
+        width: 2.5rem;
+        /* 데스크톱: 40px */
+        height: 2.5rem;
+    }
+}
+
+/* 호버 시 배경 색상 표시 */
+.icon-hover:hover::before {
+    background-color: var(--hover-bg);
+}
+
+/* 호버 시 텍스트 색상 변경 */
+.icon-hover:hover {
+    color: var(--hover-fg);
+}
+
+/* 다크 모드 호버 효과 */
+.dark .icon-hover:hover::before {
+    background-color: var(--hover-bg);
+}
+
+.dark .icon-hover:hover {
+    color: var(--hover-fg);
+}
+
+/* ============================================
+   언어 스위처 호버 효과 (.lang-hover)
+   ============================================ */
+
+/**
+ * 언어 스위처용 반응형 호버 효과
+ * 
+ * 사용처: LanguageSwitcher 컴포넌트
+ * 
+ * 특징:
+ * - 모바일 (< 640px): 텍스트만 표시 → 원형 배경
+ * - 데스크톱 (≥ 640px): 아이콘 + 텍스트 → 알약 모양 배경
+ * 
+ * 이유:
+ * - 모바일에서는 Globe 아이콘이 숨겨지고 "KO" 또는 "EN" 텍스트만 표시됨
+ * - 데스크톱에서는 아이콘과 텍스트가 함께 표시되어 더 넓은 배경이 필요함
+ */
+.lang-hover {
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+/* 모바일: 원형 배경 (텍스트만 표시) */
+.lang-hover::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 2rem;
+    /* 32px - 텍스트만 있을 때 적합 */
+    height: 2rem;
+    border-radius: 9999px;
+    /* 완전한 원형 */
+    background-color: transparent;
+    transition: background-color 0.2s ease;
+    z-index: -1;
+}
+
+/* 데스크톱: 알약 모양 배경 (아이콘 + 텍스트) */
+@media (min-width: 640px) {
+    .lang-hover::before {
+        width: calc(100% + 1rem);
+        /* 콘텐츠 너비 + 좌우 패딩 */
+        height: 2.5rem;
+        /* 40px - 아이콘 높이에 맞춤 */
+        border-radius: 9999px;
+        /* 양 끝이 둥근 알약 모양 */
+    }
+}
+
+/* 호버 시 배경 색상 표시 */
+.lang-hover:hover::before {
+    background-color: var(--hover-bg);
+}
+
+/* 호버 시 텍스트 색상 변경 */
+.lang-hover:hover {
+    color: var(--hover-fg);
+}
+
+/* 다크 모드 호버 효과 */
+.dark .lang-hover:hover::before {
+    background-color: var(--hover-bg);
+}
+
+.dark .lang-hover:hover {
+    color: var(--hover-fg);
+}

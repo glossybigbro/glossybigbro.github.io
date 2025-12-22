@@ -1,6 +1,58 @@
+/**
+ * Global Styles - Main CSS Entry Point
+ * 
+ * 이 파일은 애플리케이션의 메인 CSS 진입점입니다.
+ * Tailwind CSS v4와 모든 커스텀 CSS 모듈을 임포트합니다.
+ * 
+ * 구조:
+ * 1. Tailwind CSS 임포트 (반드시 첫 번째)
+ * 2. 모듈형 CSS 임포트 (base → themes → components → utilities 순서)
+ * 3. @theme 블록 (Tailwind v4 색상 변수 정의)
+ * 4. @layer base (기본 스타일 및 테마 변수)
+ * 5. @layer utilities (유틸리티 클래스)
+ * 
+ * 중요: Tailwind v4 호환성을 위해 임포트 순서를 변경하지 마세요.
+ */
+
+/* ============================================
+   Tailwind CSS 임포트
+   ============================================ */
 @import "tailwindcss";
 
+/* ============================================
+   모듈형 CSS 임포트
+   순서: base → themes → components → utilities
+   ============================================ */
+
+/* Base: 색상 팔레트 변수 */
+@import "../styles/base/variables.css";
+
+/* Themes: 4-Way 테마 시스템 (Chrome + Website) */
+@import "../styles/themes/four-way.css";
+
+/* Components: 재사용 가능한 컴포넌트 스타일 */
+@import "../styles/components/badges.css";
+@import "../styles/components/dividers.css";
+
+/* Utilities: 유틸리티 클래스 (호버, 트랜지션 등) */
+@import "../styles/utilities/hover.css";
+@import "../styles/utilities/transitions.css";
+
+
+/* ============================================
+   Tailwind v4 테마 설정
+   ============================================ */
+
+/**
+ * @theme 블록
+ * 
+ * Tailwind CSS v4의 색상 시스템을 정의합니다.
+ * HSL 변수를 Tailwind 색상 클래스로 매핑합니다.
+ * 
+ * 예: bg-background, text-foreground, border-border 등
+ */
 @theme inline {
+  /* 기본 색상 (HSL 변수 기반) */
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
   --color-card: hsl(var(--card));
@@ -20,77 +72,148 @@
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
+
+  /* Border Radius 스케일 */
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
+
+  /* 폰트 패밀리 */
   --font-sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 }
 
+/* ============================================
+   Base Layer - 테마 변수 및 기본 스타일
+   ============================================ */
+
+/**
+ * :root - Light Mode 테마 변수
+ * 
+ * HSL 형식으로 색상을 정의합니다.
+ * 형식: hue saturation% lightness%
+ * 
+ * 사용 예: background-color: hsl(var(--background));
+ */
 @layer base {
   :root {
+    /* 기본 배경 및 텍스트 색상 */
     --background: 0 0% 100%;
+    /* 흰색 배경 */
     --foreground: 222.2 84% 4.9%;
+    /* 거의 검은색 텍스트 */
+
+    /* 카드 컴포넌트 색상 */
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
+
+    /* 팝오버 색상 */
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
+
+    /* 주요 색상 (Primary) */
     --primary: 222.2 47.4% 11.2%;
     --primary-foreground: 210 40% 98%;
+
+    /* 보조 색상 (Secondary) */
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
+
+    /* 음소거 색상 (Muted) - 덜 강조되는 요소 */
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
+
+    /* 강조 색상 (Accent) */
     --accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
+
+    /* 경고/삭제 색상 (Destructive) */
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
+
+    /* 테두리 및 입력 필드 색상 */
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
+
+    /* Border Radius */
     --radius: 0.5rem;
+
+    /* 호버 효과 색상 (헤더 아이콘 등) */
+    --hover-bg: #323236;
+    /* 어두운 회색 배경 */
+    --hover-fg: #EEEEEE;
+    /* 밝은 회색 텍스트 */
+
+    /* Z-index 스케일 - 레이어 순서 관리 */
+    --z-header: 50;
+    /* 헤더 레이어 */
+    --z-toast: 100;
+    /* 토스트 알림 레이어 */
+    --z-transition-old: 1;
+    /* View Transition 이전 상태 */
+    --z-transition-new: 9999;
+    /* View Transition 새 상태 */
   }
 
+  /**
+   * .dark - Dark Mode 테마 변수
+   * 
+   * 사용자가 다크 모드를 선택했을 때 적용됩니다.
+   * next-themes 라이브러리가 .dark 클래스를 토글합니다.
+   */
   .dark {
+    /* 기본 배경 및 텍스트 색상 */
     --background: 220 6% 13%;
+    /* 어두운 배경 */
     --foreground: 0 0% 95%;
+    /* 밝은 텍스트 */
+
+    /* 카드 컴포넌트 색상 */
     --card: 0 0% 8%;
     --card-foreground: 0 0% 95%;
+
+    /* 팝오버 색상 */
     --popover: 220 6% 13%;
     --popover-foreground: 0 0% 95%;
+
+    /* 주요 색상 (Primary) */
     --primary: 0 0% 95%;
     --primary-foreground: 0 0% 10%;
+
+    /* 보조 색상 (Secondary) */
     --secondary: 0 0% 12%;
     --secondary-foreground: 0 0% 95%;
+
+    /* 음소거 색상 (Muted) */
     --muted: 0 0% 12%;
     --muted-foreground: 0 0% 65%;
+
+    /* 강조 색상 (Accent) */
     --accent: 0 0% 12%;
     --accent-foreground: 0 0% 95%;
+
+    /* 경고/삭제 색상 (Destructive) */
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 95%;
+
+    /* 테두리 및 입력 필드 색상 */
     --border: 0 0% 18%;
     --input: 0 0% 18%;
     --ring: 0 0% 80%;
   }
-
-  /* 재사용 가능한 상수 */
-  :root {
-    /* 호버 효과 색상 */
-    --hover-bg: #323236;
-    --hover-fg: #EEEEEE;
-
-    /* Z-index 스케일 */
-    --z-header: 50;
-    --z-toast: 100;
-    --z-transition-old: 1;
-    --z-transition-new: 9999;
-  }
 }
 
+/* ============================================
+   기본 요소 스타일
+   ============================================ */
 @layer base {
+
+  /* 모든 요소에 border-border 색상 적용 */
   * {
     @apply border-border;
   }
 
+  /* body 요소 기본 스타일 */
   body {
     @apply bg-background text-foreground;
   }
@@ -100,12 +223,17 @@
     transition: background-color 0.3s ease, color 0.3s ease;
   }
 
-  /* 모바일 탭 하이라이트 및 포커스 상태 제거 */
+  /* ============================================
+     모바일 터치 최적화
+     ============================================ */
+
+  /* 모바일 탭 하이라이트 제거 (터치 시 파란색 배경 제거) */
   button,
   a {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
   }
 
+  /* 버튼 포커스 상태 제거 (접근성보다 디자인 우선) */
   button:focus,
   button:focus-visible,
   button:active {
@@ -113,554 +241,43 @@
     box-shadow: none;
   }
 
+  /* 링크 포커스 상태 제거 */
   a:focus,
   a:focus-visible,
   a:active {
     outline: none;
     box-shadow: none;
   }
+
+  /* ============================================
+     View Transition API 설정
+     ============================================ */
+
+  /* View Transition 기본 애니메이션 제거 (커스텀 애니메이션 사용) */
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+  }
+
+  /* 새로운 테마가 항상 위에 표시되도록 z-index 설정 */
+  ::view-transition-new(root) {
+    z-index: var(--z-transition-new);
+  }
+
+  /* 이전 테마는 아래에 표시 */
+  ::view-transition-old(root) {
+    z-index: var(--z-transition-old);
+  }
 }
 
+/* ============================================
+   유틸리티 클래스
+   ============================================ */
 @layer utilities {
+
+  /* 강조 텍스트 스타일 (굵게 + 이탤릭) */
   .emphasis {
     @apply font-bold italic;
   }
-
-  .skills {
-    @apply mt-1 pl-2 pr-2 bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-100 rounded-md text-sm;
-  }
-
-  .xs-badge {
-    @apply text-xs bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-300 rounded-lg pl-2 pr-2;
-  }
-}
-
-/* 호버 효과는 마우스가 있는 장치에서만 적용 (모바일 터치 시 잔상 방지) */
-@media (hover: hover) {
-  .hover\:rotate-12:hover {
-    transform: rotate(12deg);
-  }
-}
-
-/* View Transition API - 양방향 애니메이션 */
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation: none;
-  mix-blend-mode: normal;
-}
-
-/* 항상 새로운 테마가 위에서 퍼져나가도록 설정 */
-::view-transition-new(root) {
-  z-index: var(--z-transition-new);
-}
-
-::view-transition-old(root) {
-  z-index: var(--z-transition-old);
-}
-
-/* 뱃지 4-Way 테마 시스템 */
-/* Chrome 시스템 테마(prefers-color-scheme)와 웹사이트 테마(.dark 클래스) 모두에 반응 */
-
-/* 뱃지 공통 스타일 */
-.tag-badge,
-.playstore-badge,
-.enterprise-badge,
-.series-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.375rem;
-  border-width: 2px;
-  padding: 0.25rem 0.75rem;
-  border-radius: 0.375rem;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-weight: 500;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-
-/* 시리즈 뱃지 패딩 조정 */
-.series-badge {
-  padding: 0.375rem 0.75rem;
-}
-
-/* Tag Badge - Slate (Chrome Light + Website Light) */
-.tag-badge {
-  border-color: rgb(203 213 225);
-  /* slate-300 */
-  background-color: rgb(248 250 252);
-  /* slate-50 */
-  color: rgb(51 65 85);
-  /* slate-700 */
-}
-
-.dark .tag-badge {
-  border-color: rgb(148 163 184);
-  /* slate-400 */
-  background-color: rgb(30 41 59);
-  /* slate-800 */
-  color: rgb(226 232 240);
-  /* slate-200 */
-}
-
-@media (prefers-color-scheme: dark) {
-  .tag-badge {
-    border-color: rgb(148 163 184);
-    /* slate-400 */
-    background-color: rgb(241 245 249);
-    /* slate-100 */
-    color: rgb(30 41 59);
-    /* slate-800 */
-  }
-
-  .dark .tag-badge {
-    border-color: rgb(100 116 139);
-    /* slate-500 */
-    background-color: rgb(15 23 42);
-    /* slate-900 */
-    color: rgb(203 213 225);
-    /* slate-300 */
-  }
-}
-
-/* PlayStore Badge - Green (Chrome Light + Website Light) */
-.playstore-badge {
-  border-color: rgb(34 197 94);
-  /* green-500 */
-  background-color: rgb(240 253 244);
-  /* green-50 */
-  color: rgb(21 128 61);
-  /* green-700 */
-}
-
-.dark .playstore-badge {
-  border-color: rgb(74 222 128);
-  /* green-400 */
-  background-color: rgb(20 83 45);
-  /* green-900 */
-  color: rgb(187 247 208);
-  /* green-200 */
-}
-
-@media (prefers-color-scheme: dark) {
-  .playstore-badge {
-    border-color: rgb(22 163 74);
-    /* green-600 */
-    background-color: rgb(240 253 244);
-    /* green-50 */
-    color: rgb(22 101 52);
-    /* green-800 */
-  }
-
-  .dark .playstore-badge {
-    border-color: rgb(74 222 128);
-    /* green-400 */
-    background-color: rgb(5 46 22);
-    /* green-950 */
-    color: rgb(134 239 172);
-    /* green-300 */
-  }
-}
-
-/* PlayStore Badge Hover - Only when hover-enabled class is present */
-.playstore-badge.hover-enabled:hover {
-  border-color: rgb(22 163 74); /* green-600 */
-  background-color: rgb(220 252 231); /* green-100 */
-  color: rgb(20 83 45); /* green-900 */
-}
-
-.dark .playstore-badge.hover-enabled:hover {
-  border-color: rgb(74 222 128); /* green-400 */
-  background-color: rgb(20 83 45); /* green-900 */
-  color: rgb(187 247 208); /* green-200 */
-}
-
-@media (prefers-color-scheme: dark) {
-  .playstore-badge.hover-enabled:hover {
-    border-color: rgb(22 163 74); /* green-600 */
-    background-color: rgb(220 252 231); /* green-100 */
-    color: rgb(20 83 45); /* green-900 */
-  }
-  .dark .playstore-badge.hover-enabled:hover {
-    border-color: rgb(134 239 172); /* green-300 */
-    background-color: rgb(5 46 22); /* green-950 */
-    color: rgb(134 239 172); /* green-300 */
-  }
-}
-
-/* Enterprise Badge - Amber (Chrome Light + Website Light) */
-.enterprise-badge {
-  border-color: rgb(245 158 11);
-  /* amber-500 */
-  background-color: rgb(255 251 235);
-  /* amber-50 */
-  color: rgb(180 83 9);
-  /* amber-700 */
-}
-
-.dark .enterprise-badge {
-  border-color: rgb(251 191 36);
-  /* amber-400 */
-  background-color: rgb(120 53 15);
-  /* amber-900 */
-  color: rgb(253 230 138);
-  /* amber-200 */
-}
-
-@media (prefers-color-scheme: dark) {
-  .enterprise-badge {
-    border-color: rgb(217 119 6);
-    /* amber-600 */
-    background-color: rgb(255 251 235);
-    /* amber-50 */
-    color: rgb(245 158 11);
-    /* amber-500 */
-  }
-
-  .dark .enterprise-badge {
-    border-color: rgb(251 191 36);
-    /* amber-400 */
-    background-color: rgb(69 26 3);
-    /* amber-950 */
-    color: rgb(252 211 77);
-    /* amber-300 */
-  }
-}
-
-/* Series Badge - Purple (Chrome Light + Website Light) */
-.series-badge {
-  border-color: rgb(196 181 253);
-  /* purple-300 */
-  background-color: rgb(243 232 255);
-  /* purple-100 */
-  color: rgb(88 28 135);
-  /* purple-900 */
-}
-
-.dark .series-badge {
-  border-color: rgb(167 139 250);
-  /* purple-400 */
-  background-color: rgb(88 28 135);
-  /* purple-900 */
-  color: rgb(243 232 255);
-  /* purple-100 */
-}
-
-@media (prefers-color-scheme: dark) {
-  .series-badge {
-    border-color: rgb(196 181 253);
-    /* purple-300 */
-    background-color: rgb(237 233 254);
-    /* purple-50 */
-    color: rgb(76 29 149);
-    /* purple-950 */
-  }
-
-  .dark .series-badge {
-    border-color: rgb(147 51 234);
-    /* purple-600 */
-    background-color: rgb(59 7 100);
-    /* purple-950 */
-    color: rgb(216 180 254);
-    /* purple-300 */
-  }
-}
-
-
-/* Inline Link Badge - Purple/Violet (Chrome Light + Website Light) */
-.inline-link-badge {
-  border-color: rgb(192 132 252);
-  /* purple-400 */
-  background-color: rgb(243 232 255);
-  /* purple-100 */
-  color: rgb(109 40 217);
-  /* purple-700 */
-}
-
-.dark .inline-link-badge {
-  /* Chrome Light + Website Dark */
-  border-color: rgb(139 92 246);
-  /* violet-500 */
-  background-color: rgba(76, 29, 149, 0.4);
-  /* violet-900/40 */
-  color: rgb(196 181 253);
-  /* violet-300 */
-}
-
-@media (prefers-color-scheme: dark) {
-  .inline-link-badge {
-    /* Chrome Dark + Website Light */
-    border-color: rgb(192 132 252);
-    /* purple-400 */
-    background-color: rgb(243 232 255);
-    /* purple-100 */
-    color: rgb(109 40 217);
-    /* purple-700 */
-  }
-
-  .dark .inline-link-badge {
-    /* Chrome Dark + Website Dark */
-    border-color: rgb(139 92 246);
-    /* violet-500 */
-    background-color: rgba(76, 29, 149, 0.4);
-    /* violet-900/40 */
-    color: rgb(196 181 253);
-    /* violet-300 */
-  }
-}
-
-
-/* Inline Link Badge Hover - Only when hover-enabled class is present */
-.inline-link-badge.hover-enabled:hover {
-  border-color: rgb(168 85 247); /* purple-500 */
-  background-color: rgb(233 213 255); /* purple-200 */
-  color: rgb(88 28 135); /* purple-800 */
-}
-
-.dark .inline-link-badge.hover-enabled:hover {
-  border-color: rgb(167 139 250); /* violet-400 */
-  background-color: rgba(91, 33, 182, 0.6); /* violet-800/60 */
-  color: rgb(237 233 254); /* violet-50 */
-}
-
-@media (prefers-color-scheme: dark) {
-  .inline-link-badge.hover-enabled:hover {
-    border-color: rgb(168 85 247); /* purple-500 */
-    background-color: rgb(216 180 254); /* purple-300 */
-    color: rgb(76 29 149); /* purple-900 */
-  }
-  .dark .inline-link-badge.hover-enabled:hover {
-    border-color: rgb(196 181 253); /* violet-300 */
-    background-color: rgba(109, 40, 217, 0.6); /* violet-700/60 */
-    color: rgb(250 245 255); /* violet-50 */
-  }
-}
-
-/* Footer GitHub Button - 4-Way Theme System (Enhanced) */
-.footer-github-button {
-  /* Chrome Light + Website Light */
-  border-width: 2px;
-  border-color: rgb(55 65 81);
-  /* gray-700 */
-  background: linear-gradient(135deg, rgb(17 24 39) 0%, rgb(31 41 55) 100%);
-  /* gray-900 to gray-800 gradient */
-  color: rgb(255 255 255);
-  /* white */
-}
-
-.footer-github-button:hover {
-  background: linear-gradient(135deg, rgb(31 41 55) 0%, rgb(55 65 81) 100%);
-  /* gray-800 to gray-700 gradient */
-  border-color: rgb(75 85 99);
-  /* gray-600 */
-  transform: translateY(-2px);
-}
-
-.dark .footer-github-button {
-  /* Chrome Light + Website Dark */
-  border-color: rgb(209 213 219);
-  /* gray-300 */
-  background: linear-gradient(135deg, rgb(243 244 246) 0%, rgb(229 231 235) 100%);
-  /* gray-100 to gray-200 gradient */
-  color: rgb(17 24 39);
-  /* gray-900 */
-}
-
-.dark .footer-github-button:hover {
-  background: linear-gradient(135deg, rgb(229 231 235) 0%, rgb(209 213 219) 100%);
-  /* gray-200 to gray-300 gradient */
-  border-color: rgb(156 163 175);
-  /* gray-400 */
-  transform: translateY(-2px);
-}
-
-@media (prefers-color-scheme: dark) {
-  .footer-github-button {
-    /* Chrome Dark + Website Light */
-    border-color: rgb(75 85 99);
-    /* gray-600 */
-    background: linear-gradient(135deg, rgb(31 41 55) 0%, rgb(55 65 81) 100%);
-    /* gray-800 to gray-700 gradient */
-    color: rgb(243 244 246);
-    /* gray-100 */
-  }
-
-  .footer-github-button:hover {
-    background: linear-gradient(135deg, rgb(55 65 81) 0%, rgb(75 85 99) 100%);
-    /* gray-700 to gray-600 gradient */
-    border-color: rgb(107 114 128);
-    /* gray-500 */
-    transform: translateY(-2px);
-  }
-
-  .dark .footer-github-button {
-    /* Chrome Dark + Website Dark */
-    border-color: rgb(156 163 175);
-    /* gray-400 */
-    background: linear-gradient(135deg, rgb(229 231 235) 0%, rgb(209 213 219) 100%);
-    /* gray-200 to gray-300 gradient */
-    color: rgb(31 41 55);
-    /* gray-800 */
-  }
-
-  .dark .footer-github-button:hover {
-    background: linear-gradient(135deg, rgb(243 244 246) 0%, rgb(229 231 235) 100%);
-    /* gray-100 to gray-200 gradient */
-    border-color: rgb(209 213 219);
-    /* gray-300 */
-    transform: translateY(-2px);
-  }
-}
-
-/* Series Badge - Purple/Indigo */
-.series-badge {
-  /* Chrome Light + Website Light */
-  display: inline-flex;
-  align-items: center;
-  gap: 0.375rem;
-  border-width: 2px;
-  border-color: rgb(196 181 253);
-  /* purple-300 */
-  background-color: rgb(243 232 255);
-  /* purple-100 */
-  color: rgb(88 28 135);
-  /* purple-900 */
-  padding: 0.375rem 0.75rem;
-  border-radius: 0.375rem;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-weight: 500;
-}
-
-.dark .series-badge {
-  /* Chrome Light + Website Dark */
-  border-color: rgb(167 139 250);
-  /* purple-400 */
-  background-color: rgb(88 28 135);
-  /* purple-900 */
-  color: rgb(243 232 255);
-  /* purple-100 */
-}
-
-@media (prefers-color-scheme: dark) {
-  .series-badge {
-    /* Chrome Dark + Website Light */
-    border-color: rgb(196 181 253);
-    /* purple-300 */
-    background-color: rgb(237 233 254);
-    /* purple-50 */
-    color: rgb(76 29 149);
-    /* purple-950 */
-  }
-
-  .dark .series-badge {
-    /* Chrome Dark + Website Dark */
-    border-color: rgb(147 51 234);
-    /* purple-600 */
-    background-color: rgb(59 7 100);
-    /* purple-950 */
-    color: rgb(216 180 254);
-    /* purple-300 */
-  }
-}
-
-/* 아이콘 호버 - 원형 배경 효과 */
-.icon-hover {
-  position: relative;
-  isolation: isolate;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s ease;
-}
-
-.icon-hover::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 2rem;
-  height: 2rem;
-  border-radius: 9999px;
-  background-color: transparent;
-  transition: background-color 0.2s ease;
-  z-index: -1;
-}
-
-/* 큰 화면에서는 크기 조정 */
-@media (min-width: 640px) {
-  .icon-hover::before {
-    width: 2.5rem;
-    height: 2.5rem;
-  }
-}
-
-/* Light mode: show circular background on hover */
-.icon-hover:hover::before {
-  background-color: var(--hover-bg);
-}
-
-.icon-hover:hover {
-  color: var(--hover-fg);
-}
-
-/* Dark mode: show circular background on hover */
-.dark .icon-hover:hover::before {
-  background-color: var(--hover-bg);
-}
-
-.dark .icon-hover:hover {
-  color: var(--hover-fg);
-}
-
-/* 언어 스위치 호버 - 알약 모양 */
-.lang-hover {
-  position: relative;
-  isolation: isolate;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s ease;
-}
-
-.lang-hover::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 2rem;
-  height: 2rem;
-  border-radius: 9999px;
-  background-color: transparent;
-  transition: background-color 0.2s ease;
-  z-index: -1;
-}
-
-/* 큰 화면에서는 알약 모양으로 변경 (아이콘 포함) */
-@media (min-width: 640px) {
-  .lang-hover::before {
-    width: 3.5rem;
-    height: 2.5rem;
-    border-radius: 1rem;
-  }
-}
-
-/* Light mode: show circular background on hover */
-.lang-hover:hover::before {
-  background-color: var(--hover-bg);
-}
-
-.lang-hover:hover {
-  color: var(--hover-fg);
-}
-
-/* Dark mode: show circular background on hover */
-.dark .lang-hover:hover::before {
-  background-color: var(--hover-bg);
-}
-
-.dark .lang-hover:hover {
-  color: var(--hover-fg);
 }

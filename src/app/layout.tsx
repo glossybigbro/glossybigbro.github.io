@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
-import { LanguageProvider } from "@/contexts/LanguageContext";
+import { ThemeProvider } from "@/shared/components/theme-provider";
+import { LanguageProvider } from "@/shared/contexts/LanguageContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 import { siteConfig } from "@/config/site";
-import { getAllSkills } from "@/data/skills";
+import { getAllSkills } from "@/resume.config";
 
 export const metadata: Metadata = {
   title: {

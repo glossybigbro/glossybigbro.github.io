@@ -1,13 +1,25 @@
 "use client";
 
-import { HeaderSection } from "@/components/sections/HeaderSection";
-import { IntroduceSection } from "@/components/sections/IntroduceSection";
-import { ExperienceSection } from "@/components/sections/ExperienceSection";
-import { ProjectSection } from "@/components/sections/ProjectSection";
-import { SkillSection } from "@/components/sections/SkillSection";
-import { WritingSection } from "@/components/sections/WritingSection";
-import { Footer } from "@/components/Footer";
-import { useLanguage } from "@/contexts/LanguageContext";
+import dynamic from 'next/dynamic';
+import { HeaderSection } from "@/features/header";
+import { IntroduceSection } from "@/features/introduce";
+// Dynamic imports for below-the-fold content
+const ExperienceSection = dynamic(() => import("@/features/experience").then(mod => ({ default: mod.ExperienceSection })), {
+  loading: () => <div className="min-h-screen" />,
+});
+const ProjectSection = dynamic(() => import("@/features/project").then(mod => ({ default: mod.ProjectSection })), {
+  loading: () => <div className="min-h-screen" />,
+});
+const SkillSection = dynamic(() => import("@/features/skill").then(mod => ({ default: mod.SkillSection })), {
+  loading: () => <div className="min-h-[50vh]" />,
+});
+const WritingSection = dynamic(() => import("@/features/writing").then(mod => ({ default: mod.WritingSection })), {
+  loading: () => <div className="min-h-[50vh]" />,
+});
+const Footer = dynamic(() => import("@/features/footer").then(mod => ({ default: mod.Footer })), {
+  loading: () => <div className="min-h-[30vh]" />,
+});
+import { useLanguage } from "@/shared/contexts/LanguageContext";
 import { getResumeConfig } from "@/resume.config";
 
 /**
