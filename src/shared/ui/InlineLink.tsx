@@ -31,6 +31,7 @@ export function InlineLink({ href, text }: InlineLinkProps) {
                 "inline-link-badge group",
                 "inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg",
                 "border-2 font-semibold text-sm",
+                "relative top-[2px]",
                 "transition-all duration-200",
                 !isMobile && "hover-enabled hover:shadow-sm"
             )}
