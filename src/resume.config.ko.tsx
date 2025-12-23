@@ -410,6 +410,13 @@ export const getAllSkills = (): string[] => {
  */
 export const articles: ArticleItem[] = [
     {
+        text: "2편. Next.js 프로젝트 시작하기",
+        href: "https://velog.io/@glossybigbro/Next.js-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0",
+        summary: "8년차 Android 개발자의 웹 개발 도전기 두 번째 이야기. Next.js를 선택한 솔직한 이유와 프로젝트 생성부터 첫 실행까지의 과정을 Jetpack Compose와 비교하며 설명합니다. Node.js 설치, npx 사용법, 프로젝트 구조 이해까지 실전 경험을 공유합니다.",
+        keywords: ["Android", "Next.js", "React", "TypeScript", "Jetpack Compose"],
+        seriesName: "Android 개발자의 웹 개발 도전기",
+    },
+    {
         text: "1편. 어? 이거 Kotlin이랑 똑같잖아?",
         href: "https://velog.io/@glossybigbro/1%ED%8E%B8.-%EC%96%B4-%EC%9D%B4%EA%B1%B0-Kotlin%EC%9D%B4%EB%9E%91-%EB%98%91%EA%B0%99%EC%9E%96%EC%95%84",
         summary: "8년차 Android 개발자의 웹 개발 도전기 첫 번째 이야기. Kotlin과 Jetpack Compose를 사용하던 개발자가 TypeScript와 React를 배우며 느낀 놀라운 유사점, 그리고 웹 개발을 공부하게 된 진짜 이유를 공유합니다.",

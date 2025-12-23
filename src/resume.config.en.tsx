@@ -408,6 +408,13 @@ export const getAllSkills = (): string[] => {
  */
 export const articles: ArticleItem[] = [
     {
+        text: "Part 2. Getting Started with Next.js Project",
+        href: "https://velog.io/@glossybigbro/Next.js-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0",
+        summary: "Second story of an 8-year Android developer's web development challenge. Honest reasons for choosing Next.js and the process from project creation to first run, explained with comparisons to Jetpack Compose. Sharing practical experiences from Node.js installation, npx usage, to understanding project structure.",
+        keywords: ["Android", "Next.js", "React", "TypeScript", "Jetpack Compose"],
+        seriesName: "Android Developer's Web Dev Challenge",
+    },
+    {
         text: "Part 1. Huh? This is just like Kotlin?",
         href: "https://velog.io/@glossybigbro/1%ED%8E%B8.-%EC%96%B4-%EC%9D%B4%EA%B1%B0-Kotlin%EC%9D%B4%EB%9E%91-%EB%98%91%EA%B0%99%EC%9E%96%EC%95%84",
         summary: "First story of an 8-year Android developer's web development challenge. Sharing the surprising similarities felt by a developer used to Kotlin and Jetpack Compose while learning TypeScript and React, and the real reason for studying web development.",
