@@ -16,7 +16,7 @@ function getLinkIcon(href: string) {
         return <Icon name="github" size={16} />;
     }
     if (href.includes('velog.io')) {
-        return <Icon name="book" size={16} />;
+        return <Icon name="velog" size={16} />;
     }
     return <Icon name="globe" size={16} />;
 }

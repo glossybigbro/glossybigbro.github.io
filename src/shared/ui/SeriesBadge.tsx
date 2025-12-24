@@ -28,7 +28,7 @@ export interface SeriesBadgeProps {
 export function SeriesBadge({ seriesName }: SeriesBadgeProps) {
     return (
         <div className="series-badge mb-2">
-            <Icon name="book" size={14} />
+            <Icon name="velog" size={14} />
             <span>{seriesName}</span>
         </div>
     );
