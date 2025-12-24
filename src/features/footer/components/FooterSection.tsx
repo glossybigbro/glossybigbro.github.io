@@ -60,6 +60,11 @@ export function Footer() {
                         <p className="font-medium">{t('footer.builtWith')}</p>
                         <p className="opacity-70">{t('footer.techStack')}</p>
                     </div>
+
+                    {/* 저작권 표시 */}
+                    <div className="pt-8 text-xs text-muted-foreground">
+                        <p>© {new Date().getFullYear()}. Glossybigbro all rights reserved.</p>
+                    </div>
                 </div>
             </div>
         </footer>
