@@ -89,6 +89,11 @@ export const experience: ExperienceItem[] = [
         ],
         tags: ["Android Lead", "Seller Squad Development Team Lead"],
         playStoreUrl: "https://play.google.com/store/apps/details?id=com.tuck.hellomarket",
+        metrics: [
+            { label: "App Downloads", value: 8000000, suffix: "+", type: "counter" as const },
+            { label: "Monthly Active Users", value: 1300000, suffix: "+", type: "counter" as const },
+            { label: "Crash-free Rate", value: 99.9, suffix: "%", type: "progress" as const },
+        ],
     },
     {
         id: "exp-2",
@@ -192,6 +197,10 @@ export const projects: ProjectItem[] = [
             "Jetpack Compose", "Hilt", "Room", "Coroutines", "Flow", "Gradle Kotlin DSL", "Version Catalog",
             "Etc"
         ],
+        metrics: [
+            { label: "Maintenance Efficiency", value: 30, suffix: "%", type: "progress" as const },
+            { label: "Build Speed Improvement", value: 40, suffix: "%", type: "progress" as const },
+        ],
     },
     {
         id: "proj-2",
@@ -209,6 +218,10 @@ export const projects: ProjectItem[] = [
             "DevOps", "CI/CD", "GitHub Actions", "Firebase App Distribution", "Crashlytics", "Detekt",
             "Etc"
         ],
+        metrics: [
+            { label: "Deployment Time Reduction", value: 90, suffix: "%", type: "progress" as const },
+            { label: "Crash-free Rate", value: 99.9, suffix: "%", type: "progress" as const },
+        ],
     },
     {
         id: "proj-3",
@@ -223,6 +236,10 @@ export const projects: ProjectItem[] = [
             "Stability Assurance: Maintained zero UI-related errors with type-safe design, establishing stable operational environment",
         ],
         tags: ["GraphQL", "Apollo Client", "SDUI", "Jetpack Compose", "Optimization", "Etc"],
+        metrics: [
+            { label: "Development Resource Reduction", value: 30, suffix: "%", type: "progress" as const },
+            { label: "UI Errors", value: 0, suffix: " cases", type: "counter" as const },
+        ],
     },
     {
         id: "proj-4",

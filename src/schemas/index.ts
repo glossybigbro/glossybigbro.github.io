@@ -25,12 +25,28 @@ export const introduceSchema = z.object({
 });
 
 /**
+ * 메트릭 아이템 스키마
+ * 
+ * 정량적 성과 지표를 나타냅니다.
+ * - type: 'counter' (숫자 카운트업) 또는 'progress' (프로그레스 바)
+ * - icon: 선택사항 (아이콘 이름)
+ */
+export const metricItemSchema = z.object({
+    label: z.string(),
+    value: z.number(),
+    suffix: z.string().optional(),
+    type: z.enum(["counter", "progress"]),
+    icon: z.string().optional(),
+});
+
+/**
  * 경력 아이템 스키마
  * 
  * - period: "YYYY.MM ~ YYYY.MM" 또는 "YYYY.MM ~ 현재" 형식 (Regex 검증)
  * - description: 문자열 또는 { text, subItems } 객체 배열
  * - playStoreUrl: 선택사항 (URL 형식)
  * - isEnterprise: 선택사항 (Boolean)
+ * - metrics: 선택사항 (성과 지표 배열)
  */
 export const experienceItemSchema = z.object({
     id: z.string(),
@@ -48,6 +64,7 @@ export const experienceItemSchema = z.object({
     tags: z.array(z.string()),
     playStoreUrl: z.string().url("유효한 URL이어야 합니다.").optional(),
     isEnterprise: z.boolean().optional(),
+    metrics: z.array(metricItemSchema).optional(),
 });
 
 /**
@@ -55,6 +72,7 @@ export const experienceItemSchema = z.object({
  * 
  * - period: "YYYY.MM ~ YYYY.MM" 형식 (Regex 검증)
  * - links: 선택사항 ({ text, href } 객체 배열)
+ * - metrics: 선택사항 (성과 지표 배열)
  */
 export const projectItemSchema = z.object({
     id: z.string(),
@@ -69,6 +87,7 @@ export const projectItemSchema = z.object({
             href: z.string().url("유효한 URL이어야 합니다."),
         })
     ).optional(),
+    metrics: z.array(metricItemSchema).optional(),
 });
 
 /**
@@ -98,6 +117,7 @@ export const articleItemSchema = z.object({
 
 // 타입 추출 (z.infer 사용)
 export type HeaderData = z.infer<typeof headerSchema>;
+export type MetricItem = z.infer<typeof metricItemSchema>;
 export type ExperienceItem = z.infer<typeof experienceItemSchema>;
 export type ProjectItem = z.infer<typeof projectItemSchema>;
 export type SkillCategory = z.infer<typeof skillCategorySchema>;

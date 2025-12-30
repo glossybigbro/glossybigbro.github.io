@@ -89,6 +89,11 @@ export const experience: ExperienceItem[] = [
         ],
         tags: ["Android Lead", "Seller Squad Development Team Lead"],
         playStoreUrl: "https://play.google.com/store/apps/details?id=com.tuck.hellomarket",
+        metrics: [
+            { label: "앱 다운로드", value: 8000000, suffix: "+", type: "counter" as const },
+            { label: "월간 활성 사용자", value: 1300000, suffix: "+", type: "counter" as const },
+            { label: "앱 안정성", value: 99.9, suffix: "%", type: "progress" as const },
+        ],
     },
     {
         id: "exp-2",
@@ -193,6 +198,10 @@ export const projects: ProjectItem[] = [
             "Jetpack Compose", "Hilt", "Room", "Coroutines", "Flow", "Gradle Kotlin DSL", "Version Catalog",
             "Etc"
         ],
+        metrics: [
+            { label: "유지보수 효율 증대", value: 30, suffix: "%", type: "progress" as const },
+            { label: "빌드 속도 개선", value: 40, suffix: "%", type: "progress" as const },
+        ],
     },
     {
         id: "proj-2",
@@ -210,6 +219,10 @@ export const projects: ProjectItem[] = [
             "DevOps", "CI/CD", "GitHub Actions", "Firebase App Distribution", "Crashlytics", "Detekt",
             "Etc"
         ],
+        metrics: [
+            { label: "배포 시간 단축", value: 90, suffix: "%", type: "progress" as const },
+            { label: "Crash-free 비율", value: 99.9, suffix: "%", type: "progress" as const },
+        ],
     },
     {
         id: "proj-3",
@@ -224,6 +237,10 @@ export const projects: ProjectItem[] = [
             "안정성 확보: 타입 안정성을 보장하는 설계로 UI 관련 에러 발생 0건을 유지하며 안정적인 운영 환경 구축",
         ],
         tags: ["GraphQL", "Apollo Client", "SDUI", "Jetpack Compose", "Optimization", "Etc"],
+        metrics: [
+            { label: "개발 리소스 절감", value: 30, suffix: "%", type: "progress" as const },
+            { label: "UI 에러", value: 0, suffix: "건", type: "counter" as const },
+        ],
     },
     {
         id: "proj-4",

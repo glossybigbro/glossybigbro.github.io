@@ -4,6 +4,7 @@ import { SectionWrapper } from "@/shared/ui/SectionWrapper";
 import { SectionDivider } from "@/shared/ui/SectionDivider";
 import { Tag } from "@/shared/ui/Tag";
 import { ProjectLink } from "@/shared/ui/ProjectLink";
+import { MetricsDashboard } from "@/shared/ui/MetricsDashboard";
 import { parseRole, parseDescription } from "@/features/project/utils/formatters";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/shared/contexts/LanguageContext";
@@ -82,6 +83,9 @@ export function ProjectSection({ data }: ProjectSectionProps) {
                                         </div>
                                     </>
                                 )}
+
+                                {/* Metrics Dashboard */}
+                                {project.metrics && <MetricsDashboard metrics={project.metrics} />}
 
                                 <div className="space-y-2">
                                     <div className="font-bold text-lg">Skill Keywords</div>

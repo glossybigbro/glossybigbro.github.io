@@ -6,6 +6,7 @@ import { Tag } from "@/shared/ui/Tag";
 import { PlayStoreBadge } from "@/shared/ui/PlayStoreBadge";
 import { EnterpriseBadge } from "@/shared/ui/EnterpriseBadge";
 import { InlineLink } from "@/shared/ui/InlineLink";
+import { MetricsDashboard } from "@/shared/ui/MetricsDashboard";
 import { calculateTotalCareer } from "../utils/career";
 import { parseDescription, parseMarkdownLinks } from "@/features/project/utils/formatters";
 import { cn } from "@/lib/utils";
@@ -107,6 +108,9 @@ export function ExperienceSection({ data }: ExperienceSectionProps) {
                                     </li>
                                 ))}
                             </ul>
+
+                            {/* Metrics Dashboard */}
+                            {item.metrics && <MetricsDashboard metrics={item.metrics} />}
                         </div>
                     </div>
                 ))}
