@@ -61,6 +61,7 @@ export function HeaderSection({ data }: HeaderSectionProps) {
                             <div className="flex gap-2 sm:gap-4 text-foreground">
                                 <SocialLink type="github" href={data.github} />
                                 <SocialLink type="linkedin" href={data.linkedin} />
+                                <SocialLink type="velog" href={data.velog} />
                                 {data.email && (
                                     <SocialLink
                                         type="email"

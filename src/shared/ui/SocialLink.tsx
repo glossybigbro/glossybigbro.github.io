@@ -25,7 +25,7 @@ export interface SocialLinkProps {
      * - email: 이메일
      * - portfolio: 개인 웹사이트
      */
-    type: "github" | "linkedin" | "email" | "portfolio";
+    type: "github" | "linkedin" | "email" | "portfolio" | "velog";
 
     /** 링크 URL (비어있으면 렌더링되지 않음, email 타입은 선택사항) */
     href?: string | null;
@@ -66,6 +66,7 @@ export function SocialLink({ type, href, size = "md", className, onClick }: Soci
         linkedin: "linkedin" as const,
         email: "email" as const,
         portfolio: "globe" as const,
+        velog: "velog" as const,
     };
 
     const ariaLabels = {
@@ -73,6 +74,7 @@ export function SocialLink({ type, href, size = "md", className, onClick }: Soci
         linkedin: "LinkedIn Profile",
         email: "Copy Email Address",
         portfolio: "Portfolio Website",
+        velog: "Velog Blog",
     };
 
     const commonClassName = cn(

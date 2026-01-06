@@ -32,6 +32,7 @@ export const header: HeaderData = {
     github: "https://github.com/glossybigbro",
     linkedin: "https://www.linkedin.com/in/yunhyeong-ha",
     portfolio: "",
+    velog: "https://velog.io/@glossybigbro",
 };
 
 // ============================================================================

@@ -13,6 +13,7 @@ export const headerSchema = z.object({
     github: z.string().url("유효한 URL이어야 합니다.").optional().or(z.literal("")),
     linkedin: z.string().url("유효한 URL이어야 합니다.").optional().or(z.literal("")),
     portfolio: z.string().url("유효한 URL이어야 합니다.").optional().or(z.literal("")),
+    velog: z.string().url("유효한 URL이어야 합니다.").optional().or(z.literal("")),
 });
 
 /**

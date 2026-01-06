@@ -32,6 +32,7 @@ export const header: HeaderData = {
     github: "https://github.com/glossybigbro",
     linkedin: "https://www.linkedin.com/in/yunhyeong-ha",
     portfolio: "",
+    velog: "https://velog.io/@glossybigbro",
 };
 
 // ============================================================================
@@ -427,7 +428,7 @@ export const getAllSkills = (): string[] => {
  */
 export const articles: ArticleItem[] = [
     {
-        text: "3편. 안드로이드 개발자가 보는 TypeScript (feat. Kotlin)",
+        text: "3편. Android 개발자가 보는 TypeScript (feat. Kotlin)",
         href: "https://velog.io/@glossybigbro/Android-%EA%B0%9C%EB%B0%9C%EC%9E%90%EA%B0%80-%EB%B3%B4%EB%8A%94-TypeScript-feat.-Kotlin",
         summary: "8년차 Android 개발자의 웹 개발 도전기 세 번째 이야기. 경력 표시 기능을 예시로 Kotlin과 TypeScript를 깊이 있게 비교합니다. 클래스, 인터페이스, 다형성, Null Safety부터 MVI + Clean Architecture와 React Query까지, 실전 아키텍처 비교를 통해 두 언어의 차이점과 공통점을 알아봅니다.",
         keywords: ["Android", "Kotlin", "TypeScript", "객체지향", "아키텍처"],
