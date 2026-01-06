@@ -427,6 +427,13 @@ export const getAllSkills = (): string[] => {
  */
 export const articles: ArticleItem[] = [
     {
+        text: "3편. 안드로이드 개발자가 보는 TypeScript (feat. Kotlin)",
+        href: "https://velog.io/@glossybigbro/Android-%EA%B0%9C%EB%B0%9C%EC%9E%90%EA%B0%80-%EB%B3%B4%EB%8A%94-TypeScript-feat.-Kotlin",
+        summary: "8년차 Android 개발자의 웹 개발 도전기 세 번째 이야기. 경력 표시 기능을 예시로 Kotlin과 TypeScript를 깊이 있게 비교합니다. 클래스, 인터페이스, 다형성, Null Safety부터 MVI + Clean Architecture와 React Query까지, 실전 아키텍처 비교를 통해 두 언어의 차이점과 공통점을 알아봅니다.",
+        keywords: ["Android", "Kotlin", "TypeScript", "객체지향", "아키텍처"],
+        seriesName: "Android 개발자의 웹 개발 도전기",
+    },
+    {
         text: "2편. Next.js 프로젝트 시작하기",
         href: "https://velog.io/@glossybigbro/Next.js-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0",
         summary: "8년차 Android 개발자의 웹 개발 도전기 두 번째 이야기. Next.js를 선택한 솔직한 이유와 프로젝트 생성부터 첫 실행까지의 과정을 Jetpack Compose와 비교하며 설명합니다. Node.js 설치, npx 사용법, 프로젝트 구조 이해까지 실전 경험을 공유합니다.",

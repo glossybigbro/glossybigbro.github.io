@@ -425,6 +425,13 @@ export const getAllSkills = (): string[] => {
  */
 export const articles: ArticleItem[] = [
     {
+        text: "Part 3. TypeScript from an Android Developer's Perspective (feat. Kotlin)",
+        href: "https://velog.io/@glossybigbro/Android-%EA%B0%9C%EB%B0%9C%EC%9E%90%EA%B0%80-%EB%B3%B4%EB%8A%94-TypeScript-feat.-Kotlin",
+        summary: "Third story of an 8-year Android developer's web development challenge. In-depth comparison of Kotlin and TypeScript using career display feature as an example. From classes, interfaces, polymorphism, and Null Safety to real-world architecture comparison between MVI + Clean Architecture and React Query, exploring differences and similarities of both languages.",
+        keywords: ["Android", "Kotlin", "TypeScript", "OOP", "Architecture"],
+        seriesName: "Android Developer's Web Dev Challenge",
+    },
+    {
         text: "Part 2. Getting Started with Next.js Project",
         href: "https://velog.io/@glossybigbro/Next.js-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0",
         summary: "Second story of an 8-year Android developer's web development challenge. Honest reasons for choosing Next.js and the process from project creation to first run, explained with comparisons to Jetpack Compose. Sharing practical experiences from Node.js installation, npx usage, to understanding project structure.",
