@@ -149,9 +149,39 @@ export const experience: ExperienceItem[] = [
 export const projects: ProjectItem[] = [
     {
         id: "proj-0",
+        period: "2026.01 ~ 현재",
+        title: "GitHub Profile Generator",
+        role: "개인 프로젝트: 기획, 디자인, 개발, 배포",
+        isPersonal: true,
+        description: [
+            "프로젝트 동기: 멋진 GitHub 프로필을 갖고 싶지만 디자인이나 마크다운 문법이 어려워 포기하는 개발자들을 위해 시작했습니다. '누구나 쉽고 예쁘게 자신을 표현할 수 없을까?'라는 고민 끝에, 내가 가진 기술로 다른 사람들의 퍼스널 브랜딩을 돕는 도구를 만들고자 합니다.",
+            "기획 의도 (Editor Experience): 익숙하지 않은 마크다운 에디터 대신, 많은 개발자들에게 친숙한 '노션(Notion)'의 작성 경험을 웹으로 가져오면 어떨까 생각했습니다. 블록을 조립하듯 직관적인 WYSIWYG 에디터를 통해, 글을 쓰듯이 자연스럽게 프로필을 완성하는 경험을 제공하는 것이 목표입니다.",
+            "템플릿 시스템: 현재 통계, 주간 활동 내역, Bio 등 5종의 핵심 위젯을 구현했으며, 향후 기술 스택이나 방문자 수 등 다양한 목적의 템플릿을 지속적으로 추가할 수 있도록 확장 가능한 아키텍처를 설계했습니다.",
+            "기술 구현 (Editor Engine): 이러한 사용자 경험을 웹에서 구현하기 위해 ContentEditable 기반의 블록 에디터 엔진을 직접 개발하고 있습니다. 슬래시 커맨드(/)와 드래그 앤 드롭 등 복잡한 상호작용을 라이브러리 없이 구현하며 프론트엔드 기술의 한계에 도전 중입니다.",
+            "데이터 시각화 및 자동화 실험: 현재 적용된 'Activity Graph(Ashutosh00710)' 사례처럼, 다양한 오픈소스 프로젝트와 WakaTime 등 외부 서비스를 사용자가 자유롭게 커스터마이징하여 자신의 프로필에 적용할 수 있는 '확장형 템플릿 시스템'을 구축하고 있습니다. 또한 GitHub Actions를 도입해 매일 프로필이 자동으로 최신화되는 파이프라인 구축을 목표로 하고 있습니다.",
+            "디자인 및 아키텍처: '개발자의 여정'이라는 테마에 어울리는 몰입감 있는 우주 배경(Canvas API)과, 프로젝트가 커져도 유지보수가 용이한 FSD 아키텍처를 도입하여 지속 가능한 서비스를 만들어가고 있습니다.",
+        ],
+        tags: [
+            "Next.js 15", "TypeScript", "Three.js (R3F)", "Framer Motion", "TanStack Query",
+            "FSD Architecture", "Zustand", "dnd-kit", "Zod", "Octokit", "Tailwind CSS"
+        ],
+        links: [
+            {
+                text: "웹사이트",
+                href: "https://glossybigbro-github-profile-generator.vercel.app/"
+            },
+            {
+                text: "GitHub Repository",
+                href: "https://github.com/glossybigbro/github-profile-generator"
+            }
+        ]
+    },
+    {
+        id: "proj-1",
         period: "2025.12 ~ 현재",
         title: "웹 개발 첫 도전: 이력서 웹사이트 제작기",
-        role: "주요 역할: 웹 개발 (기획, 디자인, 개발, 배포)",
+        role: "개인 프로젝트: 기획, 디자인, 개발, 배포",
+        isPersonal: true,
         description: [
             "배경: 프리랜서 준비 중 '웹 + 모바일', '풀스택' 요구사항을 보고 웹 개발 학습을 결심. 첫 프로젝트로 이력서 웹사이트를 만들면서 Android 개발과 생각보다 유사한 점이 많다는 걸 발견. 학습 과정을 Velog 시리즈로 공유 중",
             "아키텍처: Container-Presenter 패턴으로 데이터와 UI를 분리하고, Zod 스키마로 타입 안전성을 보장하며, CVA로 재사용 가능한 컴포넌트 시스템 구축. 학습 프로젝트지만 실무 수준의 설계 적용",
@@ -168,12 +198,12 @@ export const projects: ProjectItem[] = [
         ],
         links: [
             {
-                text: "GitHub Repository",
-                href: "https://github.com/glossybigbro/glossybigbro.github.io"
+                text: "웹사이트",
+                href: "https://glossybigbro.github.io"
             },
             {
-                text: "이력서 웹사이트",
-                href: "https://glossybigbro.github.io"
+                text: "GitHub Repository",
+                href: "https://github.com/glossybigbro/glossybigbro.github.io"
             },
             {
                 text: "Velog 시리즈",
@@ -182,7 +212,7 @@ export const projects: ProjectItem[] = [
         ],
     },
     {
-        id: "proj-1",
+        id: "proj-2",
         period: "2023.01 ~ 2025.01",
         title: "앱 아키텍처 전면 개편 및 성능 최적화",
         role: "주요 역할: 레거시 리팩토링 및 아키텍처 설계",
@@ -205,7 +235,7 @@ export const projects: ProjectItem[] = [
         ],
     },
     {
-        id: "proj-2",
+        id: "proj-3",
         period: "2023.05 ~ 2025.01",
         title: "DevOps 구축 및 앱 안정성(Quality) 고도화",
         role: "주요 역할: CI/CD 파이프라인 구축 및 품질 관리 시스템 운영",
@@ -226,7 +256,7 @@ export const projects: ProjectItem[] = [
         ],
     },
     {
-        id: "proj-3",
+        id: "proj-4",
         period: "2023.06 ~ 2023.12",
         title: "SDUI (Server Driven UI) 기반 홈 피드 구축",
         role: "주요 역할: SDUI 클라이언트 설계 및 구현",
@@ -244,7 +274,7 @@ export const projects: ProjectItem[] = [
         ],
     },
     {
-        id: "proj-4",
+        id: "proj-5",
         period: "2023.01 ~ 2025.01",
         title: "판매자(Seller) 비즈니스 기능 고도화",
         role: "주요 역할: 판매자(Seller) 비즈니스 로직 구현 및 UI/UX 고도화",
@@ -262,7 +292,7 @@ export const projects: ProjectItem[] = [
         ],
     },
     {
-        id: "proj-5",
+        id: "proj-6",
         period: "2021.10 ~ 2022.07",
         title: "중고차 라이브 커머스 플랫폼 '차란차 스튜디오' 신규 개발",
         role: "주요 역할: 안드로이드 메인 개발 (초기 설계 및 구현)",
@@ -277,7 +307,7 @@ export const projects: ProjectItem[] = [
         ],
     },
     {
-        id: "proj-6",
+        id: "proj-7",
         period: "2018.05 ~ 2021.09",
         title: "농협하나로유통 디지털 풀필먼트(DFC) 및 PDA 솔루션",
         role: "주요 역할: 안드로이드 PDA 앱 개발",
@@ -291,7 +321,7 @@ export const projects: ProjectItem[] = [
         ],
     },
     {
-        id: "proj-7",
+        id: "proj-8",
         period: "2017.09 ~ 2017.11",
         title: "플레이키보드 신규 기능 UI 및 레이아웃 구현",
         role: "주요 역할: ConstraintLayout 기반 UI 개발",

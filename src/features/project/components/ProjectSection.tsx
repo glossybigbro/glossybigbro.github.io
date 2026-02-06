@@ -44,8 +44,14 @@ export function ProjectSection({ data }: ProjectSectionProps) {
                                 <div className="text-2xl sm:text-3xl font-medium mb-4">{project.title}</div>
 
                                 <div className="mb-4 text-lg">
-                                    <span className="font-bold">{label}: </span>
-                                    <span>{value}</span>
+                                    {label ? (
+                                        <>
+                                            <span className="font-bold">{label}: </span>
+                                            <span>{value}</span>
+                                        </>
+                                    ) : (
+                                        <span>{value}</span>
+                                    )}
                                 </div>
 
                                 <ul className="list-disc pl-5 space-y-2 text-muted-foreground leading-relaxed mb-6">

@@ -149,9 +149,39 @@ export const experience: ExperienceItem[] = [
 export const projects: ProjectItem[] = [
     {
         id: "proj-0",
+        period: "2026.01 ~ Present",
+        title: "GitHub Profile Generator",
+        role: "Personal Project: Planning, Design, Development, Deployment",
+        isPersonal: true,
+        description: [
+            "Project Motivation: Started for developers who want a cool GitHub profile but struggle with design or Markdown syntax. It began with the question, 'Can't anyone express themselves easily and beautifully?' I aim to create a tool that helps others with personal branding using my skills.",
+            "Planning Intent (Editor Experience): Instead of unfamiliar Markdown editors, I thought about bringing the writing experience of 'Notion', which is familiar to many developers, to the web. The goal is to provide an experience where you can complete your profile naturally, just like writing, through an intuitive WYSIWYG editor by assembling blocks.",
+            "Template System: Currently, 5 core widgets such as Statistics, Weekly Activity, and Bio have been implemented. I have designed an extensible architecture to continuously add templates for various purposes, such as tech stacks or visitor counts, in the future.",
+            "Technical Implementation (Editor Engine): To implement this user experience on the web, I am directly developing a block editor engine based on ContentEditable. I am challenging the limits of frontend technology by implementing complex interactions such as slash commands (/) and drag-and-drop without libraries.",
+            "Data Visualization & Automation Experiments: Like the currently applied 'Activity Graph (Ashutosh00710)' example, I am building an 'extensible template system' where users can freely customize and apply various open-source projects and external services like WakaTime to their profiles. I also aim to build a pipeline where the profile is automatically updated every day by introducing GitHub Actions.",
+            "Design & Architecture: I am creating a sustainable service by introducing an immersive space background (Canvas API) that fits the theme of 'Developer Journey' and FSD architecture that makes maintenance easy even as the project grows.",
+        ],
+        tags: [
+            "Next.js 15", "TypeScript", "Three.js (R3F)", "Framer Motion", "TanStack Query",
+            "FSD Architecture", "Zustand", "dnd-kit", "Zod", "Octokit", "Tailwind CSS"
+        ],
+        links: [
+            {
+                text: "Website",
+                href: "https://glossybigbro-github-profile-generator.vercel.app/"
+            },
+            {
+                text: "GitHub Repository",
+                href: "https://github.com/glossybigbro/github-profile-generator"
+            }
+        ]
+    },
+    {
+        id: "proj-1",
         period: "2025.12 ~ Present",
         title: "First Web Project: Building a Resume Website",
-        role: "Main Role: Web Development (Planning, Design, Development, Deployment)",
+        role: "Personal Project: Planning, Design, Development, Deployment",
+        isPersonal: true,
         description: [
             "Background: While preparing for freelance work, discovered many projects requiring 'web + mobile' and 'full-stack' skills, leading to the decision to learn web development. Built resume website as first project, discovering more similarities with Android development than expected. Sharing the learning journey through Velog series",
             "Architecture: Separated data and UI with Container-Presenter pattern, ensured type safety with Zod schema, built reusable component system with CVA. Applied professional-level design despite being a learning project",
@@ -181,7 +211,7 @@ export const projects: ProjectItem[] = [
         ],
     },
     {
-        id: "proj-1",
+        id: "proj-2",
         period: "2023.01 ~ 2025.01",
         title: "Complete App Architecture Overhaul and Performance Optimization",
         role: "Key Role: Legacy Refactoring and Architecture Design",
@@ -204,7 +234,7 @@ export const projects: ProjectItem[] = [
         ],
     },
     {
-        id: "proj-2",
+        id: "proj-3",
         period: "2023.05 ~ 2025.01",
         title: "DevOps Implementation and App Quality Enhancement",
         role: "Key Role: CI/CD Pipeline Construction and Quality Management System Operation",
@@ -225,7 +255,7 @@ export const projects: ProjectItem[] = [
         ],
     },
     {
-        id: "proj-3",
+        id: "proj-4",
         period: "2023.06 ~ 2023.12",
         title: "SDUI (Server Driven UI) Based Home Feed Implementation",
         role: "Key Role: SDUI Client Design and Implementation",
@@ -243,7 +273,7 @@ export const projects: ProjectItem[] = [
         ],
     },
     {
-        id: "proj-4",
+        id: "proj-5",
         period: "2023.01 ~ 2025.01",
         title: "Seller Business Feature Enhancement",
         role: "Key Role: Seller Business Logic Implementation and UI/UX Enhancement",
@@ -261,7 +291,7 @@ export const projects: ProjectItem[] = [
         ],
     },
     {
-        id: "proj-5",
+        id: "proj-6",
         period: "2021.10 ~ 2022.07",
         title: "Used Car Live Commerce Platform 'Charancha Studio' New Development",
         role: "Key Role: Android Main Development (Initial Design and Implementation)",
@@ -276,7 +306,7 @@ export const projects: ProjectItem[] = [
         ],
     },
     {
-        id: "proj-6",
+        id: "proj-7",
         period: "2018.05 ~ 2021.09",
         title: "Nonghyup Hanaro Distribution Digital Fulfillment (DFC) and PDA Solution",
         role: "Key Role: Android PDA App Development",
@@ -290,7 +320,7 @@ export const projects: ProjectItem[] = [
         ],
     },
     {
-        id: "proj-7",
+        id: "proj-8",
         period: "2017.09 ~ 2017.11",
         title: "Play Keyboard New Feature UI and Layout Implementation",
         role: "Key Role: ConstraintLayout-based UI Development",

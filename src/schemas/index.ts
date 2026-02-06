@@ -77,7 +77,7 @@ export const experienceItemSchema = z.object({
  */
 export const projectItemSchema = z.object({
     id: z.string(),
-    period: z.string().regex(/^\d{4}\.\d{2} ~ \d{4}\.\d{2}$/, "날짜 형식이 올바르지 않습니다. (예: 2023.01 ~ 2025.01)"),
+    period: z.string().regex(/^\d{4}\.\d{2} ~ (\d{4}\.\d{2}|현재.*)$/, "날짜 형식이 올바르지 않습니다. (예: 2023.01 ~ 2025.01 또는 2023.01 ~ 현재)"),
     title: z.string(),
     role: z.string(),
     description: z.array(z.string()),
@@ -89,6 +89,7 @@ export const projectItemSchema = z.object({
         })
     ).optional(),
     metrics: z.array(metricItemSchema).optional(),
+    isPersonal: z.boolean().optional(),
 });
 
 /**
